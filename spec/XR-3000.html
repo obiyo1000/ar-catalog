@@ -2,87 +2,370 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>XR-3000 Spec</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>XR-3000 | Sysmex Hematology Analyzer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #eef2f7 0%, #e2e8f0 100%);
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+      padding: 40px 24px;
+      color: #0a2540;
+    }
+
+    .spec-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 2rem;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.28), 0 4px 14px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+
+    /* Hero Section with Sysmex identity */
+    .hero-section {
+      background: linear-gradient(135deg, #003A5D 0%, #002A46 100%);
+      padding: 1.8rem 2rem;
+      border-bottom: 4px solid #E6007E;
+      position: relative;
+    }
+
+    .hero-section h1 {
+      font-size: 2.3rem;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      color: white;
+      margin: 0 0 0.4rem 0;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-section h1 small {
+      font-size: 1rem;
+      font-weight: 500;
+      background: rgba(230, 0, 126, 0.25);
+      padding: 0.25rem 1rem;
+      border-radius: 40px;
+      letter-spacing: 0;
+      color: #FFC0E0;
+      border: 0.5px solid rgba(230,0,126,0.5);
+    }
+
+    .subhead {
+      color: #cce3f0;
+      font-weight: 500;
+      font-size: 0.9rem;
+      margin-top: 8px;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .subhead span {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 4px 14px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      backdrop-filter: blur(2px);
+    }
+
+    /* table wrapper */
+    .spec-table-wrapper {
+      padding: 1.8rem 2rem 2.2rem 2rem;
+      background: #ffffff;
+    }
+
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.94rem;
+      border-radius: 1.2rem;
+      overflow: hidden;
+    }
+
+    .spec-table th,
+    .spec-table td {
+      padding: 1.15rem 1.5rem;
+      vertical-align: top;
+      border-bottom: 1px solid #e9edf2;
+    }
+
+    .spec-table th {
+      background: #F7FAFD;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #004070;
+      width: 240px;
+      border-right: 1px solid #e2e8f0;
+    }
+
+    .spec-table td {
+      background-color: #ffffff;
+      color: #1e3a5f;
+      line-height: 1.5;
+    }
+
+    .spec-table tr:last-child td,
+    .spec-table tr:last-child th {
+      border-bottom: none;
+    }
+
+    /* reusable components */
+    .tech-list {
+      list-style: none;
+      margin: 0;
+      padding-left: 0;
+    }
+
+    .tech-list li {
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .tech-list li::before {
+      content: "▹";
+      color: #E6007E;
+      font-weight: 600;
+      font-size: 0.9rem;
+      position: absolute;
+      left: 2px;
+      top: -0.5px;
+    }
+
+    .badge-spec {
+      background: #f0f3f9;
+      color: #005C99;
+      font-weight: 700;
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      margin-right: 8px;
+      letter-spacing: -0.2px;
+    }
+
+    .param-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 8px 0 4px;
+    }
+
+    .param-tag {
+      background: #F2F6FC;
+      border-radius: 28px;
+      padding: 4px 14px;
+      font-size: 0.77rem;
+      font-weight: 500;
+      font-family: 'Inter', monospace;
+      color: #005f8c;
+      border: 0.5px solid #dee5ed;
+    }
+
+    hr {
+      margin: 12px 0;
+      border: 0;
+      height: 1px;
+      background: linear-gradient(90deg, #d0dfeb, transparent);
+    }
+
+    .info-card {
+      background: #F8FBFE;
+      border-radius: 18px;
+      padding: 0.8rem 1rem;
+      margin-top: 12px;
+      border: 1px solid #e4ecf3;
+      font-size: 0.85rem;
+    }
+
+    .module-badge {
+      font-weight: 700;
+      background: #EAF4FF;
+      padding: 2px 12px;
+      border-radius: 14px;
+      font-size: 0.7rem;
+      display: inline-block;
+      margin-right: 6px;
+      color: #0056a9;
+    }
+
+    .flex-param {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 780px) {
+      body {
+        padding: 16px;
+      }
+      .spec-table-wrapper {
+        padding: 1rem;
+      }
+      .spec-table th,
+      .spec-table td {
+        padding: 0.9rem 1rem;
+        display: block;
+        width: 100%;
+      }
+      .spec-table th {
+        border-right: none;
+        background: #fafcff;
+        border-bottom: 1px solid #e2ecf5;
+      }
+      .spec-table tr {
+        display: block;
+        margin-bottom: 1.2rem;
+        border-bottom: 2px solid #e2edf4;
+      }
+      .spec-table td {
+        border-bottom: none;
+      }
+      .hero-section h1 {
+        font-size: 1.8rem;
+      }
+      .param-tag {
+        font-size: 0.7rem;
+      }
+    }
+  </style>
 </head>
-<body style="font-family:Arial;padding:20px;">
+<body>
+<div class="spec-container">
+  <div class="hero-section">
+    <h1>
+      XR-3000 Series
+      <small>Next-Gen Hematology</small>
+    </h1>
+    <div class="subhead">
+      <span>🧬 Fluorescence Flow Cytometry</span>
+      <span>⚡ Up to 220 samples/h</span>
+      <span>📊 CBC+DIFF+RET+PLT‑F+BF</span>
+      <span>🎯 WPC / HPC option</span>
+    </div>
+  </div>
 
-<h1>XR-3000 Specification</h1>
+  <div class="spec-table-wrapper">
+    <table class="spec-table">
+      <!-- Brand & Model -->
+      <tr>
+        <th>Brand</th>
+        <td><strong>Sysmex</strong> · XR‑Series intelligence</td>
+      </tr>
+      <tr>
+        <th>Model</th>
+        <td><span class="badge-spec">XR-3000</span> High-Efficiency Hematology Workstation</td>
+      </tr>
+      <tr>
+        <th>Type</th>
+        <td>🔬 Fully Automated Hematology Analyzer with optional body fluid, RET, PLT-F, and smear preparation (SP-50)</td>
+      </tr>
 
-<table border="1" cellpadding="10" cellspacing="0" width="100%">
-  <tr>
-    <th>Item</th>
-    <th>Detail</th>
-  </tr>
-  <tr>
-    <td>Brand</td>
-    <td>Sysmex</td>
-  </tr>
-  <tr>
-    <td>Model</td>
-    <td>XR-3000</td>
-  </tr>
-  <tr>
-    <td>Type</td>
-    <td>Hematology Analyzer</td>
-  </tr>
-  <tr>
-    <td>Measurement principles</td>
-    <td>  • WBC CBC+DIFF / RET / PLT-F / WPC: fluorescence flow cytometry <br>
-          • RBC/PLT: hydrodynamically focussed impedance<br>
-          • HGB: cyanide-free SLS haemoglobin
-    </td>
-  </tr>
-  <tr>
-    <td>Aspiration volume</td>
-    <td>  • XR module: <br>
-            88 µL in whole blood (WB) mode and body fluid (BF) mode<br>
-            190 µL in HPC mode<br>
-          • SP-50 module:<br>
-            70 µL for smear preparation in auto mode<br>
-            38 µL for smear preparation in manual mode
-    </td>
-  </tr>
-  <tr>
-    <td>Throughput</td>
-    <td>  • Two modules of XR-10 / XR-20: <br>
-            up to 220 samples/h in whole blood (WB) mode<br>
-            up to 40 samples/h in body fluid (BF) mode per module<br>
-          • SP-50 (S / H) module:<br>
-            up to 30 slides/h in standard mode<br>
-            up to 75 slides/h (excl. staining time) with the optional high-throughput licence
-    </td>
-  </tr>
-  <tr>
-    <td>Quality control</td>
-    <td>  • XN Check (three levels) and XN Check BF (two levels) <br>
-          • Patient sample-based QC (XbarM)<br>
-          • Web application for interlaboratory comparison (CaresphereTM XQC)
-    </td>
-  </tr>
-  <tr>
-    <td>Parameters</td>
-    <td>  • CBC (always with NRBC) & DIFF (always with IG) <br>
-          • Whole Blood<br>
-            WBC, NRBC%, NRBC#, RBC, HGB, HCT, MCV, MCH, MCHC, PLT, RDW-SD, RDW-CV, MicroR, MacroR, PDW, MPV, P-LCR, PCT, NEUT%, NEUT#, LYMPH%,<br>
-            LYMPH#, MONO%, MONO#, EO%, EO#, BASO%, BASO#, IG%, IG#<br>
-          • With Extended Inflammation Parameters licence (optional)<br>
-            NEUT-GI, NEUT-RI, RE-LYMP%, RE-LYMP#, AS-LYMP%, AS-LYMP#<br>
-          • With RET (optional)<br>
-            RET%, RET#, IRF, LFR, MFR, HFR, RET-He, RBC-He, Delta-He, HYPO-He, HYPER-He, PLT-O<br>
-          • With PLT-F (optional)<br>
-            PLT-F, IPF, IPF#<br>
-          • With BF (body fluids; optional)<br>
-            WBC-BF, RBC-BF, MN%, MN#, PMN%, PMN#, TC-BF#<br>
-          • With WPC (optional)<br>
-            HPC licence (optional), HPC%, HPC#
-    </td>
-  </tr>
-  <tr>
-    <td>Configurations</td>
-    <td>  • XR-3111, XR-3120, XR-3102</td>
-  </tr>
-</table>
+      <!-- Measurement principles -->
+      <tr>
+        <th>Measurement Principles</th>
+        <td>
+          <ul class="tech-list">
+            <li><strong>WBC, CBC+DIFF, RET, PLT‑F, WPC:</strong> Fluorescence flow cytometry (polymethine dyes + semiconductor laser)</li>
+            <li><strong>RBC / PLT:</strong> Hydrodynamically focused impedance</li>
+            <li><strong>HGB:</strong> Cyanide‑free SLS‑hemoglobin method</li>
+          </ul>
+          <div class="info-card">
+            🧪 <strong>Gold-standard technologies</strong> – fluorescence staining ensures high sensitivity for immature cells and low PLT counting.
+          </div>
+         </td>
+      </tr>
 
+      <!-- Aspiration volume -->
+      <tr>
+        <th>Aspiration Volume</th>
+        <td>
+          <div><span class="module-badge">📌 XR module</span> Whole Blood (WB) & Body Fluid (BF): <strong>88 µL</strong> · HPC mode: <strong>190 µL</strong></div>
+          <div style="margin-top: 8px;"><span class="module-badge">🎞️ SP‑50 module</span> Smear prep auto mode: <strong>70 µL</strong> · Manual mode: <strong>38 µL</strong></div>
+          <div class="param-grid" style="margin-top: 6px">
+            <span class="param-tag">Microsample capability</span>
+            <span class="param-tag">Low aspiration for pediatrics</span>
+          </div>
+         </td>
+      </tr>
+
+      <!-- Throughput -->
+      <tr>
+        <th>Throughput</th>
+        <td>
+          <ul class="tech-list">
+            <li><strong>XR‑10 / XR‑20 modules (two modules):</strong> up to <strong>220 samples/hour</strong> in WB mode</li>
+            <li><strong>Body fluid (BF) mode:</strong> up to 40 samples/hour per module</li>
+            <li><strong>SP‑50 slide maker/stainer:</strong> up to 30 slides/h (standard mode) · up to <strong>75 slides/h</strong> (excl. staining time) with optional high‑throughput licence</li>
+          </ul>
+         </td>
+      </tr>
+
+      <!-- Quality control -->
+      <tr>
+        <th>Quality Control</th>
+        <td>
+          <div>✅ <strong>XN Check</strong> (three levels) + <strong>XN Check BF</strong> (two levels)<br>
+          ✅ Patient‑based real‑time QC (XbarM)<br>
+          ✅ Web application for interlaboratory comparison: <strong>Caresphere™ XQC</strong> — peer group monitoring</div>
+         </td>
+      </tr>
+
+      <!-- Parameters - comprehensive -->
+      <tr>
+        <th>Parameters & Licences</th>
+        <td>
+          <div><span class="badge-spec">🧾 CBC + DIFF (always with NRBC & IG)</span></div>
+          <div class="flex-param">
+            <span class="param-tag">WBC, NRBC%, NRBC#</span>
+            <span class="param-tag">RBC, HGB, HCT, MCV, MCH, MCHC</span>
+            <span class="param-tag">PLT, RDW-SD, RDW-CV, PDW, MPV, P-LCR, PCT</span>
+            <span class="param-tag">MicroR, MacroR</span>
+            <span class="param-tag">NEUT%, NEUT#, LYMPH%, LYMPH#, MONO%, MONO#, EO%, EO#, BASO%, BASO#, IG%, IG#</span>
+          </div>
+          <hr>
+          <div><span class="badge-spec">🧪 Extended Inflammation (option)</span> NEUT‑GI, NEUT‑RI, RE‑LYMP%, RE‑LYMP#, AS‑LYMP%, AS‑LYMP#</div>
+          <div><span class="badge-spec">🟢 RET (option)</span> RET%, RET#, IRF, LFR, MFR, HFR, RET‑He, RBC‑He, Delta‑He, HYPO‑He, HYPER‑He, PLT‑O</div>
+          <div><span class="badge-spec">🟣 PLT‑F (option)</span> PLT‑F, IPF, IPF# (Immature Platelet Fraction)</div>
+          <div><span class="badge-spec">💧 Body Fluid (BF) option</span> WBC‑BF, RBC‑BF, MN%, MN#, PMN%, PMN#, TC‑BF#</div>
+          <div><span class="badge-spec">🧬 WPC / HPC licence</span> HPC%, HPC# (Hematopoietic Progenitor Cells) – stem cell enumeration support</div>
+          <div class="info-card" style="margin-top: 12px">
+            📈 <strong>Total measurable parameters:</strong> up to 45+ including research parameters · 3D scattergrams & histograms for full traceability.
+          </div>
+         </td>
+      </tr>
+
+      <!-- Configurations -->
+      <tr>
+        <th>Configurations</th>
+        <td>
+          <div class="param-grid">
+            <span class="param-tag">🏛️ XR‑3111</span>
+            <span class="param-tag">🏛️ XR‑3120</span>
+            <span class="param-tag">🏛️ XR‑3102</span>
+          </div>
+          <p style="margin-top: 12px; font-size: 0.85rem;">Flexible modular design: integrate 1 or 2 analysis units + SP‑50 slide stainer module · Expandable from routine CBC to high‑throughput automated slide making.</p>
+          <div class="info-card">
+            🔌 Connectivity: LIS bidirectional, HL7, remote diagnostic via Caresphere™ · Supports automation track systems.
+          </div>
+         </td>
+      </tr>
+    </table>
+  </div>
+  <div style="background: #FAFDFF; padding: 1rem 2rem; border-top: 1px solid #e3ebf2; font-size: 0.75rem; text-align: center; color: #2f627a;">
+    🩸 Sysmex XR‑3000 · Intelligent flagging, low sample volume, and digital morphology ready | Compliant with ISO 15198
+  </div>
+</div>
 </body>
 </html>
