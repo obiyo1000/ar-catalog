@@ -2,16 +2,16 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>Model Detail</title>
+  <title>Model Detail - Medical Equipment</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="assets/data/models.js"></script>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
   <style>
     body {
       background: #f4f6f9;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     .main-card {
@@ -19,76 +19,298 @@
       border-radius: 24px;
       overflow: hidden;
       box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
     }
 
     .model-img {
       width: 100%;
-      max-height: 360px;
-      object-fit: cover;
-      background: #e9ecef;
+      max-height: 400px;
+      object-fit: contain;
+      background: #f8f9fa;
+      padding: 20px;
     }
 
     .menu-btn {
       border-radius: 50px;
       padding: 14px;
-      font-size: 18px;
+      font-size: 16px;
       margin-bottom: 12px;
+      transition: all 0.3s;
+      font-weight: 500;
+    }
+
+    .menu-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, #0d6efd, #0a58ca);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 50px;
+      display: inline-block;
+      font-size: 14px;
+    }
+
+    .spec-list {
+      text-align: left;
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 16px;
+      margin: 20px 0;
+    }
+
+    .spec-list li {
+      margin-bottom: 8px;
+    }
+
+    #loading {
+      text-align: center;
+      padding: 50px;
+    }
+
+    @media (max-width: 768px) {
+      .menu-btn {
+        font-size: 14px;
+        padding: 12px;
+      }
+      
+      .model-img {
+        max-height: 250px;
+      }
     }
   </style>
 </head>
 <body>
 
 <div class="container py-4">
+  <a href="index.html" class="btn btn-secondary mb-3">
+    <i class="fas fa-arrow-left"></i> กลับหน้าหลัก
+  </a>
 
-  <a href="index.html" class="btn btn-secondary mb-3">← Back</a>
+  <div id="loading" style="display: block;">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="mt-3">กำลังโหลดข้อมูล...</p>
+  </div>
 
-  <div id="content"></div>
-
+  <div id="content" style="display: none;"></div>
 </div>
 
+<script src="assets/data/models.js"></script>
 <script>
-  const params = new URLSearchParams(window.location.search);
-  const id = parseInt(params.get("id"));
+  // ฟังก์ชันป้องกัน XSS
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
 
-  const model = models.find(m => m.id === id);
-  const content = document.getElementById("content");
+  // ฟังก์ชันตรวจสอบ URL ว่าใช้งานได้หรือไม่
+  function checkFileExists(url, callback) {
+    if (!url || url === '#') {
+      callback(false);
+      return;
+    }
+    fetch(url, { method: 'HEAD' })
+      .then(response => callback(response.ok))
+      .catch(() => callback(false));
+  }
 
-  if (!model) {
-    content.innerHTML = `<div class="alert alert-danger">ไม่พบข้อมูล Model</div>`;
-  } else {
-    document.title = model.name;
-
+  // โหลดข้อมูล
+  window.onload = function() {
+    setTimeout(() => {
+      const params = new URLSearchParams(window.location.search);
+      const id = parseInt(params.get("id"));
+      
+      // ตรวจสอบว่า models โหลดมาหรือยัง
+      if (typeof models === 'undefined') {
+        showError('ไม่สามารถโหลดข้อมูลสินค้าได้ กรุณาตรวจสอบไฟล์ models.js');
+        return;
+      }
+      
+      const model = models.find(m => m.id === id);
+      
+      if (!model) {
+        showError(`ไม่พบข้อมูลสินค้าที่มีรหัส ${id}`);
+        return;
+      }
+      
+      displayModelDetail(model);
+    }, 300);
+  }
+  
+  function showError(message) {
+    document.getElementById("loading").style.display = "none";
+    const content = document.getElementById("content");
+    content.style.display = "block";
     content.innerHTML = `
+      <div class="alert alert-danger text-center">
+        <i class="fas fa-exclamation-triangle fa-2x mb-3"></i>
+        <h4>เกิดข้อผิดพลาด</h4>
+        <p>${escapeHtml(message)}</p>
+        <a href="index.html" class="btn btn-primary mt-3">กลับหน้าหลัก</a>
+      </div>
+    `;
+  }
+  
+  function displayModelDetail(model) {
+    document.title = `${model.name} - ${model.brand} | Medical Equipment`;
+    
+    // ตรวจสอบว่ามี AR model หรือไม่ (สมมติว่ามี field arModel)
+    const hasAR = model.arModel && model.arModel !== '#';
+    
+    // สร้าง HTML แสดงข้อมูล
+    let html = `
       <div class="card main-card">
-        <img src="${model.image}" class="model-img" alt="${model.name}">
-
+        <img src="${model.image || 'assets/img/placeholder.jpg'}" 
+             class="model-img" 
+             alt="${escapeHtml(model.name)}"
+             onerror="this.src='https://via.placeholder.com/600x400?text=No+Image'">
+        
         <div class="card-body text-center">
-          <h1>${model.name}</h1>
-          <h5 class="text-muted">${model.brand}</h5>
-          <p>${model.description}</p>
-
+          <span class="brand-badge mb-3">
+            <i class="fas fa-microscope"></i> ${escapeHtml(model.brand)}
+          </span>
+          
+          <h1 class="mt-3">${escapeHtml(model.name)}</h1>
+          <p class="lead text-muted">${escapeHtml(model.description)}</p>
+          
           <hr>
-
-          <a href="${model.catalog}" target="_blank" class="btn btn-outline-primary w-100 menu-btn">
-            Catalog
+    `;
+    
+    // เพิ่มรายละเอียดเพิ่มเติม (ถ้ามี)
+    if (model.specifications) {
+      html += `
+        <div class="spec-list">
+          <h5><i class="fas fa-chart-line"></i> สเปคเบื้องต้น</h5>
+          <ul class="list-unstyled">
+            ${model.specifications.map(spec => `<li><i class="fas fa-check-circle text-success"></i> ${escapeHtml(spec)}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+    }
+    
+    html += `
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <a href="${model.catalog || '#'}" 
+             target="_blank" 
+             class="btn btn-outline-primary w-100 menu-btn"
+             onclick="return checkLink(this, 'catalog')">
+            <i class="fas fa-file-pdf"></i> แค็ตตาล็อก
           </a>
-
-          <a href="${model.video}" target="_blank" class="btn btn-outline-danger w-100 menu-btn">
-            Video
+        </div>
+        
+        <div class="col-md-6">
+          <a href="${model.video || '#'}" 
+             target="_blank" 
+             class="btn btn-outline-danger w-100 menu-btn"
+             onclick="return checkLink(this, 'video')">
+            <i class="fas fa-video"></i> วีดีโอแนะนำ
           </a>
-          
-          <a href="${model.spec}" target="_blank" class="btn btn-outline-success w-100 menu-btn">
-            Spec
+        </div>
+        
+        <div class="col-md-6">
+          <a href="${model.spec || '#'}" 
+             target="_blank" 
+             class="btn btn-outline-success w-100 menu-btn"
+             onclick="return checkLink(this, 'spec')">
+            <i class="fas fa-chart-bar"></i> สเปคสินค้า
           </a>
-          
-          <a href="#" class="btn btn-primary w-100 menu-btn">
-            Model AR
+        </div>
+        
+        <div class="col-md-6">
+          <a href="${hasAR ? model.arModel : '#'}" 
+             class="btn btn-primary w-100 menu-btn"
+             ${hasAR ? 'target="_blank"' : 'onclick="return showARComingSoon()"'}>
+            <i class="fas fa-cube"></i> ดูโมเดล AR
+            ${!hasAR ? '<small class="d-block">(เร็วๆ นี้)</small>' : ''}
           </a>
         </div>
       </div>
     `;
+    
+    // เพิ่ม QR Code สำหรับ AR (optional)
+    if (hasAR) {
+      html += `
+        <hr>
+        <div class="mt-3">
+          <p class="text-muted small">
+            <i class="fas fa-qrcode"></i> สแกน QR Code เพื่อดูโมเดล AR บนมือถือ
+          </p>
+          <div id="qrcode" class="d-flex justify-content-center"></div>
+        </div>
+      `;
+    }
+    
+    html += `
+        </div>
+      </div>
+    `;
+    
+    // ซ่อน loading และแสดง content
+    document.getElementById("loading").style.display = "none";
+    const content = document.getElementById("content");
+    content.style.display = "block";
+    content.innerHTML = html;
+    
+    // สร้าง QR Code ถ้ามี AR model
+    if (hasAR && typeof QRCode !== 'undefined') {
+      new QRCode(document.getElementById("qrcode"), {
+        text: window.location.origin + '/' + model.arModel,
+        width: 128,
+        height: 128
+      });
+    }
+  }
+  
+  // ฟังก์ชันตรวจสอบลิงก์
+  window.checkLink = function(element, type) {
+    const url = element.getAttribute('href');
+    if (!url || url === '#') {
+      showNotification(`⚠️ ไฟล์${type} กำลังอยู่ระหว่างการจัดทำ`, 'warning');
+      return false;
+    }
+    return true;
+  }
+  
+  // ฟังก์ชันแสดง AR Coming Soon
+  window.showARComingSoon = function() {
+    showNotification('🎯 โมเดล AR กำลังอยู่ในระหว่างการพัฒนา กรุณาติดตามในเวอร์ชันถัดไป', 'info');
+    return false;
+  }
+  
+  // ฟังก์ชันแสดง notification
+  function showNotification(message, type = 'info') {
+    // สร้าง toast notification
+    const toastDiv = document.createElement('div');
+    toastDiv.className = `position-fixed bottom-0 end-0 p-3`;
+    toastDiv.style.zIndex = '9999';
+    toastDiv.innerHTML = `
+      <div class="toast show" role="alert">
+        <div class="toast-header bg-${type === 'warning' ? 'warning' : type === 'info' ? 'info' : 'success'} text-white">
+          <strong class="me-auto">แจ้งเตือน</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body">
+          ${message}
+        </div>
+      </div>
+    `;
+    document.body.appendChild(toastDiv);
+    setTimeout(() => toastDiv.remove(), 3000);
   }
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 
 </body>
 </html>
