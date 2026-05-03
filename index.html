@@ -2,15 +2,16 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>AR Product Catalog</title>
+  <title>AR Product Catalog - Medical Equipment</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <style>
     body {
       background: #f4f6f9;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     .header {
@@ -23,40 +24,46 @@
       position: relative;
     }
 
-    .header-logo {
-      position: absolute;
-      left: 20px;
-      top: 20px;
-      height: 60px;
-      filter: brightness(0) invert(1);
-    }
-
     .model-card {
       border: none;
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 6px 18px rgba(0,0,0,0.12);
       height: 100%;
-      transition: transform 0.2s;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .model-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.2);
     }
 
     .model-img {
-      height: 170px;
+      height: 200px;
       object-fit: cover;
       background: #e9ecef;
+      width: 100%;
     }
 
     .btn-view {
       border-radius: 50px;
+      background: linear-gradient(135deg, #0d6efd, #0a58ca);
+      border: none;
+      transition: all 0.3s;
     }
 
-    .menu-btn {
-      font-size: 20px;
-      padding: 16px;
+    .btn-view:hover {
+      transform: scale(1.02);
+      background: linear-gradient(135deg, #0b5ed7, #0a58ca);
+    }
+
+    .brand-badge {
+      background: #e9ecef;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      color: #495057;
+      display: inline-block;
     }
 
     #loading {
@@ -65,65 +72,111 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: white;
+      background: rgba(255,255,255,0.95);
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 9999;
       flex-direction: column;
     }
+
+    .search-box {
+      max-width: 400px;
+      margin: 0 auto 30px auto;
+    }
+
+    .search-box input {
+      border-radius: 50px;
+      padding: 12px 20px;
+      border: 2px solid #dee2e6;
+      transition: all 0.3s;
+    }
+
+    .search-box input:focus {
+      border-color: #0d6efd;
+      box-shadow: 0 0 0 0.2rem rgba(13,110,253,0.25);
+    }
   </style>
 </head>
 <body>
 
 <div class="header">
-  <img src="assets/img/logo.png" alt="Logo" class="header-logo" onerror="this.style.display='none'">
-  <h1>AR Product Catalog</h1>
-  <p class="mb-0">เลือก Model ที่ต้องการดูรายละเอียด</p>
+  <h1><i class="fas fa-microscope"></i> AR Product Catalog</h1>
+  <p class="mb-0">Medical Diagnostic Equipment</p>
+  <p class="small mt-2 mb-0">👆 คลิกที่ปุ่ม View Detail เพื่อดูข้อมูล สเปค และไฟล์ดาวน์โหลด</p>
 </div>
 
 <div class="container pb-5">
+  <div class="search-box">
+    <input type="text" id="searchInput" class="form-control" placeholder="🔍 ค้นหาสินค้า...">
+  </div>
+  
   <div class="row g-4" id="modelList"></div>
 </div>
 
 <div id="loading">
-  <div class="spinner-border text-primary" role="status">
+  <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
-  <h4 class="mt-3">Loading...</h4>
+  <h4 class="mt-3">กำลังโหลดข้อมูล...</h4>
 </div>
 
+<script src="assets/data/models.js"></script>
+
 <script>
-// ตรวจสอบว่า models.js โหลดมาก่อนหรือยัง
+let allModels = [];
+
+// โหลดข้อมูลเมื่อหน้าเว็บพร้อม
 window.onload = () => {
-  if (typeof models !== 'undefined' && models.length > 0) {
-    displayModels();
-  } else {
-    document.getElementById("modelList").innerHTML = `
-      <div class="col-12">
-        <div class="alert alert-danger text-center">
-          ไม่สามารถโหลดข้อมูลสินค้าได้ กรุณาตรวจสอบไฟล์ models.js
+  setTimeout(() => {
+    if (typeof models !== 'undefined' && models.length > 0) {
+      allModels = models;
+      displayModels(allModels);
+    } else {
+      document.getElementById("modelList").innerHTML = `
+        <div class="col-12">
+          <div class="alert alert-danger text-center">
+            <i class="fas fa-exclamation-triangle"></i> ไม่สามารถโหลดข้อมูลสินค้าได้ 
+            กรุณาตรวจสอบไฟล์ assets/data/models.js
+          </div>
         </div>
-      </div>
-    `;
-  }
-  document.getElementById("loading").style.display = "none";
+      `;
+    }
+    document.getElementById("loading").style.display = "none";
+  }, 500);
 }
 
-function displayModels() {
+function displayModels(modelsToShow) {
   const modelList = document.getElementById("modelList");
   modelList.innerHTML = '';
   
-  models.forEach(item => {
+  if (modelsToShow.length === 0) {
+    modelList.innerHTML = `
+      <div class="col-12">
+        <div class="alert alert-info text-center">
+          <i class="fas fa-search"></i> ไม่พบสินค้าที่ต้องการค้นหา
+        </div>
+      </div>
+    `;
+    return;
+  }
+  
+  modelsToShow.forEach(item => {
     modelList.innerHTML += `
       <div class="col-6 col-md-4 col-lg-3">
         <div class="card model-card">
-          <img src="${item.image || 'assets/img/placeholder.jpg'}" class="card-img-top model-img" alt="${item.name}" onerror="this.src='assets/img/placeholder.jpg'">
+          <img src="${item.image || 'assets/img/placeholder.jpg'}" 
+               class="card-img-top model-img" 
+               alt="${escapeHtml(item.name)}" 
+               onerror="this.src='https://via.placeholder.com/300x200?text=No+Image'">
           <div class="card-body text-center">
             <h5 class="card-title">${escapeHtml(item.name)}</h5>
-            <p class="text-muted mb-2">${escapeHtml(item.brand)}</p>
-            <a href="model.html?id=${item.id}" class="btn btn-primary btn-view w-100">
-              View Detail
+            <span class="brand-badge mb-2 d-inline-block">
+              <i class="fas fa-tag"></i> ${escapeHtml(item.brand)}
+            </span>
+            <p class="text-muted small mt-2">${escapeHtml(item.description)}</p>
+            <a href="model.html?id=${item.id}" class="btn btn-primary btn-view w-100 mt-2">
+              <i class="fas fa-info-circle"></i> View Detail
             </a>
           </div>
         </div>
@@ -131,6 +184,22 @@ function displayModels() {
     `;
   });
 }
+
+// ฟังก์ชันค้นหา
+document.addEventListener('DOMContentLoaded', () => {
+  const searchInput = document.getElementById('searchInput');
+  if (searchInput) {
+    searchInput.addEventListener('keyup', function(e) {
+      const searchTerm = this.value.toLowerCase();
+      const filtered = allModels.filter(item => 
+        item.name.toLowerCase().includes(searchTerm) || 
+        item.brand.toLowerCase().includes(searchTerm) ||
+        item.description.toLowerCase().includes(searchTerm)
+      );
+      displayModels(filtered);
+    });
+  }
+});
 
 // ป้องกัน XSS attacks
 function escapeHtml(str) {
@@ -144,9 +213,6 @@ function escapeHtml(str) {
 }
 </script>
 
-<script src="assets/data/models.js"></script>
-
-<!-- เพิ่ม Bootstrap JS สำหรับ interactive components -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
