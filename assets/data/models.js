@@ -8,6 +8,8 @@ const models = [
     catalog: "catalog/DH-615.pdf",
     video: "video/DH-615.mp4",
     spec: "spec/DH-615.html",
+    glb: "models/DH-615.glb",
+    usdz: "models/DH-615.usdz"
     specifications: [
       "Hematology Analyzer",
       "Suitable for clinical laboratory workflow",
@@ -23,6 +25,8 @@ const models = [
     catalog: "catalog/XR-3000.pdf",
     video: "video/XR-3000.mp4",
     spec: "spec/XR-3000.html",
+    glb: "models/XR-3000.glb",
+    usdz: "models/XR-3000.usdz"
     specifications: [
       "Hematology Analyzer",
       "Designed for diagnostic laboratory use",
@@ -38,6 +42,8 @@ const models = [
     catalog: "catalog/CI1900.pdf",
     video: "video/CI1900.mp4",
     spec: "spec/CI1900.html",
+    glb: "models/CI1900.glb",
+    usdz: "models/CI1900.usdz"
     specifications: [
       "Chemistry Immunoassay Analyzer",
       "Integrated clinical chemistry and immunoassay workflow",
@@ -53,6 +59,8 @@ const models = [
     catalog: "catalog/UN3111.pdf",
     video: "video/UN3111.mp4",
     spec: "spec/UN3111.html",
+    glb: "models/UN3111.glb",
+    usdz: "models/UN3111.usdz"
     specifications: [
       "Urinalysis System",
       "Suitable for urine analysis workflow",
@@ -68,6 +76,8 @@ const models = [
     catalog: "catalog/NX600.pdf",
     video: "video/NX600.mp4",
     spec: "spec/NX600.html",
+    glb: "models/NX600.glb",
+    usdz: "models/NX600.usdz"
     specifications: [
       "Dry Chemistry Analyzer",
       "Compact chemistry testing workflow",
@@ -83,6 +93,8 @@ const models = [
     catalog: "catalog/LA60SE.pdf",
     video: "video/LA60SE.mp4",
     spec: "spec/LA60SE.html",
+    glb: "models/LA60SE.glb",
+    usdz: "models/LA60SE.usdz"
     specifications: [
       "Chemistry Immunoassay Analyzer",
       "Suitable for laboratory diagnostic workflow",
@@ -98,6 +110,8 @@ const models = [
     catalog: "catalog/H-500.pdf",
     video: "video/H-500.mp4",
     spec: "spec/H-500.html",
+    glb: "models/H-500.glb",
+    usdz: "models/H-500.usdz"
     specifications: [
       "Urinalysis System",
       "Designed for urine testing workflow",
@@ -113,6 +127,8 @@ const models = [
     catalog: "catalog/F6.pdf",
     video: "video/F6.mp4",
     spec: "spec/F6.html",
+    glb: "models/F6.glb",
+    usdz: "models/F6.usdz"
     specifications: [
       "Immunoassay Analyzer",
       "Suitable for point-of-care or laboratory testing workflow",
@@ -128,6 +144,8 @@ const models = [
     catalog: "catalog/Acusera.pdf",
     video: "video/Acusera.mp4",
     spec: "spec/Acusera.html",
+    glb: "models/Acusera.glb",
+    usdz: "models/Acusera.usdz"
     specifications: [
       "Quality Controls",
       "Used for laboratory quality control workflow",
@@ -143,6 +161,8 @@ const models = [
     catalog: "catalog/5A.pdf",
     video: "video/5A.mp4",
     spec: "spec/5A.html",
+    glb: "models/5A.glb",
+    usdz: "models/5A.usdz"
     specifications: [
       "Feces Analysis",
       "Suitable for stool analysis workflow",
