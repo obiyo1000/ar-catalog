@@ -109,34 +109,39 @@
               alt="${escapeHtml(model.name)}"
             
               ar
-              ar-modes="webxr scene-viewer quick-look"
+              ar-modes="scene-viewer webxr quick-look"
               ar-scale="fixed"
             
-              camera-controls
-              auto-rotate
-            
-              disable-zoom
-            
-              min-camera-orbit="auto auto 100%"
-              max-camera-orbit="auto auto 100%"
-            
-              shadow-intensity="1.5"
-              shadow-softness="0.8"
-              exposure="1.2"
-              tone-mapping="aces"
-              environment-image="https://modelviewer.dev/shared-assets/environments/warehouse.hdr"
-            
-              style="
-                width:100%;
-                height:70vh;
-                background:radial-gradient(circle at center, #ffffff 0%, #dfe6ee 100%);
-                border-radius:20px;
-              "
-            >
-              <button slot="ar-button" class="ar-button">
-                เปิดดูแบบ AR
-              </button>
-            </model-viewer>
+              <model-viewer
+                src="${glb}"
+                ios-src="${usdz}"
+                alt="${escapeHtml(model.name)}"
+              
+                ar
+                ar-modes="scene-viewer webxr quick-look"
+                ar-scale="fixed"
+              
+                camera-controls
+                auto-rotate
+                disable-zoom
+              
+                shadow-intensity="1.5"
+                shadow-softness="0.8"
+                exposure="1.2"
+                tone-mapping="aces"
+                environment-image="https://modelviewer.dev/shared-assets/environments/warehouse.hdr"
+              
+                style="
+                  width:100%;
+                  height:70vh;
+                  background:radial-gradient(circle at center, #ffffff 0%, #dfe6ee 100%);
+                  border-radius:20px;
+                "
+              >
+                <button slot="ar-button" class="ar-button">
+                  เปิดดูแบบ AR
+                </button>
+              </model-viewer>
 
             <div class="alert alert-info mt-3 text-start">
               <b>วิธีใช้งาน:</b><br>
