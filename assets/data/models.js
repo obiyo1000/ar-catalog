@@ -4,10 +4,15 @@ const models = [
     name: "DH-615",
     brand: "Dymind",
     image: "assets/img/DH-615.jpg",
-    description: "Hematology Analyzer", // เพิ่ม comma
+    description: "Hematology Analyzer",
     catalog: "catalog/DH-615.pdf",
     video: "video/DH-615.mp4",
-    spec: "spec/DH-615.html"
+    spec: "spec/DH-615.html",
+    specifications: [
+      "Hematology Analyzer",
+      "Suitable for clinical laboratory workflow",
+      "Supports product catalog, video, and specification page"
+    ]
   },
   {
     id: 2,
@@ -17,7 +22,12 @@ const models = [
     description: "Hematology Analyzer",
     catalog: "catalog/XR-3000.pdf",
     video: "video/XR-3000.mp4",
-    spec: "spec/XR-3000.html"
+    spec: "spec/XR-3000.html",
+    specifications: [
+      "Hematology Analyzer",
+      "Designed for diagnostic laboratory use",
+      "Supports product catalog, video, and specification page"
+    ]
   },
   {
     id: 3,
@@ -27,7 +37,12 @@ const models = [
     description: "Chemistry Immunoassay Analyzer",
     catalog: "catalog/CI1900.pdf",
     video: "video/CI1900.mp4",
-    spec: "spec/CI1900.html"
+    spec: "spec/CI1900.html",
+    specifications: [
+      "Chemistry Immunoassay Analyzer",
+      "Integrated clinical chemistry and immunoassay workflow",
+      "Supports product catalog, video, and specification page"
+    ]
   },
   {
     id: 4,
@@ -37,7 +52,12 @@ const models = [
     description: "Urinalysis System",
     catalog: "catalog/UN3111.pdf",
     video: "video/UN3111.mp4",
-    spec: "spec/UN3111.html"
+    spec: "spec/UN3111.html",
+    specifications: [
+      "Urinalysis System",
+      "Suitable for urine analysis workflow",
+      "Supports product catalog, video, and specification page"
+    ]
   },
   {
     id: 5,
@@ -47,17 +67,27 @@ const models = [
     description: "Dry Chemistry Analyzer",
     catalog: "catalog/NX600.pdf",
     video: "video/NX600.mp4",
-    spec: "spec/NX600.html"
+    spec: "spec/NX600.html",
+    specifications: [
+      "Dry Chemistry Analyzer",
+      "Compact chemistry testing workflow",
+      "Supports product catalog, video, and specification page"
+    ]
   },
   {
     id: 6,
     name: "LA60SE",
     brand: "Dirui",
     image: "assets/img/LA60SE.jpg",
-    description: "Chemistry Immunoassay Analyzer", // แก้จาก Analyzerr
+    description: "Chemistry Immunoassay Analyzer",
     catalog: "catalog/LA60SE.pdf",
     video: "video/LA60SE.mp4",
-    spec: "spec/LA60SE.html"
+    spec: "spec/LA60SE.html",
+    specifications: [
+      "Chemistry Immunoassay Analyzer",
+      "Suitable for laboratory diagnostic workflow",
+      "Supports product catalog, video, and specification page"
+    ]
   },
   {
     id: 7,
@@ -67,17 +97,27 @@ const models = [
     description: "Urinalysis System",
     catalog: "catalog/H-500.pdf",
     video: "video/H-500.mp4",
-    spec: "spec/H-500.html"
+    spec: "spec/H-500.html",
+    specifications: [
+      "Urinalysis System",
+      "Designed for urine testing workflow",
+      "Supports product catalog, video, and specification page"
+    ]
   },
   {
     id: 8,
     name: "Immu F6",
     brand: "Medcaptain",
     image: "assets/img/F6.jpg",
-    description: "Urinalysis System",
+    description: "Immunoassay Analyzer",
     catalog: "catalog/F6.pdf",
     video: "video/F6.mp4",
-    spec: "spec/F6.html"
+    spec: "spec/F6.html",
+    specifications: [
+      "Immunoassay Analyzer",
+      "Suitable for point-of-care or laboratory testing workflow",
+      "Supports product catalog, video, and specification page"
+    ]
   },
   {
     id: 9,
@@ -87,7 +127,12 @@ const models = [
     description: "Quality Controls",
     catalog: "catalog/Acusera.pdf",
     video: "video/Acusera.mp4",
-    spec: "spec/Acusera.html"
+    spec: "spec/Acusera.html",
+    specifications: [
+      "Quality Controls",
+      "Used for laboratory quality control workflow",
+      "Supports product catalog, video, and specification page"
+    ]
   },
   {
     id: 10,
@@ -97,6 +142,11 @@ const models = [
     description: "Feces Analysis",
     catalog: "catalog/5A.pdf",
     video: "video/5A.mp4",
-    spec: "spec/5A.html"
+    spec: "spec/5A.html",
+    specifications: [
+      "Feces Analysis",
+      "Suitable for stool analysis workflow",
+      "Supports product catalog, video, and specification page"
+    ]
   }
 ];
