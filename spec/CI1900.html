@@ -2,108 +2,345 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>Atellica CI1900 Spec</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+  <title>Atellica CI1900 - Siemens Integrated Analyzer | Specifications</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #f0f4f8;
+      padding: 30px 20px;
+      color: #1a2c3e;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 28px;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+
+    /* Header */
+    .spec-header {
+      background: linear-gradient(135deg, #003057 0%, #1f4e79 100%);
+      color: white;
+      padding: 28px 32px;
+    }
+
+    .spec-header h1 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 8px;
+    }
+
+    .spec-header .sub {
+      font-size: 1rem;
+      opacity: 0.85;
+      font-weight: 400;
+      border-left: 3px solid #00a9e0;
+      padding-left: 16px;
+      margin-top: 8px;
+    }
+
+    .badge-area {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .badge {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(4px);
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* Table styling */
+    .spec-table-wrapper {
+      padding: 16px 24px 32px 24px;
+      overflow-x: auto;
+    }
+
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      border-radius: 20px;
+      background: white;
+    }
+
+    .spec-table th,
+    .spec-table td {
+      border: 1px solid #e2e8f0;
+      padding: 16px 18px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .spec-table th {
+      background-color: #f1f6fd;
+      color: #003057;
+      font-weight: 700;
+      width: 28%;
+      font-size: 1rem;
+      border-bottom: 2px solid #cbdde9;
+    }
+
+    .spec-table td {
+      background-color: #ffffff;
+      color: #1e2f3d;
+    }
+
+    /* highlight inside table */
+    .highlight {
+      background: #eef6ff;
+      border-left: 4px solid #0077be;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 12px;
+      display: inline-block;
+      margin: 4px 4px 0 0;
+    }
+
+    .stat-badge {
+      background: #e0f0fa;
+      color: #005a8c;
+      border-radius: 20px;
+      padding: 2px 12px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      display: inline-block;
+      margin-right: 8px;
+    }
+
+    ul.check-list {
+      margin: 8px 0 0 20px;
+      padding-left: 0;
+      list-style-type: none;
+    }
+    ul.check-list li {
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 24px;
+    }
+    ul.check-list li:before {
+      content: "✓";
+      color: #0077be;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    hr {
+      margin: 12px 0;
+      border: 0;
+      height: 1px;
+      background: #e2edf7;
+    }
+
+    .key-note {
+      background: #fef9e6;
+      border-left: 4px solid #f5a623;
+      padding: 12px 20px;
+      margin-top: 20px;
+      border-radius: 14px;
+      font-size: 0.9rem;
+    }
+
+    /* responsive */
+    @media (max-width: 720px) {
+      body {
+        padding: 16px;
+      }
+      .spec-table th,
+      .spec-table td {
+        padding: 12px 12px;
+        font-size: 0.85rem;
+      }
+      .spec-header h1 {
+        font-size: 1.5rem;
+      }
+      .badge {
+        font-size: 0.7rem;
+        padding: 4px 12px;
+      }
+      .spec-table th {
+        width: 35%;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .spec-table,
+      .spec-table tbody,
+      .spec-table tr,
+      .spec-table th,
+      .spec-table td {
+        display: block;
+      }
+      .spec-table tr {
+        margin-bottom: 20px;
+        border: 1px solid #dce5ec;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      }
+      .spec-table th {
+        width: 100%;
+        background: #eef3fc;
+        border-bottom: none;
+      }
+      .spec-table td {
+        width: 100%;
+        border-top: none;
+      }
+    }
+
+    footer {
+      background: #f8fafc;
+      padding: 16px 32px;
+      font-size: 0.75rem;
+      color: #5f7f9c;
+      text-align: center;
+      border-top: 1px solid #e2edf2;
+    }
+  </style>
 </head>
-<body style="font-family:Arial;padding:20px;">
+<body>
+<div class="container">
+  <div class="spec-header">
+    <h1>🔬 Atellica® CI 1900</h1>
+    <div class="sub">Integrated Chemistry & Immunoassay Analyzer | Siemens Healthineers</div>
+    <div class="badge-area">
+      <span class="badge">🏥 Mid‑to‑High Volume Labs</span>
+      <span class="badge">⚡ STAT Priority</span>
+      <span class="badge">🧪 Micro‑volume Technology</span>
+      <span class="badge">🔄 Random Access</span>
+    </div>
+  </div>
 
-<h1>Atellica CI1900 Specification</h1>
+  <div class="spec-table-wrapper">
+    <table class="spec-table">
+      <tbody>
+        <tr>
+          <th>Brand</th>
+          <td><strong>Siemens Healthineers</strong> — Atellica® Series</td>
+        </tr>
+        <tr>
+          <th>Model</th>
+          <td><span class="highlight">Atellica CI 1900</span> (Integrated)</td>
+        </tr>
+        <tr>
+          <th>Analyzer Type</th>
+          <td>Chemistry Immunoassay Analyzer | Random‑access, Fully automated</td>
+        </tr>
+        <tr>
+          <th>System Architecture</th>
+          <td>
+            🧬 <strong>Independent dual modules</strong> (Chemistry + Immunoassay)<br>
+            • ไม่แย่งทรัพยากรกัน → throughput เสถียรแม้ workload สูง<br>
+            • รองรับการขยายในแพลตฟอร์ม Atellica ecosystem
+          </td>
+        </tr>
+        <tr>
+          <th>Throughput <span style="font-weight:normal;">(สูงสุด)</span></th>
+          <td>
+            <span class="stat-badge">⚡ 1,120 tests/hour</span> (รวม)<br>
+            ➜ <strong>600 tests/h</strong> Photometric (Chemistry)<br>
+            ➜ <strong>400 tests/h</strong> IMT (Electrolytes: Na⁺, K⁺, Cl⁻)<br>
+            ➜ <strong>120 tests/h</strong> Immunoassay<br>
+            🔥 จุดเด่น: CI1900 รันเคมี + อิมมูโน parallel อย่างอิสระ
+          </td>
+        </tr>
+        <tr>
+          <th>Assay / Reagent Capacity</th>
+          <td>
+            • <strong>~113 assays</strong> onboard (chemistry + immuno)<br>
+            • Chemistry: 70 reagent positions (+ IMT 3 ตำแหน่ง)<br>
+            • Immunoassay: 20 primary + 20 ancillary reagent positions<br>
+            <hr>
+            🧪 Reagent stability:<br>
+            — Chemistry: up to 6 เดือน<br>
+            — Immunoassay: up to 3 เดือน
+          </td>
+        </tr>
+        <tr>
+          <th>Sample Handling & Capacity</th>
+          <td>
+            • Rack‑based handler: <strong>120 tubes</strong> (primary + secondary)<br>
+            • Sample throughput: ~250 tubes/hour<br>
+            ✅ รองรับ Routine, STAT, Calibrator, QC<br>
+            ✅ Automatic sample sorting / decapping / recapping option
+          </td>
+        </tr>
+        <tr>
+          <th>Workflow & Walkaway</th>
+          <td>
+            ⏱️ <strong>Walkaway time ~2 ชั่วโมง</strong><br>
+            • Auto‑calibration, QC storage, sample loading<br>
+            • ลด manual step ได้ <strong>~75%</strong> เมื่อเทียบกับระบบ manual แบบเดิม<br>
+            • STAT priority แทรกได้ทันทีโดยไม่ต้องหยุด routine
+          </td>
+        </tr>
+        <tr>
+          <th>ขนาด และ Space</th>
+          <td>
+            📐 Dimensions: 1,610 × 2,034 × 934 mm (W×D×H)<br>
+            📌 Footprint: ~1.9 m²<br>
+            ⚖️ Weight: ~760 kg
+          </td>
+        </tr>
+        <tr>
+          <th> utilities / Requirements</th>
+          <td>
+            🔌 Power: 200–240 VAC, ~2.2 kW (50/60 Hz)<br>
+            💧 Water consumption: ≤25 L/hr<br>
+            💧 Water quality: ≥10 MΩ·cm (SRW required — Siemens Reverse Osmosis)
+          </td>
+        </tr>
+        <tr>
+          <th>Operating Environment</th>
+          <td>
+            🌡️ อุณหภูมิ: 18–30°C<br>
+            🔇 Noise emission: <65 dBA<br>
+            ความชื้น: 20–80% (no condensation)
+          </td>
+        </tr>
+        <tr>
+          <th>关键技术亮点<br>(Technical Highlights)</th>
+          <td>
+            <ul class="check-list">
+              <li><strong>Independent CH + IM modules</strong> — ไม่มีส่วนประกอบหลักร่วม ลด downtime</li>
+              <li><strong>Micro‑volume sampling</strong> → ใช้ specimen ปริมาณน้อย เหมาะกับผู้ป่วยเด็ก/สูงอายุ</li>
+              <li><strong>True Random Access</strong> — เริ่มทดสอบได้ทันทีโดยไม่ต้องรอ batch</li>
+              <li><strong>STAT override</strong> — รับประกัน result เร็ว</li>
+              <li>รองรับ >200 assays ใน Siemens Atellica ecosystem (รวม special chemistries, therapeutic drugs, tumor markers)</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-<table border="1" cellpadding="10" cellspacing="0" width="100%">
-  <tr>
-    <th>Item</th>
-    <th>Detail</th>
-  </tr>
-  <tr>
-    <td>Brand</td>
-    <td>Siemens</td>
-  </tr>
-  <tr>
-    <td>Model</td>
-    <td>Atellica CI1900</td>
-  </tr>
-  <tr>
-    <td>Type</td>
-    <td>Chemistry Immunoassay Analyzer</td>
-  </tr>
-  <tr>
-    <td>System Overview</td>
-    <td>• Type: Integrated Clinical Chemistry + Immunoassay Analyzer<br>
-        • Designed for small–mid size labs / standalone labs<br>
-        • Modular system (expandable within Atellica platform)
-    </td>
-  </tr>
-  <tr>
-    <td>Throughput</td>
-    <td>• Total: up to 1,120 tests/hour<br>
-          600 photometric (chemistry)<br>
-          400 IMT (electrolytes)<br>
-          120 immunoassay<br>
-        👉 จุดเด่น: CH + IM ทำงานแยกกัน → ไม่แย่ง resource → throughput เสถียร
-    </td>
-  </tr>
-  <tr>
-    <td>Assay / Reagent Capacity</td>
-    <td>• Total onboard assays: ~113 tests<br>
-          70 chemistry reagent positions<br>
-          3 IMT (Na, K, Cl)<br>
-          120 immunoassay<br>
-          20 primary + 20 ancillary immunoassay<br>
-        • Reagent stability:<br>
-          Chemistry: up to ~6 months<br>
-          Immunoassay: up to ~3 months
-    </td>
-  </tr>
-  <tr>
-    <td>Sample Handling</td>
-    <td>• Sample capacity (rack handler): ~120 tubes<br>
-        • Sample throughput: up to ~250 tubes/hour<br>
-        • รองรับ:<br>
-          Routine + STAT<br>
-          Calibrator / QC
-    </td>
-  </tr>
-  <tr>
-    <td>Workflow</td>
-    <td>• Walkaway time: ~2 ชั่วโมง<br>
-        • Fully automated:<br>
-          Calibration<br>
-          QC storage<br>
-          Sample sorting / decap / seal<br>
-          👉 ลด manual step ได้ ~75%
-    </td>
-  </tr>
-  <tr>
-    <td>Size & Installation</td>
-    <td>• Dimensions:<br>
-          ~1610 × 2034 × 934 mm<br>
-        • Footprint: ~1.9 m²<br>
-        • Weight: ~760 kg
-    </td>
-  </tr>
-  <tr>
-    <td>Utilities / Requirements</td>
-    <td>• Power: 200–240 VAC, ~2.2 kW<br>
-        • Water consumption: up to ~25 L/hr<br>
-        • Water quality: ≥10 MΩ/cm (SRW required)
-    </td>
-  </tr>
-  <tr>
-    <td>Operating Conditions</td>
-    <td>• Temperature: 18–30°C<br>
-        • Noise: <65 dBA
-    </td>
-  </tr>
-  <tr>
-    <td>Technical Highlights (Important)</td>
-    <td>Independent CH + IM modules (no shared major parts)<br>
-        Micro-volume technology → ใช้ sample น้อย<br>
-        Random access system<br>
-        STAT priority processing<br>
-        รองรับ >200 assays ใน ecosystem
-    </td>
-  </tr>
-</table>
-
+    <div class="key-note">
+      💡 <strong>เหมาะสำหรับ:</strong> โรงพยาบาลขนาดกลาง-ใหญ่, Lab เดี่ยวที่ต้องการประสิทธิภาพสูง, หรือศูนย์บริการที่มีเคมี + ฮอร์โมน/มะเร็ง ในเครื่องเดียว<br>
+      📈 <strong>Upgrade path:</strong> สามารถเชื่อมต่อกับ Atellica CH/IM หรือ Data Manager (Aptio™) เพื่อขยายกำลังการผลิต
+    </div>
+  </div>
+  <footer>
+    © Siemens Healthineers — ข้อมูลทางเทคนิคอ้างอิงจาก specification guide โดยประมาณ (อาจมีการเปลี่ยนแปลงตามรุ่นและภูมิภาค) <br>
+    เอกสารนี้ใช้สำหรับการศึกษาและเปรียบเทียบประสิทธิภาพเท่านั้น
+  </footer>
+</div>
 </body>
 </html>
