@@ -2,108 +2,409 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>Atellica CI1900 Spec</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+  <title>Sysmex UN3111 | Fully Automated Urine Analyzer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #e8eff5 0%, #dce5ed 100%);
+      padding: 30px 20px;
+      color: #1a2e3f;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 32px;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+    }
+
+    /* Header */
+    .spec-header {
+      background: linear-gradient(145deg, #003f5c 0%, #0b5e7e 100%);
+      color: white;
+      padding: 32px 36px;
+    }
+
+    .spec-header h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .spec-header h1 .model-badge {
+      background: #ffc107;
+      color: #003f5c;
+      font-size: 1rem;
+      padding: 5px 18px;
+      border-radius: 40px;
+      font-weight: 700;
+    }
+
+    .sub {
+      font-size: 1rem;
+      opacity: 0.9;
+      border-left: 4px solid #ffc107;
+      padding-left: 18px;
+      margin-top: 12px;
+    }
+
+    .tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .tag {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(4px);
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    /* Module Cards Layout */
+    .module-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding: 32px 28px;
+    }
+
+    .module-card {
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2edf5;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .module-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 30px -10px rgba(0, 63, 92, 0.15);
+    }
+
+    .card-header {
+      background: #f8fbfe;
+      padding: 18px 28px;
+      border-bottom: 2px solid #dceaf2;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .module-name {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #0b5e7e;
+      letter-spacing: -0.3px;
+    }
+
+    .module-spec-badge {
+      background: #eef3fc;
+      color: #005f8c;
+      padding: 5px 14px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .card-content {
+      padding: 22px 28px;
+    }
+
+    .spec-row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+      border-bottom: 1px dashed #ecf3f8;
+      padding-bottom: 12px;
+    }
+
+    .spec-label {
+      width: 160px;
+      font-weight: 700;
+      color: #1e4a6b;
+      flex-shrink: 0;
+    }
+
+    .spec-detail {
+      flex: 1;
+      color: #2c3e50;
+    }
+
+    .highlight-stat {
+      background: #e6f4ff;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-weight: 700;
+      color: #006699;
+      display: inline-block;
+      margin-right: 8px;
+    }
+
+    .tech-bullet {
+      margin: 12px 0 0 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .tech-bullet li {
+      margin-bottom: 8px;
+      padding-left: 24px;
+      position: relative;
+    }
+    .tech-bullet li::before {
+      content: "⚡";
+      position: absolute;
+      left: 0;
+      color: #f9a826;
+      font-weight: bold;
+    }
+
+    .green-check {
+      color: #2b7e3a;
+      font-weight: 500;
+    }
+
+    hr {
+      margin: 14px 0;
+      border: 0;
+      height: 1px;
+      background: linear-gradient(to right, #cde1ec, transparent);
+    }
+
+    .info-note {
+      background: #eef5fa;
+      border-left: 5px solid #0b5e7e;
+      padding: 14px 22px;
+      margin: 24px 28px 32px 28px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      background: #f4f9fe;
+      padding: 16px 32px;
+      font-size: 0.72rem;
+      color: #5f7f9a;
+      text-align: center;
+      border-top: 1px solid #d9e6f0;
+    }
+
+    @media (max-width: 720px) {
+      .spec-header {
+        padding: 24px 20px;
+      }
+      .spec-header h1 {
+        font-size: 1.6rem;
+      }
+      .module-name {
+        font-size: 1.3rem;
+      }
+      .card-header {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .spec-label {
+        width: 100%;
+        margin-bottom: 6px;
+      }
+      .spec-row {
+        flex-direction: column;
+      }
+      .module-grid {
+        padding: 20px 16px;
+      }
+      .info-note {
+        margin: 16px 16px 24px 16px;
+      }
+    }
+  </style>
 </head>
-<body style="font-family:Arial;padding:20px;">
+<body>
+<div class="container">
+  <div class="spec-header">
+    <h1>
+      Sysmex UN3111 
+      <span class="model-badge">Automated Urine Workstation</span>
+    </h1>
+    <div class="sub">
+      Fully integrated urine chemistry + particle analysis + digital imaging + automation
+    </div>
+    <div class="tag-group">
+      <span class="tag">🧪 High-Throughput Lab</span>
+      <span class="tag">📸 Digital Microscopy</span>
+      <span class="tag">⚡ Reflex Testing</span>
+      <span class="tag">🔄 No Centrifugation</span>
+    </div>
+  </div>
 
-<h1>Atellica CI1900 Specification</h1>
+  <div class="module-grid">
+    <!-- UC-3500 -->
+    <div class="module-card">
+      <div class="card-header">
+        <span class="module-name">📊 UC-3500</span>
+        <span class="module-spec-badge">Urine Chemistry · 276 tests/h</span>
+      </div>
+      <div class="card-content">
+        <div class="spec-row">
+          <div class="spec-label">เทคโนโลยีหลัก</div>
+          <div class="spec-detail"><span class="highlight-stat">Reflectance photometry</span> + CMOS sensor (ISO 15193)</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Throughput</div>
+          <div class="spec-detail"><strong>276 samples/hour</strong> — rapid screening</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Sample volume</div>
+          <div class="spec-detail">Aspiration: ~0.23 mL | Minimum required: ~1 mL</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Parameters (Strip)</div>
+          <div class="spec-detail">GLU, PRO, BLD, LEU, NIT, pH, KET, UBG, BIL, CRE, Ca ฯลฯ <br> ➕ <strong>SG, Color, Turbidity</strong> (non‑strip)</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">จุดเด่นทางคลินิก</div>
+          <div class="spec-detail">Auto calibration, ตรวจวัดสี/ความขุ่นอัตโนมัติ, ลดสิ่งรบกวนจากวิตามินซี</div>
+        </div>
+      </div>
+    </div>
 
-<table border="1" cellpadding="10" cellspacing="0" width="100%">
-  <tr>
-    <th>Item</th>
-    <th>Detail</th>
-  </tr>
-  <tr>
-    <td>Brand</td>
-    <td>Siemens</td>
-  </tr>
-  <tr>
-    <td>Model</td>
-    <td>Atellica CI1900</td>
-  </tr>
-  <tr>
-    <td>Type</td>
-    <td>Chemistry Immunoassay Analyzer</td>
-  </tr>
-  <tr>
-    <td>System Overview</td>
-    <td>• Type: Integrated Clinical Chemistry + Immunoassay Analyzer<br>
-        • Designed for small–mid size labs / standalone labs<br>
-        • Modular system (expandable within Atellica platform)
-    </td>
-  </tr>
-  <tr>
-    <td>Throughput</td>
-    <td>• Total: up to 1,120 tests/hour<br>
-          600 photometric (chemistry)<br>
-          400 IMT (electrolytes)<br>
-          120 immunoassay<br>
-        👉 จุดเด่น: CH + IM ทำงานแยกกัน → ไม่แย่ง resource → throughput เสถียร
-    </td>
-  </tr>
-  <tr>
-    <td>Assay / Reagent Capacity</td>
-    <td>• Total onboard assays: ~113 tests<br>
-          70 chemistry reagent positions<br>
-          3 IMT (Na, K, Cl)<br>
-          120 immunoassay<br>
-          20 primary + 20 ancillary immunoassay<br>
-        • Reagent stability:<br>
-          Chemistry: up to ~6 months<br>
-          Immunoassay: up to ~3 months
-    </td>
-  </tr>
-  <tr>
-    <td>Sample Handling</td>
-    <td>• Sample capacity (rack handler): ~120 tubes<br>
-        • Sample throughput: up to ~250 tubes/hour<br>
-        • รองรับ:<br>
-          Routine + STAT<br>
-          Calibrator / QC
-    </td>
-  </tr>
-  <tr>
-    <td>Workflow</td>
-    <td>• Walkaway time: ~2 ชั่วโมง<br>
-        • Fully automated:<br>
-          Calibration<br>
-          QC storage<br>
-          Sample sorting / decap / seal<br>
-          👉 ลด manual step ได้ ~75%
-    </td>
-  </tr>
-  <tr>
-    <td>Size & Installation</td>
-    <td>• Dimensions:<br>
-          ~1610 × 2034 × 934 mm<br>
-        • Footprint: ~1.9 m²<br>
-        • Weight: ~760 kg
-    </td>
-  </tr>
-  <tr>
-    <td>Utilities / Requirements</td>
-    <td>• Power: 200–240 VAC, ~2.2 kW<br>
-        • Water consumption: up to ~25 L/hr<br>
-        • Water quality: ≥10 MΩ/cm (SRW required)
-    </td>
-  </tr>
-  <tr>
-    <td>Operating Conditions</td>
-    <td>• Temperature: 18–30°C<br>
-        • Noise: <65 dBA
-    </td>
-  </tr>
-  <tr>
-    <td>Technical Highlights (Important)</td>
-    <td>Independent CH + IM modules (no shared major parts)<br>
-        Micro-volume technology → ใช้ sample น้อย<br>
-        Random access system<br>
-        STAT priority processing<br>
-        รองรับ >200 assays ใน ecosystem
-    </td>
-  </tr>
-</table>
+    <!-- UF-4000 / UF-5000 -->
+    <div class="module-card">
+      <div class="card-header">
+        <span class="module-name">🔬 UF-4000 / UF-5000</span>
+        <span class="module-spec-badge">Fluorescence Flow Cytometry · 105 samples/h</span>
+      </div>
+      <div class="card-content">
+        <div class="spec-row">
+          <div class="spec-label">เทคโนโลยี</div>
+          <div class="spec-detail"><strong>Fluorescent Flow Cytometry (red laser + fluorescent dye)</strong> — วิเคราะห์อนุภาคด้วย 4 parameters (FSC, SSC, FL1, FL2)</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Throughput</div>
+          <div class="spec-detail">~105 samples/hour</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Sample volume</div>
+          <div class="spec-detail">450 µL aspiration | ขวดตัวอย่างต้องการ 0.6–2 mL</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">รายการตรวจวัด</div>
+          <div class="spec-detail">
+            <strong>RBC, WBC, Epithelial cells, Casts, Bacteria</strong><br>
+            Flags: Yeast, Crystal, Mucus, Sperm
+          </div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">🚀 จุดแข็ง</div>
+          <div class="spec-detail">
+            <span class="green-check">✓ ไม่ต้อง centrifuge</span> — วัดในปัสสาวะสด<br>
+            <span class="green-check">✓ Auto validation</span> — ลดงาน microscopy ได้ ~70%
+          </div>
+        </div>
+        <ul class="tech-bullet">
+          <li>Body fluid analysis mode (CSF, serous fluid) สำหรับ UF-5000</li>
+          <li>Bacteria enumeration (BACT) ช่วย UTI screening</li>
+        </ul>
+      </div>
+    </div>
 
+    <!-- UD-10 Digital Imaging -->
+    <div class="module-card">
+      <div class="card-header">
+        <span class="module-name">📸 UD-10</span>
+        <span class="module-spec-badge">Digital Imaging · 50 samples/h</span>
+      </div>
+      <div class="card-content">
+        <div class="spec-row">
+          <div class="spec-label">เทคโนโลยี</div>
+          <div class="spec-detail">Digital imaging (stage scanning + high‑resolution CCD) — ภาพเทียบเท่ากล้องจุลทรรศน์</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Throughput</div>
+          <div class="spec-detail">~50 samples/hour</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Sample volume</div>
+          <div class="spec-detail">~0.3 mL aspiration</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">หน้าที่หลัก</div>
+          <div class="spec-detail">
+            🔍 Capture และ store images ของตะกอนปัสสาวะ<br>
+            🤖 Auto‑classification ของ formed elements (RBC, WBC, casts, crystals, yeast)
+          </div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Clinical impact</div>
+          <div class="spec-detail">
+            ✅ ใช้ <strong>confirm ผล UF</strong> ก่อน report<br>
+            ✅ ลด manual microscopy workload<br>
+            ✅ รองรับการตรวจซ้ำ (reflex) อัตโนมัติ
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- UWAM Automation -->
+    <div class="module-card">
+      <div class="card-header">
+        <span class="module-name">🤖 UWAM (Urine Workflow Automation Manager)</span>
+        <span class="module-spec-badge">System Controller & Automation Core</span>
+      </div>
+      <div class="card-content">
+        <div class="spec-row">
+          <div class="spec-label">ฟังก์ชันหลัก</div>
+          <div class="spec-detail">
+            ▶ ควบคุมสายพาน / rack system<br>
+            ▶ จัดลำดับงาน (Routine, STAT, Reflex)<br>
+            ▶ สื่อสารกับ LIS via HL7
+          </div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Smart Reflex rule</div>
+          <div class="spec-detail">เมื่อ UC หรือ UF ออก flag → สั่ง UD-10 ถ่ายภาพอัตโนมัติ → ส่งผลรวมให้ tech</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Sample capacity</div>
+          <div class="spec-detail">Rack loading: รองรับ continuous loading, rerun, reflex routing</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">💡 หัวใจของ UN3111</div>
+          <div class="spec-detail">เชื่อม UC-3500 + UF series + UD-10 ให้เป็น workflow แบบ walkaway & auto‑verification</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-note">
+    🧠 <strong>ภาพรวมระบบ UN3111</strong> — เป็นโซลูชันปัสสาวะอัตโนมัติเต็มรูปแบบ ตั้งแต่เคมี (strip) → อิมมูโนฟลูออเรสเซนต์ (flow) → การยืนยันด้วยภาพถ่ายดิจิทัล โดยไม่ต้องปั่นเหวี่ยง ไม่ต้องย้อมสี ด้วย UWAM ที่เชื่อมต่อ seamless ช่วยลด TAT และเพิ่มความสม่ำเสมอของผล lab
+    <br><br>
+    📌 <strong>เหมาะสำหรับ</strong> โรงพยาบาลขนาดกลาง–ใหญ่, ศูนย์ตรวจสุขภาพ, แล็บกลางที่รับงานปัสสาวะปริมาณ 250–500+ samples/วัน
+  </div>
+
+  <footer>
+    ⚙️ ข้อมูลอ้างอิงตาม specification ของ Sysmex UN3111 (UC-3500, UF-4000/5000, UD-10, UWAM)  |  เอกสารนี้ใช้เพื่อการศึกษาและเปรียบเทียบทางเทคนิคเท่านั้น
+  </footer>
+</div>
 </body>
 </html>
