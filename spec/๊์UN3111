@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Atellica CI1900 Spec</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="font-family:Arial;padding:20px;">
+
+<h1>Atellica CI1900 Specification</h1>
+
+<table border="1" cellpadding="10" cellspacing="0" width="100%">
+  <tr>
+    <th>Item</th>
+    <th>Detail</th>
+  </tr>
+  <tr>
+    <td>Brand</td>
+    <td>Siemens</td>
+  </tr>
+  <tr>
+    <td>Model</td>
+    <td>Atellica CI1900</td>
+  </tr>
+  <tr>
+    <td>Type</td>
+    <td>Chemistry Immunoassay Analyzer</td>
+  </tr>
+  <tr>
+    <td>System Overview</td>
+    <td>• Type: Integrated Clinical Chemistry + Immunoassay Analyzer<br>
+        • Designed for small–mid size labs / standalone labs<br>
+        • Modular system (expandable within Atellica platform)
+    </td>
+  </tr>
+  <tr>
+    <td>Throughput</td>
+    <td>• Total: up to 1,120 tests/hour<br>
+          600 photometric (chemistry)<br>
+          400 IMT (electrolytes)<br>
+          120 immunoassay<br>
+        👉 จุดเด่น: CH + IM ทำงานแยกกัน → ไม่แย่ง resource → throughput เสถียร
+    </td>
+  </tr>
+  <tr>
+    <td>Assay / Reagent Capacity</td>
+    <td>• Total onboard assays: ~113 tests<br>
+          70 chemistry reagent positions<br>
+          3 IMT (Na, K, Cl)<br>
+          120 immunoassay<br>
+          20 primary + 20 ancillary immunoassay<br>
+        • Reagent stability:<br>
+          Chemistry: up to ~6 months<br>
+          Immunoassay: up to ~3 months
+    </td>
+  </tr>
+  <tr>
+    <td>Sample Handling</td>
+    <td>• Sample capacity (rack handler): ~120 tubes<br>
+        • Sample throughput: up to ~250 tubes/hour<br>
+        • รองรับ:<br>
+          Routine + STAT<br>
+          Calibrator / QC
+    </td>
+  </tr>
+  <tr>
+    <td>Workflow</td>
+    <td>• Walkaway time: ~2 ชั่วโมง<br>
+        • Fully automated:<br>
+          Calibration<br>
+          QC storage<br>
+          Sample sorting / decap / seal<br>
+          👉 ลด manual step ได้ ~75%
+    </td>
+  </tr>
+  <tr>
+    <td>Size & Installation</td>
+    <td>• Dimensions:<br>
+          ~1610 × 2034 × 934 mm<br>
+        • Footprint: ~1.9 m²<br>
+        • Weight: ~760 kg
+    </td>
+  </tr>
+  <tr>
+    <td>Utilities / Requirements</td>
+    <td>• Power: 200–240 VAC, ~2.2 kW<br>
+        • Water consumption: up to ~25 L/hr<br>
+        • Water quality: ≥10 MΩ/cm (SRW required)
+    </td>
+  </tr>
+  <tr>
+    <td>Operating Conditions</td>
+    <td>• Temperature: 18–30°C<br>
+        • Noise: <65 dBA
+    </td>
+  </tr>
+  <tr>
+    <td>Technical Highlights (Important)</td>
+    <td>Independent CH + IM modules (no shared major parts)<br>
+        Micro-volume technology → ใช้ sample น้อย<br>
+        Random access system<br>
+        STAT priority processing<br>
+        รองรับ >200 assays ใน ecosystem
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
