@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+  <title>Dirui LA-60SE | Laboratory Automation System</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(145deg, #e8eef4 0%, #dce3ec 100%);
+      padding: 30px 20px;
+      color: #1a2a3f;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 40px;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+    }
+
+    /* Header */
+    .hero {
+      background: linear-gradient(135deg, #0d4e6e 0%, #1a6d94 100%);
+      color: white;
+      padding: 32px 36px;
+    }
+
+    .hero h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-tag {
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(4px);
+      font-size: 0.85rem;
+      padding: 5px 18px;
+      border-radius: 60px;
+      font-weight: 600;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      opacity: 0.9;
+      border-left: 3px solid #ffcc44;
+      padding-left: 18px;
+      margin-top: 12px;
+    }
+
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .pill {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(4px);
+      padding: 5px 16px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* Content */
+    .content {
+      padding: 28px 32px 24px 32px;
+    }
+
+    /* Throughput Highlight */
+    .throughput-bar {
+      background: linear-gradient(135deg, #f0f6fa 0%, #e8f0f5 100%);
+      border-radius: 28px;
+      padding: 24px;
+      margin-bottom: 32px;
+      text-align: center;
+      border: 1px solid #d0dee8;
+    }
+
+    .throughput-number {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #0d4e6e;
+      line-height: 1;
+    }
+
+    .throughput-label {
+      font-size: 1rem;
+      color: #4a6a7a;
+      margin-top: 8px;
+    }
+
+    /* Core Modules Grid */
+    .modules-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .module-card {
+      flex: 1;
+      min-width: 180px;
+      background: #ffffff;
+      border-radius: 24px;
+      border: 1px solid #dce5ec;
+      padding: 20px 16px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .module-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    }
+
+    .module-icon {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+    }
+
+    .module-title {
+      font-weight: 800;
+      color: #0d4e6e;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .module-desc {
+      font-size: 0.75rem;
+      color: #5a7a8a;
+      line-height: 1.4;
+    }
+
+    /* Workflow */
+    .workflow {
+      background: #f8fafc;
+      border-radius: 28px;
+      padding: 24px;
+      margin: 28px 0;
+      border: 1px solid #e0e8f0;
+    }
+
+    .workflow h3 {
+      font-size: 1.3rem;
+      color: #0d4e6e;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .workflow-steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .step {
+      flex: 1;
+      min-width: 110px;
+      background: white;
+      border-radius: 20px;
+      padding: 14px;
+      text-align: center;
+      border: 1px solid #e0e8f0;
+    }
+
+    .step-arrow {
+      font-size: 1.2rem;
+      color: #6a8a9a;
+      display: flex;
+      align-items: center;
+    }
+
+    .step-number {
+      width: 28px;
+      height: 28px;
+      background: #0d4e6e;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px;
+      font-weight: bold;
+      font-size: 0.8rem;
+    }
+
+    .step-icon {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .step-title {
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: #1a3a4a;
+    }
+
+    /* Table */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .spec-table th,
+    .spec-table td {
+      border: 1px solid #e0e8f0;
+      padding: 14px 18px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .spec-table th {
+      background: #f0f5f9;
+      color: #0d4e6e;
+      font-weight: 700;
+      width: 32%;
+    }
+
+    .highlight {
+      background: #e8f0f5;
+      border-left: 3px solid #ffaa33;
+      padding: 2px 10px;
+      border-radius: 18px;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .analyzer-badge {
+      background: #e8f0f5;
+      color: #0d4e6e;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    hr {
+      margin: 12px 0;
+      border: none;
+      height: 1px;
+      background: #e0e8f0;
+    }
+
+    .info-note {
+      background: #fef8e7;
+      border-left: 5px solid #f5a623;
+      padding: 16px 22px;
+      border-radius: 24px;
+      margin: 20px 0 12px;
+      font-size: 0.9rem;
+    }
+
+    .footer-note {
+      background: #f8fafc;
+      padding: 18px 32px;
+      text-align: center;
+      font-size: 0.72rem;
+      color: #6a8a9a;
+      border-top: 1px solid #e0e8f0;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        padding: 24px 20px;
+      }
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+      .content {
+        padding: 20px 18px;
+      }
+      .throughput-number {
+        font-size: 2.5rem;
+      }
+      .workflow-steps {
+        flex-direction: column;
+      }
+      .step-arrow {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <h1>
+      Dirui LA-60SE
+      <span class="brand-tag">Laboratory Automation System</span>
+    </h1>
+    <div class="subhead">
+      Entry-level Total Lab Automation (TLA) · Pre-analytical automation + sample routing
+    </div>
+    <div class="pill-group">
+      <span class="pill">⚡ ~700 samples/hour</span>
+      <span class="pill">🔄 Modular design</span>
+      <span class="pill">🧪 Random loading</span>
+      <span class="pill">🔗 Multi-analyzer connectivity</span>
+    </div>
+  </div>
+
+  <div class="content">
+    <!-- Throughput Highlight -->
+    <div class="throughput-bar">
+      <div class="throughput-number">~700 samples/hour</div>
+      <div class="throughput-label">Overall throughput capacity · Medium to High workload lab</div>
+      <div style="margin-top: 12px;">
+        <span class="analyzer-badge">🏥 Medium to Large Hospitals</span>
+        <span class="analyzer-badge">⚡ STAT support</span>
+        <span class="analyzer-badge">🔄 Continuous loading</span>
+      </div>
+    </div>
+
+    <!-- Core Modules (4 Modules) -->
+    <h3 style="color: #0d4e6e; margin-bottom: 16px;">⚙️ Core Modules (Modular System)</h3>
+    <div class="modules-grid">
+      <div class="module-card">
+        <div class="module-icon">📦</div>
+        <div class="module-title">Bulk Input Module</div>
+        <div class="module-desc">เท sample ลงทีเดียว · ไม่ต้องเรียง · ลด manual loading</div>
+      </div>
+      <div class="module-card">
+        <div class="module-icon">🌀</div>
+        <div class="module-title">Centrifuge Module</div>
+        <div class="module-desc">ปั่นเลือดอัตโนมัติ · Auto balance system</div>
+      </div>
+      <div class="module-card">
+        <div class="module-icon">🔍</div>
+        <div class="module-title">Serum ID Module</div>
+        <div class="module-desc">ตรวจสอบปริมาณและคุณภาพ sample</div>
+      </div>
+      <div class="module-card">
+        <div class="module-icon">🧪</div>
+        <div class="module-title">Aliquot Module</div>
+        <div class="module-desc">แบ่ง sample อัตโนมัติ · พิมพ์ barcode · Disposable tip → ลด contamination</div>
+      </div>
+    </div>
+
+    <!-- Workflow -->
+    <div class="workflow">
+      <h3>🔄 Real Laboratory Workflow (LA-60SE)</h3>
+      <div class="workflow-steps">
+        <div class="step"><div class="step-number">1</div><div class="step-icon">🧪</div><div class="step-title">Sample Input</div><div class="step-desc">Bulk loading · Random feed</div></div>
+        <div class="step"><div class="step-number">2</div><div class="step-icon">🌀</div><div class="step-title">Centrifuge</div><div class="step-desc">Auto spin · Balance system</div></div>
+        <div class="step"><div class="step-number">3</div><div class="step-icon">🔍</div><div class="step-title">Serum Check</div><div class="step-desc">Volume + Quality</div></div>
+        <div class="step"><div class="step-number">4</div><div class="step-icon">📋</div><div class="step-title">Aliquot</div><div class="step-desc">Secondary tube + Barcode</div></div>
+        <div class="step"><div class="step-number">5</div><div class="step-icon">🔗</div><div class="step-title">Analyzer</div><div class="step-desc">Chem / CLIA / CBC / Coag</div></div>
+      </div>
+    </div>
+
+    <!-- Main Specification Table -->
+    <table class="spec-table">
+      <tbody>
+        <tr>
+          <th>System Type</th>
+          <td><strong>Laboratory Sample Processing / Automation System</strong><br>Pre-analytical automation + sample routing · Entry-level Total Lab Automation (TLA)</span></td>
+        </tr>
+        <tr>
+          <th>Function</th>
+          <td>Manage samples before analyzer · Not an analyzer itself<br>Supports: Chemistry / Immunoassay / Hematology / Coagulation</span></td>
+        </tr>
+        <tr>
+          <th>Throughput</th>
+          <td>⚡ <strong>~700 samples/hour</strong><br>Medium–High workload lab · Suitable for medium to large hospitals</span></td>
+        </tr>
+        <tr>
+          <th>Sample Handling</th>
+          <td>
+            • <strong>Sample types:</strong> Serum / Whole blood<br>
+            • <strong>Random loading</strong> — no need to sort samples before loading<br>
+            • <strong>Continuous loading</strong><br>
+            • <strong>STAT sample support</strong> — priority processing
+           </span></td>
+        </tr>
+        <tr>
+          <th>Core Modules</th>
+          <td>
+            <strong>1. Bulk Input Module</strong> — load samples in bulk, reduce manual work<br>
+            <strong>2. Centrifuge Module</strong> — automated centrifugation with auto-balance<br>
+            <strong>3. Serum Identification Module</strong> — check volume and sample quality<br>
+            <strong>4. Aliquot Module</strong> — automated aliquoting, barcode printing, disposable tips
+           </span></td>
+        </tr>
+        <tr>
+          <th>Analyzer Connectivity</th>
+          <td>
+            🔗 <strong>Compatible with Dirui analyzers:</strong><br>
+            • Chemistry — CS series<br>
+            • Immunoassay — CM series<br>
+            • Hematology — BF series<br>
+            • Coagulation — BCA series<br>
+            👉 Create an <strong>Integrated Lab System</strong>
+           </span></td>
+        </tr>
+        <tr>
+          <th>Intelligent System</th>
+          <td>
+            🧠 Intelligent sample distribution · No collision<br>
+            📍 Real-time sample tracking<br>
+            ⚠️ Early warning system<br>
+            🔄 Smart workflow optimization<br>
+            👉 Reduces bottlenecks and errors
+           </span></td>
+        </tr>
+        <tr>
+          <th>Workflow Benefits</th>
+          <td>
+            🔥 <strong>Reduces manual steps:</strong><br>
+            • No manual centrifugation<br>
+            • No manual aliquoting<br>
+            • No manual sample sorting<br>
+            • Significantly lowers TAT (Turnaround Time)
+           </span></td>
+        </tr>
+        <tr>
+          <th>Safety & Quality</th>
+          <td>
+            🧯 Fully enclosed system → Reduces biohazard exposure<br>
+            ✅ Reduces contamination risk<br>
+            ✅ Supports <strong>ISO 15189 workflow</strong> compliance
+           </span></td>
+        </tr>
+        <tr>
+          <th>Key Features Summary</th>
+          <td>
+            ✔ <strong>Fully automatic</strong> — minimal sample handling<br>
+            ✔ <strong>Modular</strong> — customizable layout<br>
+            ✔ <strong>Reduces TAT</strong> significantly<br>
+            ✔ <strong>Disordered sample feeding</strong> — no pre-sorting required
+           </span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="info-note">
+      💡 <strong>What is LA-60SE?</strong> — This is a <strong>sample processing automation system</strong>, not an analyzer. It handles pre-analytical steps: bulk loading, centrifugation, serum quality check, and aliquoting. Then routes prepared samples to connected analyzers (chemistry, immunoassay, hematology, coagulation).
+    </div>
+
+    <div class="info-note" style="background: #eef5f9; border-left-color: #0d4e6e;">
+      📌 <strong>Ideal for:</strong> Medium to large hospitals, reference labs, and diagnostic centers looking to automate pre-analytical workflows. Perfect for labs experiencing high sample volume and seeking ISO 15189 accreditation with standardized processes.
+    </div>
+  </div>
+
+  <div class="footer-note">
+    ⚙️ Dirui LA-60SE — Laboratory Automation System specifications based on product documentation.<br>
+    Subject to change by region and configuration. This document is for educational and comparison purposes only.
+  </div>
+</div>
+</body>
+</html>
