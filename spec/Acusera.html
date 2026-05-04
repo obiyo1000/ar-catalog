@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+  <title>Randox Acusera | Third-Party QC & Acusera 24•7 Software</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(145deg, #e8f0ec 0%, #d9e3e0 100%);
+      padding: 30px 20px;
+      color: #1a3a2f;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 40px;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+    }
+
+    /* Header */
+    .hero {
+      background: linear-gradient(135deg, #1a5c4a 0%, #2b8a6e 100%);
+      color: white;
+      padding: 32px 36px;
+    }
+
+    .hero h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-tag {
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(4px);
+      font-size: 0.85rem;
+      padding: 5px 18px;
+      border-radius: 60px;
+      font-weight: 600;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      opacity: 0.9;
+      border-left: 3px solid #ffcc44;
+      padding-left: 18px;
+      margin-top: 12px;
+    }
+
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .pill {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(4px);
+      padding: 5px 16px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* Content */
+    .content {
+      padding: 28px 32px 24px 32px;
+    }
+
+    /* Two column layout for QC + Software */
+    .two-columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      margin-bottom: 28px;
+    }
+
+    .column {
+      flex: 1;
+      min-width: 280px;
+      background: #ffffff;
+      border-radius: 28px;
+      border: 1px solid #d4e2dc;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s;
+    }
+
+    .column:hover {
+      transform: translateY(-3px);
+    }
+
+    .column-header {
+      background: linear-gradient(135deg, #f0f7f4 0%, #e6f0ec 100%);
+      padding: 20px 24px;
+      border-bottom: 2px solid #2b8a6e;
+    }
+
+    .column-header h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #1a5c4a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .column-header .sub {
+      font-size: 0.8rem;
+      color: #5a7c6e;
+      margin-top: 8px;
+    }
+
+    .column-body {
+      padding: 20px 24px;
+    }
+
+    /* Feature list */
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .feature-list li {
+      margin-bottom: 14px;
+      padding-left: 28px;
+      position: relative;
+      font-size: 0.9rem;
+      color: #2a4a3e;
+      line-height: 1.4;
+    }
+
+    .feature-list li:before {
+      content: "✓";
+      color: #2b8a6e;
+      font-weight: bold;
+      font-size: 1.1rem;
+      position: absolute;
+      left: 0;
+    }
+
+    .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .badge {
+      background: #e8f0ec;
+      color: #1a5c4a;
+      padding: 5px 14px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .highlight-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #2b8a6e;
+      display: inline-block;
+      margin-right: 6px;
+    }
+
+    hr {
+      margin: 16px 0;
+      border: none;
+      height: 1px;
+      background: #d4e2dc;
+    }
+
+    .info-note {
+      background: #fef8e7;
+      border-left: 5px solid #f5a623;
+      padding: 16px 22px;
+      border-radius: 24px;
+      margin: 20px 0 12px;
+      font-size: 0.9rem;
+    }
+
+    .info-note-green {
+      background: #eef5f2;
+      border-left: 5px solid #2b8a6e;
+    }
+
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .stat-item {
+      flex: 1;
+      min-width: 100px;
+      text-align: center;
+      background: #f8fbf9;
+      padding: 12px;
+      border-radius: 20px;
+    }
+
+    .stat-number {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #1a5c4a;
+    }
+
+    .footer-note {
+      background: #f4faf8;
+      padding: 18px 32px;
+      text-align: center;
+      font-size: 0.72rem;
+      color: #6a8e7e;
+      border-top: 1px solid #d4e2dc;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        padding: 24px 20px;
+      }
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+      .content {
+        padding: 20px 18px;
+      }
+      .column-header h2 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <h1>
+      Randox Acusera
+      <span class="brand-tag">True Third-Party QC</span>
+    </h1>
+    <div class="subhead">
+      Independent Quality Control Materials + Acusera 24•7 Cloud-based QC Software
+    </div>
+    <div class="pill-group">
+      <span class="pill">🧪 >390 analytes</span>
+      <span class="pill">🌍 Real-time peer comparison</span>
+      <span class="pill">📊 ISO 15189 · CLIA · CAP</span>
+      <span class="pill">☁️ Cloud-based · 24/7</span>
+    </div>
+  </div>
+
+  <div class="content">
+    <!-- Two columns: QC Material + Software -->
+    <div class="two-columns">
+      <!-- QC Material Column -->
+      <div class="column">
+        <div class="column-header">
+          <h2>🧫 Acusera QC Materials</h2>
+          <div class="sub">Third-party quality control for IVD analyzers</div>
+        </div>
+        <div class="column-body">
+          <div class="badge-list">
+            <span class="badge">True third-party</span>
+            <span class="badge">ISO 15189 compliant</span>
+            <span class="badge">Multi-analyte</span>
+          </div>
+
+          <ul class="feature-list">
+            <li><strong>>390 analytes</strong> in portfolio — chemistry, immunoassay, hematology, coagulation, etc.</li>
+            <li><strong>Multi-analyte capability</strong> — multiple parameters in a single control → reduces number of controls needed</li>
+            <li><strong>Formats available:</strong> Liquid (ready-to-use) · Lyophilised (freeze-dried)</li>
+            <li><strong>Designed to behave like real patient samples</strong> — minimizes lot shift and reagent change issues</li>
+            <li><strong>Multiple QC levels:</strong> Low / Normal / High — covers clinical decision levels</li>
+            <li><strong>Compliance ready:</strong> ISO 15189 · CLIA · CAP standards</li>
+          </ul>
+
+          <div class="stat-row">
+            <div class="stat-item">
+              <div class="stat-number">390+</div>
+              <div style="font-size:0.7rem;">Analytes</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">3</div>
+              <div style="font-size:0.7rem;">QC Levels</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">2</div>
+              <div style="font-size:0.7rem;">Formats</div>
+            </div>
+          </div>
+
+          <div class="info-note info-note-green" style="margin-top: 16px;">
+            💡 <strong>Why third-party QC?</strong> — Independent control materials that are not biased to any specific analyzer manufacturer. Detect issues that manufacturer-specific controls might miss.
+          </div>
+        </div>
+      </div>
+
+      <!-- Acusera 24•7 Software Column -->
+      <div class="column">
+        <div class="column-header">
+          <h2>💻 Acusera 24•7</h2>
+          <div class="sub">Cloud-based QC data management software</div>
+        </div>
+        <div class="column-body">
+          <div class="badge-list">
+            <span class="badge">☁️ Cloud-based</span>
+            <span class="badge">Real-time peer group</span>
+            <span class="badge">Multi-site</span>
+          </div>
+
+          <ul class="feature-list">
+            <li><strong>Cloud system</strong> — web-based access, no installation required · Available 24/7 from anywhere</li>
+            <li><strong>Real-time Peer Group Comparison</strong> — compare results with labs worldwide · Detect instrument error or reagent problems instantly</li>
+            <li><strong>Statistical analysis:</strong> SDI, CV / CVI, Bias %, Total Error, Sigma metrics</li>
+            <li><strong>Dashboard & Alerts</strong> — color-coded system shows QC failures immediately → reduces QC review time</li>
+            <li><strong>Comprehensive reports:</strong> Levey-Jennings charts, Exception reports, Performance summary · Export to PDF / Excel</li>
+            <li><strong>Flexible data input:</strong> Manual · Semi-auto · Fully automated (LIS / middleware interface)</li>
+            <li><strong>Multi-site & Multi-instrument support</strong> — manage multiple instruments and labs in one system</li>
+          </ul>
+
+          <div class="stat-row">
+            <div class="stat-item">
+              <div class="stat-number">24/7</div>
+              <div style="font-size:0.7rem;">Access</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">Real-time</div>
+              <div style="font-size:0.7rem;">Peer comparison</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">📊</div>
+              <div style="font-size:0.7rem;">Sigma metrics</div>
+            </div>
+          </div>
+
+          <div class="info-note info-note-green" style="margin-top: 16px;">
+            📌 <strong>Key advantage:</strong> Real-time peer group allows you to compare your lab's performance against thousands of labs globally — instantly detect trends and biases before they affect patient results.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Combined integration note -->
+    <div class="info-note" style="background: #eef5f2; border-left-color: #2b8a6e; margin-top: 8px;">
+      🔗 <strong>Integrated solution:</strong> Acusera QC materials + Acusera 24•7 software work together. Use Randox controls, upload results to the cloud, and get real-time peer group statistics for every analyte. Perfect for laboratories seeking ISO 15189 accreditation and continuous quality improvement.
+    </div>
+
+    <!-- Compliance & Use Cases -->
+    <div class="two-columns" style="margin-top: 8px;">
+      <div class="column">
+        <div class="column-header" style="background: #fef8e7; border-bottom-color: #f5a623;">
+          <h2 style="color: #b45f06;">✅ Compliance & Accreditation</h2>
+        </div>
+        <div class="column-body">
+          <ul class="feature-list">
+            <li>Supports <strong>ISO 15189:2022</strong> requirements for IQC</li>
+            <li>Meets <strong>CLIA '88</strong> and <strong>CAP</strong> standards</li>
+            <li>Provides evidence for <strong>laboratory accreditation</strong> (FDA, CE, etc.)</li>
+            <li>QC data retention for <strong>audit trails</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="column-header" style="background: #f0f7f4; border-bottom-color: #2b8a6e;">
+          <h2 style="color: #1a5c4a;">🏥 Ideal For</h2>
+        </div>
+        <div class="column-body">
+          <ul class="feature-list">
+            <li>Clinical laboratories seeking <strong>unbiased QC</strong></li>
+            <li>Labs preparing for <strong>ISO 15189 accreditation</strong></li>
+            <li>Multi-site lab networks needing <strong>centralized QC monitoring</strong></li>
+            <li>Hospitals using <strong>multiple analyzer brands</strong></li>
+            <li>Laboratories wanting <strong>real-time peer comparison</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    ⚙️ Randox Acusera — Third-party quality control solutions and Acusera 24•7 cloud software.<br>
+    Specifications based on product documentation. Subject to change. This document is for educational and comparison purposes only.
+  </div>
+</div>
+</body>
+</html>
