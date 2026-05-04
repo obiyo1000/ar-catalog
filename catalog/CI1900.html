@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Siemens Atellica CI 1900 | แคตตาล็อกสินค้า - Meditop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #eef2f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            font-family: 'Sarabun', 'Segoe UI', 'Noto Sans Thai', system-ui, 'Roboto', 'Helvetica Neue', sans-serif;
+        }
+
+        /* ขนาด A4 */
+        .catalog {
+            max-width: 210mm;
+            width: 100%;
+            background: white;
+            box-shadow: 0 25px 45px -12px rgba(0,0,0,0.28);
+            margin: 0 auto;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .inner {
+            padding: 12mm 15mm 15mm 15mm;
+        }
+
+        /* header ภาษา */
+        .lang-header {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            border-bottom: 3px solid #0078D7;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+        .lang-badge {
+            color: #0078D7;
+            background: #E6F2FA;
+            padding: 4px 16px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* ส่วนบริษัท */
+        .company {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+            border-left: 5px solid #0078D7;
+            padding-left: 18px;
+        }
+        .company-name h1 {
+            font-size: 1.8rem;
+            color: #0c2d48;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+        }
+        .company-name p {
+            font-size: 0.75rem;
+            color: #2c3e50;
+            margin-top: 4px;
+        }
+        .model-badge {
+            background: #0c2d48;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        /* ชื่อสินค้า */
+        .product-title {
+            text-align: center;
+            margin: 15px 0 10px;
+        }
+        .product-name {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: #0078D7;
+            line-height: 1.2;
+        }
+        .product-name-en {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #1f4e79;
+            margin-top: 6px;
+            letter-spacing: 0.3px;
+        }
+        .sub {
+            text-align: center;
+            margin-bottom: 28px;
+            border-bottom: 1px dashed #b8d0e7;
+            padding-bottom: 12px;
+            font-style: italic;
+            color: #2c3e50;
+        }
+
+        /* ตารางสเปก (ทันสมัย อ่านง่าย) */
+        .spec-section {
+            margin: 20px 0 30px;
+        }
+        .spec-title {
+            background: #0078D7;
+            color: white;
+            padding: 8px 22px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            border-radius: 30px 8px 8px 30px;
+            display: inline-block;
+            margin-bottom: 22px;
+        }
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .spec-table th, .spec-table td {
+            border: 1px solid #cfdee9;
+            padding: 12px 12px;
+            vertical-align: top;
+        }
+        .spec-table th {
+            background: #F4F9FE;
+            font-weight: 700;
+            width: 38%;
+            color: #005a9e;
+        }
+        .th {
+            font-weight: 700;
+            color: #0b4770;
+        }
+        .en {
+            font-size: 0.73rem;
+            color: #4a627a;
+            line-height: 1.35;
+        }
+        .lang-pair {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        /* Feature grid */
+        .feature-grid {
+            background: #F4F9FF;
+            padding: 18px 22px;
+            border-radius: 24px;
+            margin: 25px 0;
+            border: 1px solid #d9e6f5;
+        }
+        .feature-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #0078D7;
+            margin-bottom: 14px;
+            border-left: 4px solid #0078D7;
+            padding-left: 14px;
+        }
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .feature-item {
+            flex: 1;
+            min-width: 170px;
+        }
+        .feature-item p {
+            margin: 8px 0;
+        }
+
+        .warranty-box {
+            background: #eef3fc;
+            padding: 14px 18px;
+            border-radius: 20px;
+            margin: 20px 0 15px;
+            font-size: 0.85rem;
+            border-left: 4px solid #0078D7;
+        }
+
+        /* ติดต่อ */
+        .contact-footer {
+            margin-top: 38px;
+            padding-top: 18px;
+            border-top: 2px solid #dce5f0;
+        }
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .address-box {
+            line-height: 1.5;
+        }
+        .address-box strong {
+            color: #1e2f3e;
+        }
+        .contact-details {
+            text-align: right;
+        }
+        .contact-details p {
+            margin: 4px 0;
+        }
+        .copy {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #5d6e85;
+            margin-top: 22px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+            .catalog {
+                max-width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+            }
+            .inner {
+                padding: 10mm 12mm;
+            }
+            .spec-table th, .spec-table td {
+                border-color: #aaa;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .inner {
+                padding: 8mm 12px;
+            }
+            .product-name {
+                font-size: 1.6rem;
+            }
+            .spec-table th, .spec-table td {
+                padding: 8px 8px;
+            }
+            .contact-details {
+                text-align: left;
+            }
+            .contact-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="catalog">
+    <div class="inner">
+        <!-- ตัวบ่งชี้ภาษาไทย/อังกฤษ -->
+        <div class="lang-header">
+            <span class="lang-badge">🇹🇭 ภาษาไทย</span>
+            <span class="lang-badge">🇬🇧 English</span>
+        </div>
+
+        <!-- บริษัท และรุ่นเครื่อง -->
+        <div class="company">
+            <div class="company-name">
+                <h1>MEDITOP</h1>
+                <p>บริษัท เมดิทอป จำกัด | Meditop Co., Ltd.</p>
+            </div>
+            <div class="model-badge">
+                Atellica CI 1900
+            </div>
+        </div>
+
+        <!-- ชื่อสินค้า Siemens Atellica CI 1900 -->
+        <div class="product-title">
+            <div class="product-name">Siemens Atellica® CI 1900</div>
+            <div class="product-name-en">Integrated Chemistry & Immunoassay Analyzer | High-Throughput Solution</div>
+        </div>
+        <div class="sub">
+            <span>🧪 ระบบวิเคราะห์เคมีคลินิกและภูมิคุ้มกันแบบบูรณาการ สมรรถนะสูง เพื่อผลลัพธ์ที่รวดเร็วและแม่นยำ</span><br>
+            <span class="en">Fully integrated chemistry & immunoassay system, delivering exceptional productivity and reliability.</span>
+        </div>
+
+        <!-- ตารางสเปก (แสดงภาษาไทยและอังกฤษครบ) -->
+        <div class="spec-section">
+            <div class="spec-title">📊 ข้อมูลจำเพาะทางเทคนิค | Technical Specifications</div>
+            <table class="spec-table">
+                <thead>
+                <tr><th>คุณลักษณะ (ไทย)</th><th>Specification (English)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="th">ประเภทเครื่องวิเคราะห์</td><td><span class="th">ระบบวิเคราะห์เคมีคลินิกและภูมิคุ้มโนเจนแบบรวมในเครื่องเดียว (Integrated)</span><br><span class="en">Fully integrated chemistry & immunoassay analyzer</span></td></tr>
+                    <tr><td class="th">ปริมาณงานสูงสุด (Throughput)</td><td><span class="th">เคมีคลินิก: สูงสุด 1,000 เทส/ชั่วโมง | ภูมิคุ้มกัน: สูงสุด 220 เทส/ชั่วโมง</span><br><span class="en">Chemistry: up to 1,000 tests/hour | Immunoassay: up to 220 tests/hour</span></td></tr>
+                    <tr><td class="th">ช่องบรรจุ reagents แบบต่อเนื่อง</td><td><span class="th">ความจุ reagent สูงสุด 48 ตำแหน่ง (แบบหมุนเวียน 2-8°C)</span><br><span class="en">48 on-board reagent positions (refrigerated, 2-8°C)</span></td></tr>
+                    <tr><td class="th">ความจุตัวอย่างพร้อมกัน</td><td><span class="th">สูงสุด 240 ตัวอย่าง (โหลดแบบต่อเนื่อง)</span><br><span class="en">Up to 240 sample positions (continuous loading)</span></td></tr>
+                    <tr><td class="th">ปริมาณตัวอย่างต่อเทส</td><td><span class="th">เคมี: 1.5 – 10 µL | ภูมิคุ้มกัน: 10 – 50 µL ช่วยลดการใช้ตัวอย่าง</span><br><span class="en">Chemistry: 1.5–10 µL | Immunoassay: 10–50 µL</span></td></tr>
+                    <tr><td class="th">เทคโนโลยีหลัก</td><td><span class="th">โฟโตเมทรี (Photometric), อิเล็กโทรเคมิลูมิเนสเซนส์ (ECL), วัดความขุ่น (Turbidimetry)</span><br><span class="en">Photometry, Electrochemiluminescence (ECL), Turbidimetry</span></td></tr>
+                    <tr><td class="th">พารามิเตอร์ที่รองรับ</td><td><span class="th">รายการทดสอบทั่วไปทางเคมีคลินิก, เอนไซม์, ยารักษาโรค, ฮอร์โมน, ตัวบ่งชี้มะเร็ง, Cardiac markers, โรคติดเชื้อ ฯลฯ</span><br><span class="en">Comprehensive test menu: clinical chemistry, hormones, tumor markers, cardiac, therapeutic drugs, infectious disease</span></td></tr>
+                    <tr><td class="th">ระบบควบคุมคุณภาพ (QC)</td><td><span class="th">QC อัตโนมัติแบบ multi-rule, Westgard rules, QC charting และ随访追踪</span><br><span class="en">Automatic QC with Westgard rules, real-time Levey-Jennings, multi‑level QC</span></td></tr>
+                    <tr><td class="th">อินเทอร์เฟซ & เชื่อมต่อ</td><td><span class="th">LAN, RS-232, รองรับ HL7, LIS เชื่อมต่อแบบ双向, remote diagnostics</span><br><span class="en">LAN, RS-232, HL7, bidirectional LIS, remote service capability</span></td></tr>
+                    <tr><td class="th">ระบบจัดการน้ำ/ reagent</td><td><span class="th">ระบบสูญญากาศในตัว, ระบบทำความสะอาดอัตโนมัติ, ปริมาณน้ำ DI น้อยที่สุด</span><br><span class="en">Integrated vacuum system, automated maintenance, minimal water consumption</span></td></tr>
+                    <tr><td class="th">มิติ (กว้าง×ลึก×สูง)</td><td><span class="th">1,520 mm × 840 mm × 1,270 mm (ประมาณ)</span><br><span class="en">1,520 × 840 × 1,270 mm (approx.)</span></td></tr>
+                    <tr><td class="th">น้ำหนัก</td><td><span class="th">≈ 380 kg (ไม่รวมอุปกรณ์เสริม)</span><br><span class="en">Approx. 380 kg (without accessories)</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- จุดเด่นทางการค้า / Key Selling Points -->
+        <div class="feature-grid">
+            <div class="feature-title">⭐ ข้อได้เปรียบที่เหนือชั้น | Key Advantages</div>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <p><strong>🇹🇭 การบูรณาการเคมี+อิมมูโน</strong><br><span class="en">Integrated chemistry & immunoassay reduces turnaround time</span></p>
+                    <p><strong>🇹🇭 ความเร็วสูงสุด 1,000+ เทส/ชม.</strong><br><span class="en">High throughput for large-volume labs</span></p>
+                </div>
+                <div class="feature-item">
+                    <p><strong>🇹🇭 ใช้ตัวอย่างน้อย & ระบบอัตโนมัติ</strong><br><span class="en">Low sample volume & automation reduces manual steps</span></p>
+                    <p><strong>🇹🇭 การเชื่อมต่อ Middleware (Atellica® Data Manager)</strong><br><span class="en">Advanced data management & workflow optimization</span></p>
+                </div>
+                <div class="feature-item">
+                    <p><strong>🇹🇭 ความแม่นยำสูง ผ่านมาตรฐานสากล</strong><br><span class="en">Excellent precision & traceability to international references</span></p>
+                    <p><strong>🇹🇭 บริการติดตั้งและอบรมครบวงจร</strong><br><span class="en">Full installation & training by certified Siemens engineers</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- การรับประกันและบริการหลังการขาย -->
+        <div class="warranty-box">
+            <p><strong>✅ การรับประกันและบริการหลังการขาย | Warranty & After-Sales</strong><br>
+            <span class="th">✔ รับประกันตัวเครื่อง 2 ปี พร้อมบริการบำรุงรักษาเชิงป้องกัน และซ่อมบำรุงฟรีตลอดอายุสัญญา (เงื่อนไขตามข้อตกลง)</span><br>
+            <span class="en">✔ 2-year full warranty including preventive maintenance & remote technical support.</span><br>
+            <span class="th">✔ ทีมวิศวกรผู้เชี่ยวชาญของ Siemens Healthineers และ Meditop พร้อมให้บริการทั่วไทย</span><br>
+            <span class="en">✔ Dedicated field service engineers with genuine Siemens spare parts nationwide.</span></p>
+        </div>
+
+        <!-- ที่อยู่ และข้อมูลติดต่อตามที่โจทย์กำหนด -->
+        <div class="contact-footer">
+            <div class="contact-row">
+                <div class="address-box">
+                    <strong>🏢 บริษัท เมดิทอป จำกัด (Meditop Co., Ltd.)</strong><br>
+                    334 ซอยลาดพร้าว 71 (สังคมสงเคราะห์เหนือ 1)<br>
+                    ถนนลาดพร้าว แขวงคลองเจ้าคุณสิงห์ เขตวังทองหลาง<br>
+                    กรุงเทพฯ 10310<br>
+                    <span class="en" style="font-size: 0.7rem;">334 Ladprao 71 (Social Sangkhro Nua 1), Ladprao Road, Khlong Chaokhun Sing, Wang Thonglang, Bangkok 10310, Thailand</span>
+                </div>
+                <div class="contact-details">
+                    <p><strong>📞 Tel:</strong> 029331133</p>
+                    <p><strong>✉️ Email:</strong> info@meditopthailand.com</p>
+                    <p><strong>🕘 เวลาทำการ (Business hours):</strong> จ.-ศ. 08:30 - 17:30 น.</p>
+                    <p class="en">Sales & Technical Inquiry | ติดต่อฝ่ายขายเพื่อสอบถามรายละเอียดเพิ่มเติม</p>
+                </div>
+            </div>
+            <div class="copy">
+                © 2025 Meditop (Thailand) Co., Ltd. | Siemens Atellica CI 1900 Integrated Analyzer — Official Sales Catalog for Healthcare Professionals
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
