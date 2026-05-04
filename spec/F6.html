@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+  <title>Medcaptain Immu F6 | Fully Automated CLIA Analyzer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(145deg, #f0eef7 0%, #e3dfed 100%);
+      padding: 30px 20px;
+      color: #2a2540;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 40px;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+    }
+
+    /* Header */
+    .hero {
+      background: linear-gradient(135deg, #4a2c7a 0%, #6b4c9e 100%);
+      color: white;
+      padding: 32px 36px;
+    }
+
+    .hero h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-tag {
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(4px);
+      font-size: 0.85rem;
+      padding: 5px 18px;
+      border-radius: 60px;
+      font-weight: 600;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      opacity: 0.9;
+      border-left: 3px solid #ffcc44;
+      padding-left: 18px;
+      margin-top: 12px;
+    }
+
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .pill {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(4px);
+      padding: 5px 16px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* Content */
+    .content {
+      padding: 28px 32px 24px 32px;
+    }
+
+    /* Stats row */
+    .stat-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .stat-card {
+      flex: 1;
+      min-width: 150px;
+      background: #f8f6fe;
+      border-radius: 28px;
+      padding: 18px 16px;
+      text-align: center;
+      border: 1px solid #e8e2f0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #4a2c7a;
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: #6a5a8a;
+      margin-top: 8px;
+    }
+
+    /* Table */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .spec-table th,
+    .spec-table td {
+      border: 1px solid #e8e2f0;
+      padding: 14px 18px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .spec-table th {
+      background: #f3eff9;
+      color: #4a2c7a;
+      font-weight: 700;
+      width: 32%;
+      font-size: 0.95rem;
+    }
+
+    .spec-table td {
+      background: white;
+      color: #2a2540;
+    }
+
+    .highlight {
+      background: #ede7f8;
+      border-left: 3px solid #9b7bcf;
+      padding: 2px 12px;
+      border-radius: 20px;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .tech-badge {
+      background: #e8e0f5;
+      color: #4a2c7a;
+      border-radius: 20px;
+      padding: 3px 12px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      display: inline-block;
+      margin: 2px 4px 2px 0;
+    }
+
+    hr {
+      margin: 12px 0;
+      border: none;
+      height: 1px;
+      background: #e8e2f0;
+    }
+
+    .info-note {
+      background: #fef8e7;
+      border-left: 5px solid #f5a623;
+      padding: 16px 22px;
+      border-radius: 24px;
+      margin: 28px 0 12px;
+      font-size: 0.9rem;
+    }
+
+    .footer-note {
+      background: #f8f6fe;
+      padding: 18px 32px;
+      text-align: center;
+      font-size: 0.72rem;
+      color: #7a6a9a;
+      border-top: 1px solid #e8e2f0;
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        padding: 24px 20px;
+      }
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+      .content {
+        padding: 20px 18px;
+      }
+      .spec-table th,
+      .spec-table td {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+      }
+      .stat-card {
+        min-width: 130px;
+      }
+      .stat-number {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <h1>
+      Medcaptain Immu F6
+      <span class="brand-tag">Fully Automated CLIA Analyzer</span>
+    </h1>
+    <div class="subhead">
+      Chemiluminescence Immunoassay · Compact Benchtop · POCT / ER / ICU Ready
+    </div>
+    <div class="pill-group">
+      <span class="pill">⚡ 6 results / 15 min</span>
+      <span class="pill">🩸 Whole blood direct load</span>
+      <span class="pill">🧪 Magnetic bead CLIA</span>
+      <span class="pill">📱 Touchscreen + Printer</span>
+    </div>
+  </div>
+
+  <div class="content">
+    <!-- Key stats -->
+    <div class="stat-bar">
+      <div class="stat-card">
+        <div class="stat-number">6</div>
+        <div class="stat-label">Tests at once</div>
+        <small style="color:#8a7aaa;">simultaneous</small>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">~15 min</div>
+        <div class="stat-label">Time to first result</div>
+        <small style="color:#8a7aaa;">STAT ready</small>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">10–100 µL</div>
+        <div class="stat-label">Sample volume</div>
+        <small style="color:#8a7aaa;">parameter dependent</small>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">28 days</div>
+        <div class="stat-label">Calibration interval</div>
+        <small style="color:#8a7aaa;">per lot</small>
+      </div>
+    </div>
+
+    <!-- Main spec table -->
+    <table class="spec-table">
+      <tbody>
+        <tr>
+          <th>Brand</th>
+          <td><strong>Medcaptain</strong> — Chemiluminescence immunoassay specialist</span></td>
+        </tr>
+        <tr>
+          <th>Model</th>
+          <td><span class="highlight">Immu F6</span> | Fully automated chemiluminescence immunoassay analyzer (CLIA)</span></td>
+        </tr>
+        <tr>
+          <th>System Type</th>
+          <td>• Fully automated CLIA (Chemiluminescence Immunoassay)<br>• Closed system · Benchtop / Compact design<br>• Application: POCT / ER / ICU / Satellite labs</span></td>
+        </tr>
+        <tr>
+          <th>Throughput & Performance</th>
+          <td>• <strong>6 reaction positions</strong> — run simultaneously<br>• Maximum: <strong>~6 results / 15 minutes</strong><br>• Time to first result: ~13–15 minutes<br>• Routine test time: ~15 minutes (some tests up to 25 minutes)</span></td>
+        </tr>
+        <tr>
+          <th>Measurement Principle</th>
+          <td>🔬 <strong>Acridinium ester Chemiluminescence (CLIA)</strong><br>• <strong>Magnetic bead immunoassay</strong> technology<br>🔥 Key features:<br>— High sensitivity (comparable to large analyzers)<br>— Excellent correlation with high-volume systems</span></td>
+        </tr>
+        <tr>
+          <th>Sample Requirement</th>
+          <td>🧪 <strong>Sample types:</strong> Whole blood / Serum / Plasma<br>💉 <strong>Sample volume:</strong> ~10–100 µL (depends on parameter)<br>✅ <strong>Primary tube loading</strong> — no aliquot required<br>✅ <strong>No centrifugation needed for whole blood</strong> → ideal for ER</span></td>
+        </tr>
+        <tr>
+          <th>Reagent System</th>
+          <td>• <strong>Single-use cartridge</strong> (1 test = 1 cartridge)<br>• Load capacity: ~12 cartridges per run<br>• Includes: Trigger solution / Pre-trigger / Wash buffer</span></td>
+        </tr>
+        <tr>
+          <th>Test Menu</th>
+          <td>
+            <strong>❤️ Cardiac markers:</strong> hs-TnI, CK-MB, Myoglobin, NT-proBNP<br>
+            <strong>🦠 Inflammation / Infection:</strong> CRP, hs-CRP, PCT, IL-6<br>
+            <strong>🩸 Coagulation:</strong> D-dimer<br>
+            <strong>🧬 Hormones / Tumor markers / Others:</strong> TSH, fT3, fT4, β-HCG, Tumor markers
+          </span></td>
+        </tr>
+        <tr>
+          <th>System Features</th>
+          <td>• <strong>Random access</strong> — add samples anytime during run<br>• <strong>STAT priority mode</strong><br>• Barcode scanning (sample ID + reagent lot)<br>• Built-in <strong>12" touchscreen</strong><br>• Built-in <strong>thermal printer</strong></span></td>
+        </tr>
+        <tr>
+          <th>Connectivity</th>
+          <td>• LIS / HIS integration via <strong>HL7 protocol</strong><br>• USB port for data export and firmware updates</span></td>
+        </tr>
+        <tr>
+          <th>Special Functions</th>
+          <td>• <strong>Hematocrit correction</strong> for whole blood samples<br>• <strong>Clot detection</strong> — prevents errors<br>• <strong>QC management</strong> with Levey-Jennings charts<br>• Calibration required every ~28 days per lot</span></td>
+        </tr>
+        <tr>
+          <th>💡 Ideal for</th>
+          <td>🏥 Emergency Rooms (ER), Intensive Care Units (ICU), Point-of-Care Testing (POCT), Satellite labs, Cardiology wards, Small to medium hospitals</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="info-note">
+      🔬 <strong>CLIA technology advantage:</strong> Immu F6 uses acridinium ester chemiluminescence with magnetic bead separation. This provides high sensitivity (pg/mL level) and wide dynamic range — comparable to high-throughput lab systems but in a compact benchtop format.
+    </div>
+    <div class="info-note" style="background:#f3eff9; border-left-color:#4a2c7a;">
+      📌 <strong>Why Immu F6 for ER/ICU?</strong> — Direct whole blood loading (no centrifugation), STAT priority, and first result in ~13 minutes. Perfect for troponin, NT-proBNP, and PCT in critical care settings.
+    </div>
+  </div>
+
+  <div class="footer-note">
+    ⚙️ Medcaptain Immu F6 — Specifications based on product documentation. Subject to change by region and firmware version. This document is for educational and comparison purposes only.
+  </div>
+</div>
+</body>
+</html>
