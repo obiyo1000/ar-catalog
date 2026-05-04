@@ -2,119 +2,355 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>Dri-Chem NX600 Spec</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+  <title>Fujifilm Dri-Chem NX600 | Dry Chemistry Analyzer</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(145deg, #e9f0f5 0%, #dce3e9 100%);
+    padding: 30px 20px;
+    color: #1e2f3c;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 40px;
+    box-shadow: 0 25px 45px -10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+
+  /* Header */
+  .hero-section {
+    background: linear-gradient(130deg, #003d33 0%, #006b5e 100%);
+    color: white;
+    padding: 32px 36px;
+  }
+
+  .hero-section h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .brand-chip {
+    display: inline-block;
+    background: rgba(255,255,240,0.18);
+    backdrop-filter: blur(4px);
+    font-size: 0.9rem;
+    padding: 5px 18px;
+    border-radius: 60px;
+    font-weight: 600;
+  }
+
+  .subhead {
+    font-size: 1rem;
+    opacity: 0.9;
+    border-left: 3px solid #ffb347;
+    padding-left: 18px;
+    margin-top: 12px;
+    font-weight: 400;
+  }
+
+  .spec-badge-set {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .spec-badge-set span {
+    background: rgba(255,255,240,0.1);
+    backdrop-filter: blur(4px);
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  /* Core content */
+  .content-core {
+    padding: 28px 32px 20px 32px;
+  }
+
+  /* two column feature */
+  .feature-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    margin-bottom: 32px;
+  }
+
+  .feature-card {
+    flex: 1;
+    min-width: 220px;
+    background: #f9fdfe;
+    border-radius: 28px;
+    padding: 20px 20px;
+    border: 1px solid #e0edf2;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+  }
+
+  .feature-card .emoji-big {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+  }
+
+  .feature-card h3 {
+    color: #006b5e;
+    font-weight: 700;
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+  }
+
+  .feature-card p {
+    font-size: 0.85rem;
+    color: #2c4b5c;
+    line-height: 1.4;
+  }
+
+  .spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0 20px 0;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+
+  .spec-table th, 
+  .spec-table td {
+    border: 1px solid #e2edf2;
+    padding: 14px 18px;
+    vertical-align: top;
+    text-align: left;
+  }
+
+  .spec-table th {
+    background-color: #eff7f5;
+    color: #005a4c;
+    font-weight: 700;
+    width: 30%;
+    font-size: 0.95rem;
+  }
+
+  .spec-table td {
+    background-color: #ffffff;
+    color: #1e3b44;
+  }
+
+  .highlight {
+    background: #eafaf7;
+    border-left: 3px solid #00a88f;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    display: inline-block;
+    margin: 2px 0;
+  }
+
+  .micro-badge {
+    background: #ffecb3;
+    color: #b45f06;
+    border-radius: 18px;
+    padding: 2px 12px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    display: inline-block;
+    margin-right: 6px;
+  }
+
+  hr {
+    margin: 16px 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, #cce3e0, transparent);
+  }
+
+  .info-note {
+    background: #fef6e0;
+    border-left: 5px solid #f5a623;
+    padding: 16px 22px;
+    border-radius: 24px;
+    margin: 28px 0 12px 0;
+    font-size: 0.9rem;
+  }
+
+  .footer-note {
+    background: #f4faf8;
+    padding: 18px 32px;
+    text-align: center;
+    font-size: 0.72rem;
+    color: #5e7e8c;
+    border-top: 1px solid #d3e3e8;
+  }
+
+  @media (max-width: 720px) {
+    .hero-section {
+      padding: 24px 20px;
+    }
+    .hero-section h1 {
+      font-size: 1.7rem;
+    }
+    .content-core {
+      padding: 20px 18px;
+    }
+    .spec-table th, .spec-table td {
+      padding: 10px 12px;
+      font-size: 0.85rem;
+    }
+    .spec-table th {
+      width: 40%;
+    }
+    .feature-card {
+      min-width: 100%;
+    }
+  }
+
+  .flex-stat {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 6px;
+  }
+</style>
 </head>
-<body style="font-family:Arial;padding:20px;">
+<body>
+<div class="container">
+  <div class="hero-section">
+    <h1>
+      FUJIFILM Dri-Chem NX600 
+      <span class="brand-chip">Dry Chemistry Analyzer</span>
+    </h1>
+    <div class="subhead">
+      No water line · No liquid reagents · True walkaway for small to mid-size labs
+    </div>
+    <div class="spec-badge-set">
+      <span>💧 Zero plumbing</span>
+      <span>⚡ 128 tests/hour</span>
+      <span>🩸 Whole blood / Serum / Plasma / Urine</span>
+      <span>📏 28 kg · Desktop</span>
+    </div>
+  </div>
 
-<h1>Dri-Chem NX600 Specification</h1>
+  <div class="content-core">
+    <!-- Quick highlights cards -->
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="emoji-big">💧❌</div>
+        <h3>No water · No reagent prep</h3>
+        <p>Dry slide technology – 不需要纯水系统, ไม่มีท่อน้ำทิ้ง, ติดตั้งง่าย เหมาะกับจุดตรวจซับซ้อน</p>
+      </div>
+      <div class="feature-card">
+        <div class="emoji-big">🩸🔬</div>
+        <h3>Microsample volume</h3>
+        <p>ใช้ sample เพียง ~10 µL/ test — ดีที่สุดสำหรับ pediatric, ER, ผู้ป่วยหนัก</p>
+      </div>
+      <div class="feature-card">
+        <div class="emoji-big">⚡⏱️</div>
+        <h3>Rapid TAT</h3>
+        <p>ผลภายใน 2–6 นาที, full profile ~8 นาที ช่วยลดคิว OPD</p>
+      </div>
+    </div>
 
-<table border="1" cellpadding="10" cellspacing="0" width="100%">
-  <tr>
-    <th>Item</th>
-    <th>Detail</th>
-  </tr>
-  <tr>
-    <td>Brand</td>
-    <td>Fujifilm</td>
-  </tr>
-  <tr>
-    <td>Model</td>
-    <td>Dri-Chem NX600</td>
-  </tr>
-  <tr>
-    <td>Type</td>
-    <td>Chemistry Analyzer</td>
-  </tr>
-  <tr>
-    <td>System Overview</td>
-    <td>• Type: Fully automated dry chemistry analyzer<br>
-        • Technology: Dry chemistry (slide-based reflectance photometry)<br>
-        • Designed for: OPD / ER / small–mid lab / satellite lab<br>
-        • Key concept: No water, no liquid reagent system
-    </td>
-  </tr>
-  <tr>
-    <td>Throughput</td>
-    <td>• Colorimetric: ~120 tests/hour<br>
-        • Combined (Chem + ISE): ~128 tests/hour<br>
-        👉 เหมาะกับ workload ระดับ clinic → small hospital
-    </td>
-  </tr>
-  <tr>
-    <td>Test Capability</td>
-    <td>• Colorimetric tests: ~26–31 parameters<br>
-        • Electrolytes: Na, K, Cl (ISE module)<br>
-        • Chemistry:<br>
-          AST, ALT, ALP, LDH, CK<br>
-          Glucose, BUN, Creatinine<br>
-          Cholesterol, Triglyceride<br>
-        • Immunology:<br>
-          CRP<br>
-          Immunoassay: up to ~3 months
-    </td>
-  </tr>
-  <tr>
-    <td>Sample Requirement</td>
-    <td>• Sample type:<br>
-          Serum / Plasma / Whole blood / Urine<br>
-        • Sample volume:<br>
-          ~10 µL/test<br>
-          CRP: ~5 µL<br>
-          Electrolyte: ~50 µL<br>
-        👉 จุดเด่น: microsample (เหมาะ ER / pediatric)
-    </td>
-  </tr>
-  <tr>
-    <td>Turnaround Time (TAT)</td>
-    <td>• Result time: ~2–6 นาที / test<br>
-        • Full profile: ~8 นาที
-    </td>
-  </tr>
-  <tr>
-    <td>Measurement System</td>
-    <td>• Method:<br>
-          Reflectance photometry (dry slide)<br>
-          Potentiometry (electrolyte)<br>
-        • Measurement cells:<br>
-          13 chemistry + 1 electrolyte
-    </td>
-  </tr>
-  <tr>
-    <td>Automation & Workflow</td>
-    <td>• Fully automated:<br>
-          Pipetting<br>
-          Mixing<br>
-          Dilution<br>
-        • 3-step operation:<br>
-          1. ใส่ sample<br>
-          2. ใส่ slide<br>
-          3. กด start<br>
-        • Built-in:<br>
-          QC system<br>
-          Calibration (QC card)<br>
-          Thermal printer
-    </td>
-  </tr>
-  <tr>
-    <td>Physical Specification</td>
-    <td>• Dimensions:<br>
-          470 × 360 × 380 mm<br>
-        • Weight:<br>
-          ~28 kg<br>
-        👉 จุดเด่น: compact มาก (วางโต๊ะได้เลย)
-    </td>
-  </tr>
-  <tr>
-    <td>Connectivity</td>
-    <td>• Interfaces:<br>
-            USB<br>
-            LAN<br>
-            RS-232C<br>
-        👉 ต่อ LIS / middleware ได้
-    </td>
-  </tr>
-</table>
+    <!-- Main specification table -->
+    <table class="spec-table">
+      <tbody>
+        <tr><th>Brand</th><td><strong>Fujifilm Corporation</strong> (Dry Chemistry pioneer)</td></tr>
+        <tr><th>Model</th><td><span class="highlight">Dri-Chem NX600</span> | Fully automated dry chemistry analyzer</td></tr>
+        <tr><th>Technology</th><td>✔️ Reflectance photometry on multilayer dry slides<br>✔️ ISE: Potentiometry for Na, K, Cl<br>✔️ ไม่ต้องใช้น้ำ, ไม่มี chemical waste  liquid</td></tr>
+        <tr><th>Throughput</th>
+          <td>
+            <div class="flex-stat">
+              <span class="micro-badge">🔥 120 tests/h</span> Colorimetric (dry chemistry)<br>
+              <span class="micro-badge">🔥 128 tests/h</span> Colorimetric + ISE combined<br>
+              เหมาะกับ workload 150–300 samples/day (clinic / 社区医院)
+            </div>
+          </td>
+        </tr>
+        <tr><th>Test Menu</th>
+          <td>
+            <strong>Colorimetric (26–31 parameters):</strong><br>
+            AST, ALT, ALP, LDH, CK, GGT, GLU, BUN, CRE, UA, T-Chol, HDL, LDL, TG, TP, ALB, Ca, Mg, P, T-BIL, D-BIL, AMY, CRP ( immunoturbidimetric)<br>
+            <hr>
+            <strong>Electrolytes (ISE):</strong> Sodium (Na), Potassium (K), Chloride (Cl)
+          </td>
+        </tr>
+        <tr><th>Sample Type & Volume</th>
+          <td>
+            🧪 <strong>Sample type:</strong> Serum, Plasma, Whole blood (capillary/venous), Urine<br>
+            💉 <strong>Volume per test:</strong><br>
+            — Routine chemistry: ~10 µL<br>
+            — CRP: ~5 µL<br>
+            — Electrolyte (Na/K/Cl): ~50 µL<br>
+            <span class="highlight">"Microsample Advantage"</span> : ลดการเจาะซ้ำ ในผู้ป่วยเด็ก / ผู้สูงอายุ
+          </td>
+        </tr>
+        <tr><th>Turnaround Time (TAT)</th>
+          <td>
+            ⏱️ 2–6 minutes per test (single test)<br>
+            ⏱️ ~8 minutes for routine profile (e.g., GLU + BUN + CRE + TG + Chol)
+          </td>
+        </tr>
+        <tr><th>Measurement Channels</th><td>13 chemistry cells + 1 electrolyte cell</td></tr>
+        <tr><th>Automation & Operation</th>
+          <td>
+            ✅ Fully automated: pipetting, mixing, dilution, calculation<br>
+            ✅ <strong>3-step operation:</strong><br>
+            &nbsp;&nbsp;1. Place sample tube/cup<br>
+            &nbsp;&nbsp;2. Load dry slide<br>
+            &nbsp;&nbsp;3. Press START<br>
+            ✅ Built-in QC, calibration using QC card (no wet calibrator)
+          </td>
+        </tr>
+        <tr><th>Physical & Installation</th>
+          <td>
+            📐 Dimensions: 470 × 360 × 380 mm (W×D×H)<br>
+            ⚖️ Weight: <strong>~28 kg</strong> → ตั้งบนโต๊ะ lab ได้เลย<br>
+            🔌 Power: 100–240 VAC, 50/60 Hz, ~250VA
+          </td>
+        </tr>
+        <tr><th>Connectivity & Data</th>
+          <td>
+            • USB port (data export / firmware)<br>
+            • LAN (Ethernet) for LIS / HIS integration<br>
+            • RS-232C serial interface<br>
+            • Built-in <strong>thermal printer</strong> +  external printer support
+          </td>
+        </tr>
+        <tr><th>💡 โดดเด่นสำหรับหน่วยงานไหน?</th>
+          <td>
+            🏥 OPD / ER / Satellite lab / คลินิกเฉพาะทาง / ห้องฉุกเฉิน 24 ชม.<br>
+            🌿 ไม่ต้องมีระบบ RO water, ไม่ต้องบำรุงรักษาท่อน้ำ, ติดตั้งไว พร้อมใช้งานภายใน 30 นาที
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
+    <div class="info-note">
+      🔬 <strong>Dry Chemistry ทำงานอย่างไร?</strong> — Dri-Chem NX600 ใช้ multilayer dry slide แต่ละชั้นมี reagent เฉพาะ เมื่อหยดตัวอย่างลงไป ปฏิกิริยาเคมีจะเกิดขึ้นและวัดค่าการสะท้อนแสง (reflectance) ที่แม่นยำ เทียบเท่า wet chemistry แต่ไม่ต้องเตรียมน้ำ สารละลาย และลดขยะอันตรายถึง 90%
+    </div>
+    <div class="info-note" style="background:#eef5fa; border-left-color:#006b5e;">
+      🩺 <strong>เหมาะสำหรับ COVID / mobile lab / point-of-care settings</strong> — เนื่องจาก lightweight, กันสั่นสะเทือน, ใช้พลังงานต่ำ และบำรุงรักษาง่าย
+    </div>
+  </div>
+  <div class="footer-note">
+    ⚙️ Fujifilm Dri-Chem NX600 — ข้อมูลอ้างอิงจาก specification guide และบริการหลังการขาย ซึ่งอาจมีการเปลี่ยนแปลงตาม regional config | เอกสารนี้ใช้เพื่อการศึกษาเท่านั้น
+  </div>
+</div>
 </body>
 </html>
