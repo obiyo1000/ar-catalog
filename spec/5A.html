@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+  <title>Sciendox 5A | Automated Feces Analysis System</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(145deg, #f0ede8 0%, #e3dfd8 100%);
+      padding: 30px 20px;
+      color: #3a2a1f;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 40px;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+    }
+
+    /* Header */
+    .hero {
+      background: linear-gradient(135deg, #5c3a1e 0%, #8b5e2c 100%);
+      color: white;
+      padding: 32px 36px;
+    }
+
+    .hero h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-tag {
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(4px);
+      font-size: 0.85rem;
+      padding: 5px 18px;
+      border-radius: 60px;
+      font-weight: 600;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      opacity: 0.9;
+      border-left: 3px solid #ffcc66;
+      padding-left: 18px;
+      margin-top: 12px;
+    }
+
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .pill {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(4px);
+      padding: 5px 16px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* Content */
+    .content {
+      padding: 28px 32px 24px 32px;
+    }
+
+    /* 3-in-1 Cards */
+    .three-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .card {
+      flex: 1;
+      min-width: 220px;
+      background: #ffffff;
+      border-radius: 28px;
+      border: 1px solid #e0d6cc;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card-header {
+      padding: 18px 20px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: white;
+    }
+
+    .card-header.preprocessing { background: linear-gradient(135deg, #2c6e5e 0%, #3a8a76 100%); }
+    .card-header.morphology { background: linear-gradient(135deg, #4a6fa5 0%, #5d87c2 100%); }
+    .card-header.immuno { background: linear-gradient(135deg, #c47a2a 0%, #e0923a 100%); }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-body .emoji-big {
+      font-size: 2rem;
+      text-align: center;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .card-body p {
+      font-size: 0.85rem;
+      color: #4a3a2a;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .tech-tag {
+      background: #f0ece6;
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #5c3a1e;
+      margin: 4px 4px 0 0;
+    }
+
+    /* Workflow section */
+    .workflow {
+      background: #faf8f4;
+      border-radius: 28px;
+      padding: 24px;
+      margin: 28px 0;
+      border: 1px solid #e8dfd4;
+    }
+
+    .workflow h3 {
+      font-size: 1.3rem;
+      color: #5c3a1e;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .workflow-steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .step {
+      flex: 1;
+      min-width: 140px;
+      background: white;
+      border-radius: 20px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border: 1px solid #e8dfd4;
+    }
+
+    .step-number {
+      width: 32px;
+      height: 32px;
+      background: #8b5e2c;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      font-weight: bold;
+    }
+
+    .step-icon {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .step-title {
+      font-weight: 700;
+      color: #5c3a1e;
+      margin-bottom: 6px;
+    }
+
+    .step-desc {
+      font-size: 0.7rem;
+      color: #7a6a5a;
+    }
+
+    /* Table */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .spec-table th,
+    .spec-table td {
+      border: 1px solid #e8dfd4;
+      padding: 14px 18px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .spec-table th {
+      background: #f4efe8;
+      color: #5c3a1e;
+      font-weight: 700;
+      width: 30%;
+    }
+
+    .highlight {
+      background: #fef4e6;
+      border-left: 3px solid #e0923a;
+      padding: 2px 10px;
+      border-radius: 18px;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .info-note {
+      background: #fef8e7;
+      border-left: 5px solid #f5a623;
+      padding: 16px 22px;
+      border-radius: 24px;
+      margin: 20px 0 12px;
+      font-size: 0.9rem;
+    }
+
+    .footer-note {
+      background: #faf8f4;
+      padding: 18px 32px;
+      text-align: center;
+      font-size: 0.72rem;
+      color: #8a7a6a;
+      border-top: 1px solid #e8dfd4;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        padding: 24px 20px;
+      }
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+      .content {
+        padding: 20px 18px;
+      }
+      .workflow-steps {
+        flex-direction: column;
+      }
+      .step {
+        min-width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <h1>
+      Sciendox 5A
+      <span class="brand-tag">Automated Feces Analysis System</span>
+    </h1>
+    <div class="subhead">
+      3-in-1 Automation: Pre-processing + Microscopy + Immunoassay
+    </div>
+    <div class="pill-group">
+      <span class="pill">🧪 Full Filtration Separation</span>
+      <span class="pill">📸 4-channel microscopy + AI</span>
+      <span class="pill">🩸 FOB + Pathogen detection</span>
+      <span class="pill">🔄 Complete workflow automation</span>
+    </div>
+  </div>
+
+  <div class="content">
+    <!-- 3-in-1 Core Functions Cards -->
+    <div class="three-cards">
+      <div class="card">
+        <div class="card-header preprocessing">🔧 1) Specimen Pre-processing</div>
+        <div class="card-body">
+          <div class="emoji-big">🧫➡️💧</div>
+          <p><strong>Full Filtration Separation Technology</strong></p>
+          <p>Dilution → Mixing → Filtration</p>
+          <p>เปลี่ยน solid/semi-solid stool → liquid sample พร้อมตรวจ</p>
+          <div><span class="tech-tag">Auto dilution</span><span class="tech-tag">Auto filtration</span><span class="tech-tag">Auto transfer</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header morphology">🔬 2) Morphological Examination</div>
+        <div class="card-body">
+          <div class="emoji-big">📸🦠</div>
+          <p><strong>4-channel microscopic imaging + AI identification</strong></p>
+          <p>Image output: สูงสุด ~156 images/sample (LPF + HPF)</p>
+          <p>ตรวจ: Parasite (ova/cyst), RBC, WBC, Fat, Fiber, Debris</p>
+          <div><span class="tech-tag">Digital imaging</span><span class="tech-tag">AI recognition</span><span class="tech-tag">Multi-channel</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header immuno">🧪 3) Immunological Test</div>
+        <div class="card-body">
+          <div class="emoji-big">🩸🔴</div>
+          <p><strong>Colloidal gold agglutination</strong></p>
+          <p>ตรวจ: FOB (Fecal Occult Blood), Pathogen rapid test</p>
+          <p>ไวและแม่นยำสำหรับ screening</p>
+          <div><span class="tech-tag">Colloidal gold</span><span class="tech-tag">Rapid test</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Workflow Diagram -->
+    <div class="workflow">
+      <h3>🔄 Real Laboratory Workflow</h3>
+      <div class="workflow-steps">
+        <div class="step"><div class="step-number">1</div><div class="step-icon">🧪</div><div class="step-title">Stool sample</div><div class="step-desc">Raw solid/semi-solid specimen</div></div>
+        <div class="step"><div class="step-number">2</div><div class="step-icon">⚙️</div><div class="step-title">Pre-processing</div><div class="step-desc">Filter + dilute + mix</div></div>
+        <div class="step"><div class="step-number">3</div><div class="step-icon">📸</div><div class="step-title">Microscopy imaging</div><div class="step-desc">Auto capture LPF/HPF</div></div>
+        <div class="step"><div class="step-number">4</div><div class="step-icon">🧫</div><div class="step-title">Immuno test</div><div class="step-desc">FOB / Antigen detection</div></div>
+        <div class="step"><div class="step-number">5</div><div class="step-icon">📊</div><div class="step-title">Result + Image review</div><div class="step-desc">Report generation</div></div>
+      </div>
+    </div>
+
+    <!-- Specification Table -->
+    <table class="spec-table">
+      <tbody>
+        <tr>
+          <th>System Type</th>
+          <td><strong>Automated Feces Analysis System</strong> — Pre-analytical + Microscopy + Immunoassay in one instrument</span></td>
+        </tr>
+        <tr>
+          <th>Core Technology</th>
+          <td>
+            <strong>Specimen Pre-processing:</strong> Full Filtration Separation Technology<br>
+            <strong>Microscopy:</strong> 4-channel digital imaging + AI identification<br>
+            <strong>Immunoassay:</strong> Colloidal gold agglutination
+           </span></td>
+        </tr>
+        <tr>
+          <th>Sample Handling</th>
+          <td>
+            ✅ <strong>Sample types:</strong> Solid stool / Semi-solid stool<br>
+            ✅ Automated: Dilution → Mixing → Filtration → Transfer<br>
+            🔥 Significantly reduces manual handling
+           </span></td>
+        </tr>
+        <tr>
+          <th>Microscopy Output</th>
+          <td>
+            📸 Up to <strong>~156 images per sample</strong><br>
+            🔬 Both <strong>LPF (Low Power Field)</strong> and <strong>HPF (High Power Field)</strong><br>
+            🤖 <strong>AI-assisted identification</strong> for parasites, cells, and debris
+           </span></td>
+        </tr>
+        <tr>
+          <th>Morphological Parameters</th>
+          <td>
+            • Parasite ova and cysts<br>
+            • Red blood cells (RBC)<br>
+            • White blood cells (WBC)<br>
+            • Fat droplets · Plant fibers · Cellular debris
+           </span></td>
+        </tr>
+        <tr>
+          <th>Immunological Tests</th>
+          <td>
+            • <strong>FOB (Fecal Occult Blood)</strong> — colloidal gold method<br>
+            • <strong>Pathogen rapid tests</strong> (depending on cartridge configuration)
+           </span></td>
+        </tr>
+        <tr>
+          <th>Workflow Benefits</th>
+          <td>
+            🔥 <strong>Reduces manual steps:</strong><br>
+            • No manual smear preparation<br>
+            • No full manual microscopy required<br>
+            • Minimized biohazard exposure<br>
+            • Standardized results
+           </span></td>
+        </tr>
+        <tr>
+          <th>🔬 Technology Summary</th>
+          <td>
+            <strong>Sample prep:</strong> Filtration separation<br>
+            <strong>Microscopy:</strong> Digital imaging (multi-channel)<br>
+            <strong>Immuno test:</strong> Colloidal gold agglutination<br>
+            👉 <span class="highlight">All-in-one workflow</span>
+           </span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="info-note">
+      💡 <strong>Why Sciendox 5A?</strong> — Traditional stool examination is labor-intensive, messy, and prone to human error. The Sciendox 5A automates the entire process from raw sample to result, including AI-powered image analysis. Reduces technician exposure to biohazards and improves consistency.
+    </div>
+
+    <div class="info-note" style="background: #eef5f2; border-left-color: #2c6e5e;">
+      📌 <strong>Ideal for:</strong> Clinical laboratories, hospital central labs, parasitology reference labs, and health checkup centers. Perfect for labs looking to standardize stool examination and reduce manual workload.
+    </div>
+  </div>
+
+  <div class="footer-note">
+    ⚙️ Sciendox 5A — Automated Feces Analysis System specifications based on product documentation.<br>
+    Subject to change by region and configuration. This document is for educational and comparison purposes only.
+  </div>
+</div>
+</body>
+</html>
