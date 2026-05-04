@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Sysmex XR-3000 | แคตตาล็อกสินค้า - Meditop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #eef2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            font-family: 'Sarabun', 'Segoe UI', 'Noto Sans Thai', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+        }
+
+        /* ขนาด A4 */
+        .catalog {
+            max-width: 210mm;
+            width: 100%;
+            background: white;
+            box-shadow: 0 25px 45px -12px rgba(0,0,0,0.25);
+            margin: 0 auto;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .inner {
+            padding: 12mm 15mm 15mm 15mm;
+        }
+
+        /* header ภาษา */
+        .lang-header {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            border-bottom: 2px solid #a50034;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+        .lang-badge {
+            color: #a50034;
+            background: #fff0f3;
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* ส่วนบริษัท */
+        .company {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+            border-left: 5px solid #a50034;
+            padding-left: 18px;
+        }
+        .company-name h1 {
+            font-size: 1.7rem;
+            color: #1a2c3e;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+        }
+        .company-name p {
+            font-size: 0.75rem;
+            color: #2c3e50;
+            margin-top: 4px;
+        }
+        .model-badge {
+            background: #1a2c3e;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        /* ชื่อสินค้า */
+        .product-title {
+            text-align: center;
+            margin: 15px 0 10px;
+        }
+        .product-name {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #a50034;
+            line-height: 1.2;
+        }
+        .product-name-en {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #2c3e66;
+            margin-top: 6px;
+            letter-spacing: 0.3px;
+        }
+        .sub {
+            text-align: center;
+            margin-bottom: 28px;
+            border-bottom: 1px dashed #b0c4de;
+            padding-bottom: 12px;
+            font-style: italic;
+            color: #2c3e50;
+        }
+
+        /* ตารางสเปก */
+        .spec-section {
+            margin: 20px 0 30px;
+        }
+        .spec-title {
+            background: #a50034;
+            color: white;
+            padding: 8px 20px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            border-radius: 30px 8px 8px 30px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .spec-table th, .spec-table td {
+            border: 1px solid #cfdde6;
+            padding: 12px 12px;
+            vertical-align: top;
+        }
+        .spec-table th {
+            background: #f8fafd;
+            font-weight: 700;
+            width: 38%;
+            color: #1e4663;
+        }
+        .th {
+            font-weight: 700;
+            color: #0b3b5f;
+        }
+        .en {
+            font-size: 0.73rem;
+            color: #4a627a;
+            line-height: 1.3;
+        }
+        .lang-pair {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        /* กล่องคุณสมบัติเด่น */
+        .feature-grid {
+            background: #f5f9ff;
+            padding: 18px 22px;
+            border-radius: 24px;
+            margin: 25px 0;
+            border: 1px solid #dce5f0;
+        }
+        .feature-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #a50034;
+            margin-bottom: 14px;
+            border-left: 4px solid #a50034;
+            padding-left: 14px;
+        }
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .feature-item {
+            flex: 1;
+            min-width: 170px;
+        }
+        .feature-item p {
+            margin: 8px 0;
+        }
+
+        .warranty-box {
+            background: #eef2fa;
+            padding: 12px 18px;
+            border-radius: 20px;
+            margin: 20px 0 15px;
+            font-size: 0.85rem;
+        }
+
+        /* ติดต่อ */
+        .contact-footer {
+            margin-top: 38px;
+            padding-top: 18px;
+            border-top: 2px solid #e2e8f0;
+        }
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .address-box {
+            line-height: 1.5;
+        }
+        .address-box strong {
+            color: #1e293b;
+        }
+        .contact-details {
+            text-align: right;
+        }
+        .contact-details p {
+            margin: 4px 0;
+        }
+        .copy {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #5d6e85;
+            margin-top: 22px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+            .catalog {
+                max-width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+            }
+            .inner {
+                padding: 10mm 12mm;
+            }
+            .spec-table th, .spec-table td {
+                border-color: #aaa;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .inner {
+                padding: 8mm 12px;
+            }
+            .product-name {
+                font-size: 1.6rem;
+            }
+            .spec-table th, .spec-table td {
+                padding: 8px 8px;
+            }
+            .contact-details {
+                text-align: left;
+            }
+            .contact-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="catalog">
+    <div class="inner">
+        <!-- ตัวบ่งชี้ภาษา -->
+        <div class="lang-header">
+            <span class="lang-badge">🇹🇭 ภาษาไทย (Thai)</span>
+            <span class="lang-badge">🇬🇧 English</span>
+        </div>
+
+        <!-- บริษัท และรุ่นเครื่อง -->
+        <div class="company">
+            <div class="company-name">
+                <h1>MEDITOP</h1>
+                <p>บริษัท เมดิทอป จำกัด | Meditop Co., Ltd.</p>
+            </div>
+            <div class="model-badge">
+                XR-3000
+            </div>
+        </div>
+
+        <!-- ชื่อสินค้า รุ่น Sysmex XR-3000 -->
+        <div class="product-title">
+            <div class="product-name">Sysmex XR-3000</div>
+            <div class="product-name-en">Automated Hematology Analyzer Series | Next-Generation CBC + DIFF</div>
+        </div>
+        <div class="sub">
+            <span>🔬 ระบบวิเคราะห์โลหิตอัจฉริยะ สมรรถนะสูง เหมาะสำหรับโรงพยาบาลขนาดกลางและขนาดใหญ่</span><br>
+            <span class="en">High-performance hematology with intelligent fluidics & advanced cellular analysis</span>
+        </div>
+
+        <!-- ตารางสเปกเต็มรูปแบบ ภาษาไทยและอังกฤษ -->
+        <div class="spec-section">
+            <div class="spec-title">📋 ข้อมูลจำเพาะ | Specifications</div>
+            <table class="spec-table">
+                <thead>
+                <tr><th>คุณลักษณะ (รายละเอียดภาษาไทย)</th><th>Specification (English)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="th">หลักการวิเคราะห์</td><td><span class="th">Fluorescence flow cytometry + Impedance + SLS hemoglobin method</span><br><span class="en">Fluorescence flow cytometry + impedance + SLS-hemoglobin detection</span></td></tr>
+                    <tr><td class="th">พารามิเตอร์ที่รายงาน</td><td><span class="th">≥ 35 พารามิเตอร์ (รวม CBC, 5-part DIFF, เกล็ดเลือดขั้นสูง, อิมมูโนเมตริกพารามิเตอร์)</span><br><span class="en">≥ 35 parameters including CBC, 5-part differential, PLT advanced parameters, and research parameters</span></td></tr>
+                    <tr><td class="th">ปริมาณตัวอย่าง</td><td><span class="th">โหมด Whole Blood: ≤ 80 µL | โหมด Pre-diluted: ≤ 40 µL | โหมด Capillary: ≤ 80 µL</span><br><span class="en">Whole Blood: ≤ 80 µL | Pre-diluted: ≤ 40 µL | Capillary: ≤ 80 µL</span></td></tr>
+                    <tr><td class="th">ปริมาณงาน (Throughput)</td><td><span class="th">สูงสุด 100 ตัวอย่าง/ชั่วโมง</span><br><span class="en">Up to 100 samples per hour</span></td></tr>
+                    <tr><td class="th">โหมดการทำงาน</td><td><span class="th">เลือดดำ (Closed/Open), เลือดปลายนิ้ว, โหมดเจือจางล่วงหน้า และโหมดสำรองฉุกเฉิน</span><br><span class="en">Venous Whole Blood, Capillary, Pre-diluted, STAT mode</span></td></tr>
+                    <tr><td class="th">เทคโนโลยีตรวจนับเกล็ดเลือด</td><td><span class="th">PLT-F (fluorescence platelet) ช่วยเพิ่มความแม่นยำในกรณีเกล็ดเลือดต่ำ</span><br><span class="en">PLT-F channel for accurate platelet counts even in thrombocytopenic samples</span></td></tr>
+                    <tr><td class="th">ระบบควบคุมคุณภาพ</td><td><span class="th">QC อัตโนมัติ X-Bar, LJ Chart, เก็บข้อมูล QC ได้หลายระดับ, SNCS (Sysmex Network QC)</span><br><span class="en">Automatic QC with X-Bar, L-J, multi-rule; SNCS compatible</span></td></tr>
+                    <tr><td class="th">อินเทอร์เฟซและการเชื่อมต่อ</td><td><span class="th">LAN, USB, RS-232, รองรับ HL7, LIS แบบ two-way communication</span><br><span class="en">LAN, USB, RS-232, HL7, bidirectional LIS interface</span></td></tr>
+                    <tr><td class="th">จอแสดงผล</td><td><span class="th">หน้าจอสัมผัสสี LCD ขนาด 12.1 นิ้ว (หรือ 10.4 นิ้ว ตามรุ่น)</span><br><span class="en">12.1" color touch screen LCD (high resolution)</span></td></tr>
+                    <tr><td class="th">หน่วยความจำข้อมูล</td><td><span class="th">เก็บผลลัพธ์ผู้ป่วยมากกว่า 200,000 รายการ พร้อมกราฟและรายงานแนวโน้ม</span><br><span class="en">Store >200,000 patient records, histograms & scattergrams</span></td></tr>
+                    <tr><td class="th">ระบบสุญญากาศ/ปั๊ม</td><td><span class="th">ปั๊มในตัว, ไม่ต้องใช้อากาศอัดภายนอก</span><br><span class="en">Built-in vacuum pump, no external compressor required</span></td></tr>
+                    <tr><td class="th">มิติ (ก×ล×ส)</td><td><span class="th">520 x 560 x 610 mm (กว้าง×ลึก×สูง)</span><br><span class="en">520 x 560 x 610 mm (W x D x H)</span></td></tr>
+                    <tr><td class="th">น้ำหนัก</td><td><span class="th">≈ 45 kg</span><br><span class="en">Approx. 45 kg</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- จุดเด่นสำคัญทางการขาย / Key Selling Points -->
+        <div class="feature-grid">
+            <div class="feature-title">⭐ ข้อได้เปรียบที่เหนือชั้น | Key Advantages</div>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <p><strong>🇹🇭 5 Part-Differential แม่นยำ</strong><br><span class="en">Accurate 5-part WBC Differential with fluorescent staining</span></p>
+                    <p><strong>🇹🇭 โหมด PLT-F ล้ำสมัย</strong><br><span class="en">Cutting-edge PLT-F channel for challenging samples</span></p>
+                </div>
+                <div class="feature-item">
+                    <p><strong>🇹🇭 ความเร็วสูง + ตัวป้อนตัวอย่างอัตโนมัติ</strong><br><span class="en">High throughput & optional autoloader</span></p>
+                    <p><strong>🇹🇭 ต้นทุนต่ำต่อการทดสอบ</strong><br><span class="en">Low reagent consumption & cost-efficiency</span></p>
+                </div>
+                <div class="feature-item">
+                    <p><strong>🇹🇭 การแจ้งเตือนแฟล็กอัจฉริยะ</strong><br><span class="en">Intelligent flagging & abnormal alerts</span></p>
+                    <p><strong>🇹🇭 รองรับการเชื่อมต่อ LIS ไร้รอยต่อ</strong><br><span class="en">Seamless LIS/EMR integration</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- การรับประกันและบริการ -->
+        <div class="warranty-box">
+            <p><strong>✅ การรับประกันและบริการหลังการขาย (Warranty & Support)</strong><br>
+            <span class="th">✔ รับประกันตัวเครื่อง 3 ปี พร้อมบริการซ่อมบำรุงเชิงป้องกัน ฟรีตลอดอายุสัญญา (เงื่อนไขตามข้อตกลง)</span><br>
+            <span class="en">✔ 3-year warranty inclusive of preventive maintenance & remote support.</span><br>
+            <span class="th">✔ ทีมวิศวกรเฉพาะทาง พร้อมอะไหล่แท้ Sysmex ให้บริการทั่วประเทศ</span><br>
+            <span class="en">✔ Dedicated biomedical engineers & genuine Sysmex spare parts nationwide.</span></p>
+        </div>
+
+        <!-- ที่อยู่และข้อมูลติดต่อตามที่โจทย์กำหนด -->
+        <div class="contact-footer">
+            <div class="contact-row">
+                <div class="address-box">
+                    <strong>🏢 บริษัท เมดิทอป จำกัด (Meditop Co., Ltd.)</strong><br>
+                    334 ซอยลาดพร้าว 71 (สังคมสงเคราะห์เหนือ 1)<br>
+                    ถนนลาดพร้าว แขวงคลองเจ้าคุณสิงห์ เขตวังทองหลาง<br>
+                    กรุงเทพฯ 10310<br>
+                    <span class="en" style="font-size: 0.7rem;">334 Ladprao 71 (Sangkhom Sangkhro Nua 1), Ladprao Road, Khlong Chaokhun Sing, Wang Thonglang, Bangkok 10310, Thailand</span>
+                </div>
+                <div class="contact-details">
+                    <p><strong>📞 Tel:</strong> 029331133</p>
+                    <p><strong>✉️ Email:</strong> info@meditopthailand.com</p>
+                    <p><strong>🕘 เวลาทำการ (Business hours):</strong> จ.-ศ. 08:30 - 17:30 น.</p>
+                    <p class="en">Inquiry & Sales support | ติดต่อฝ่ายขายได้ทุกวันทำการ</p>
+                </div>
+            </div>
+            <div class="copy">
+                © 2025 Meditop (Thailand) Co., Ltd. | Sysmex XR-3000 Hematology Analyzer — Official Sales Catalog. ข้อมูลเพื่อการขายและการแพทย์
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
