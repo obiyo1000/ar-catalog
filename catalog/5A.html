@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Sciendox Improve 5A Fecal Analyzer | แคตตาล็อกสินค้า - Meditop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            font-family: 'Sarabun', 'Segoe UI', 'Noto Sans Thai', system-ui, 'Roboto', 'Helvetica Neue', sans-serif;
+        }
+
+        /* ขนาด A4 */
+        .catalog {
+            max-width: 210mm;
+            width: 100%;
+            background: white;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.28);
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .inner {
+            padding: 12mm 15mm 15mm 15mm;
+        }
+
+        /* header ภาษา */
+        .lang-header {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            border-bottom: 3px solid #8B4513;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+        .lang-badge {
+            color: #8B4513;
+            background: #FDF5E6;
+            padding: 4px 16px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* ส่วนบริษัท */
+        .company {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+            border-left: 5px solid #8B4513;
+            padding-left: 18px;
+        }
+        .company-name h1 {
+            font-size: 1.8rem;
+            color: #0c2d48;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+        }
+        .company-name p {
+            font-size: 0.75rem;
+            color: #2c3e50;
+            margin-top: 4px;
+        }
+        .model-badge {
+            background: #8B4513;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1.0rem;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        /* ชื่อสินค้า */
+        .product-title {
+            text-align: center;
+            margin: 15px 0 10px;
+        }
+        .product-name {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #8B4513;
+            line-height: 1.2;
+        }
+        .product-name-en {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #1f4e79;
+            margin-top: 6px;
+            letter-spacing: 0.3px;
+        }
+        .sub {
+            text-align: center;
+            margin-bottom: 28px;
+            border-bottom: 1px dashed #e6c8a8;
+            padding-bottom: 12px;
+            font-style: italic;
+            color: #2c3e50;
+        }
+
+        /* ตารางสเปก */
+        .spec-section {
+            margin: 20px 0 30px;
+        }
+        .spec-title {
+            background: #8B4513;
+            color: white;
+            padding: 8px 22px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            border-radius: 30px 8px 8px 30px;
+            display: inline-block;
+            margin-bottom: 22px;
+        }
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .spec-table th, .spec-table td {
+            border: 1px solid #cfdee9;
+            padding: 12px 12px;
+            vertical-align: top;
+        }
+        .spec-table th {
+            background: #FDF8F2;
+            font-weight: 700;
+            width: 40%;
+            color: #8B4513;
+        }
+        .th {
+            font-weight: 700;
+            color: #8B4513;
+        }
+        .en {
+            font-size: 0.73rem;
+            color: #4a627a;
+            line-height: 1.35;
+        }
+
+        /* Feature grid */
+        .feature-grid {
+            background: #FDF8F2;
+            padding: 18px 22px;
+            border-radius: 24px;
+            margin: 25px 0;
+            border: 1px solid #e6c8a8;
+        }
+        .feature-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #8B4513;
+            margin-bottom: 14px;
+            border-left: 4px solid #8B4513;
+            padding-left: 14px;
+        }
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .feature-item {
+            flex: 1;
+            min-width: 170px;
+        }
+        .feature-item p {
+            margin: 8px 0;
+        }
+
+        .warranty-box {
+            background: #FDF5E6;
+            padding: 14px 18px;
+            border-radius: 20px;
+            margin: 20px 0 15px;
+            border-left: 4px solid #8B4513;
+        }
+
+        /* ติดต่อ */
+        .contact-footer {
+            margin-top: 38px;
+            padding-top: 18px;
+            border-top: 2px solid #dce5f0;
+        }
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .address-box {
+            line-height: 1.5;
+        }
+        .address-box strong {
+            color: #1e2f3e;
+        }
+        .contact-details {
+            text-align: right;
+        }
+        .contact-details p {
+            margin: 4px 0;
+        }
+        .copy {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #5d6e85;
+            margin-top: 22px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+            .catalog {
+                max-width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+            }
+            .inner {
+                padding: 10mm 12mm;
+            }
+            .spec-table th, .spec-table td {
+                border-color: #aaa;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .inner {
+                padding: 8mm 12px;
+            }
+            .product-name {
+                font-size: 1.4rem;
+            }
+            .spec-table th, .spec-table td {
+                padding: 8px 8px;
+            }
+            .contact-details {
+                text-align: left;
+            }
+            .contact-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="catalog">
+    <div class="inner">
+        <!-- ตัวบ่งชี้ภาษาไทย/อังกฤษ -->
+        <div class="lang-header">
+            <span class="lang-badge">🇹🇭 ภาษาไทย</span>
+            <span class="lang-badge">🇬🇧 English</span>
+        </div>
+
+        <!-- บริษัท และรุ่นเครื่อง -->
+        <div class="company">
+            <div class="company-name">
+                <h1>MEDITOP</h1>
+                <p>บริษัท เมดิทอป จำกัด | Meditop Co., Ltd.</p>
+            </div>
+            <div class="model-badge">
+                Sciendox Improve 5A<br>Fecal Analyzer
+            </div>
+        </div>
+
+        <!-- ชื่อสินค้า -->
+        <div class="product-title">
+            <div class="product-name">Sciendox Improve 5A Fecal Analyzer</div>
+            <div class="product-name-en">Fully Automated Stool / Fecal Analysis System | Immunoassay + Chemical Testing</div>
+        </div>
+        <div class="sub">
+            <span>🔬 ระบบวิเคราะห์อุจจาระอัตโนมัติเต็มรูปแบบ รองรับการทดสอบทางเคมีและอิมมูโนโครมาโตกราฟี (FOB, Transferrin, Calprotectin, Rotavirus, H.pylori และอื่นๆ) เพิ่มความแม่นยำ ลดการปนเปื้อน และเพิ่มประสิทธิภาพในห้องปฏิบัติการ</span><br>
+            <span class="en">Fully automated fecal analyzer for chemical & immunochromatography tests (FOB, Transferrin, Calprotectin, Rotavirus, H. pylori, etc.). Improves accuracy, reduces contamination, and enhances lab efficiency.</span>
+        </div>
+
+        <!-- ตารางสเปก -->
+        <div class="spec-section">
+            <div class="spec-title">📊 ข้อมูลจำเพาะทางเทคนิค | Technical Specifications</div>
+            <table class="spec-table">
+                <thead>
+                <tr><th>คุณลักษณะ (ไทย)</th><th>Specification (English)</th></tr>
+                </thead>
+                <tbody>
+                    <tr style="background:#FEFBF5;"><td class="th">ประเภทเครื่อง<br><span class="en">Analyzer Type</span><table>
+                    <td><span class="th">เครื่องวิเคราะห์อุจจาระอัตโนมัติ (Fully Automated Stool/Fecal Analyzer)</span><br>
+                        <span class="en">Fully automated fecal / stool analyzer</span></td>
+                    </tr>
+                    <tr style="background:#FEFBF5;"><td class="th">หลักการวิเคราะห์<br><span class="en">Measurement Principle</span></td>
+                    <td><span class="th">เคมี: Reflectance photometry / Colorimetry<br>ภูมิคุ้มกัน: Immunochromatography (ICT) + Optical reader</span><br>
+                        <span class="en">Chemistry: Reflectance photometry / Colorimetry<br>Immunoassay: Immunochromatography (ICT) with automated optical reading</span></td>
+                    </tr>
+                    <tr style="background:#FEFBF5;"><td class="th">พารามิเตอร์ที่รองรับ<br><span class="en">Supported Tests / Parameters</span></td>
+                    <td><span class="th">• Occult Blood (FOB): Guaiac, Immunochemical (FIT)<br>• Transferrin<br>• Calprotectin (marker for IBD)<br>• Lactoferrin<br>• Rotavirus / Adenovirus<br>• Helicobacter pylori antigen<br>• Giardia / Cryptosporidium (option)<br>• Chemical pH, Bilirubin, Urobilinogen เป็นต้น</span><br>
+                        <span class="en">• FOB (Guaiac & FIT)<br>• Transferrin<br>• Calprotectin<br>• Lactoferrin<br>• Rotavirus / Adenovirus<br>• H. pylori antigen<br>• Parasite antigens (Giardia/Crypto)<br>• Chemical parameters: pH, bilirubin, urobilinogen, etc.</span></td>
+                    </tr>
+                    <tr style="background:#FEFBF5;"><td class="th">ปริมาณงาน (Throughput)<br><span class="en">Throughput</span></td>
+                    <td><span class="th">สูงสุด 100–120 ตัวอย่าง/ชั่วโมง (ขึ้นกับชนิดการทดสอบ)</span><br>
+                        <span class="en">Up to 100–120 samples/hour (depending on test type)</span></td>
+                    </tr>
+                    <tr style="background:#FEFBF5;"><td class="th">ความจุตัวอย่างพร้อมกัน<br><span class="en">Sample Capacity</span></td>
+                    <td><span class="th">50 ตำแหน่ง (โหลดแบบต่อเนื่อง, รองรับภาชนะเก็บอุจจาระมาตรฐาน)</span><br>
+                        <span class="en">50 sample positions (continuous loading, standard fecal containers)</span></td>
+                    </tr>
+                    <tr style="background:#FEFBF5;"><td class="th">ความจุ Test Cassette / Strip Feeder<br><span class="en">Cassette/Strip Capacity</span></td>
+                    <td><span class="th">สูงสุด 50 เทส (ระบบป้อนอัตโนมัติ, หลากหลายรูปแบบ)</span><br>
+                        <span class="en">Up to 50 tests (automatic feeder for various cassette/strip formats)</span></td>
+                    </tr>
+                    <tr style="background:#FEFBF5;"><td class="th">ระบบปิด & การป้องกันการปนเปื้อน<br><span class="en">Closed System & Contamination Prevention</span></td>
+                    <td><span class="th">ระบบปิด (closed system), มีการล้างหัวเข็มอัตโนมัติ, ลดความเสี่ยงการติดเชื้อและกลิ่น</span><br>
+                        <span class="en">Closed system with automatic probe washing, minimizes infection risk and odor</span></td>
+                    </tr>
+                    <tr style="background:#FEFBF5;"><td class="th">การหยิบตัวอย่าง & การเจือจาง<br><span class="en">Sampling & Dilution</span></td>
+                    <td><span class="th">หัวเข็มเก็บตัวอย่างแบบอัตโนมัติ, ระบบเจือจางอัตโนมัติ (built-in dilution system)</span><br>
+                        <span class="en">Automated sampling probe, built-in dilution system</span></td>
+                    </tr>
+                    <tr style="background:#FEFBF5;"><td class="th">ระบบบาร์โค้ด<br><span class="en">Barcode System</span></td>
+                    <td><span class="th">เครื่องอ่านบาร์โค้ดในตัว (รองรับ Code 39, 128, EAN, QR)</span><br>
+                        <span class="en">Built-in barcode reader (Code 39, 128, EAN, QR)</span></td>
+                    </tr>
+                    <tr style="background:#FEFBF5;"><td class="th">อินเทอร์เฟซ & ซอฟต์แวร์<br><span class="en">Connectivity & Software</span></td>
+                    <td><span class="th">LAN, USB, RS-232, รองรับ HL7, LIS เชื่อมต่อ bidirectional, หน้าจอสัมผัส 10.4 นิ้ว</span><br>
+                        <span class="en">LAN, USB, RS-232, HL7, bidirectional LIS, 10.4" color touch screen</span></td>
+                    </tr>
+                    <tr style="background:#FEFBF5;"><td class="th">ระบบ QC และ Data Management<br><span class="en">QC & Data Storage</span></td>
+                    <td><span class="th">QC อัตโนมัติ, เก็บผลลัพธ์ > 50,000 รายการ, รองรับ external QC material</span><br>
+                        <span class="en">Automated QC management, >50,000 results storage, external QC support</span></td>
+                    </tr>
+                    <tr style="background:#FEFBF5;"><td class="th">มิติ (กว้าง×ลึก×สูง)<br><span class="en">Dimensions (W×D×H)</span></td>
+                    <td><span class="th">650 mm × 580 mm × 620 mm (โดยประมาณ)</span><br>
+                        <span class="en">650 × 580 × 620 mm (approx.)</span></td>
+                    </tr>
+                    <tr style="background:#FEFBF5;"><td class="th">น้ำหนัก<br><span class="en">Weight</span></td>
+                    <td><span class="th">ประมาณ 70 kg</span><br>
+                        <span class="en">Approx. 70 kg</span></td>
+                    </tr>
+                    <tr style="background:#FEFBF5;"><td class="th">ไฟฟ้า & สภาวะแวดล้อม<br><span class="en">Power & Environment</span></td>
+                    <td><span class="th">AC 100–240V, 50/60Hz, 250VA, อุณหภูมิ 15°C–30°C, ความชื้น 20–80% RH</span><br>
+                        <span class="en">100–240V, 50/60Hz, 250VA, Temp 15–30°C, Humidity 20–80%</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- จุดเด่นทางการขาย -->
+        <div class="feature-grid">
+            <div class="feature-title">⭐ ข้อได้เปรียบที่เหนือชั้น | Key Advantages</div>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <p><strong>🇹🇭 ระบบอัตโนมัติเต็มรูปแบบ</strong><br><span class="en">Fully walk-away automation</span></p>
+                    <p><strong>🇹🇭 รองรับทั้งเคมีและอิมมูโน</strong><br><span class="en">Supports chemical & immunochromatography tests</span></p>
+                </div>
+                <div class="feature-item">
+                    <p><strong>🇹🇭 ลดการปนเปื้อนและกลิ่น</strong><br><span class="en">Closed system reduces contamination & odor</span></p>
+                    <p><strong>🇹🇭 รายการทดสอบครอบคลุม FOB, Calprotectin, Rotavirus, H.pylori ฯลฯ</strong><br><span class="en">Wide test menu: FOB, Calprotectin, Rotavirus, H. pylori, etc.</span></p>
+                </div>
+                <div class="feature-item">
+                    <p><strong>🇹🇭 ผลแม่นยำ และลดแรงงานคน</strong><br><span class="en">High accuracy & minimizes manual handling</span></p>
+                    <p><strong>🇹🇭 เหมาะกับคลินิกและโรงพยาบาลทุกระดับ</strong><br><span class="en">Ideal for clinics, hospitals, and reference labs</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- การรับประกันและบริการ -->
+        <div class="warranty-box">
+            <p><strong>✅ การรับประกันและบริการหลังการขาย | Warranty & After-Sales Service</strong><br>
+            <span class="th">✔ รับประกันตัวเครื่อง 2 ปี (อะไหล่ + ค่าแรง) พร้อมบริการบำรุงรักษาเชิงป้องกันฟรีตามรอบ</span><br>
+            <span class="en">✔ 2-year comprehensive warranty including parts & labor, free preventive maintenance.</span><br>
+            <span class="th">✔ ทีมวิศวกรผู้ชำนาญการ Improve Medical และ Meditop ให้บริการอบรมและซ่อมบำรุงทั่วประเทศ</span><br>
+            <span class="en">✔ Certified Improve Medical & Meditop engineers provide training & rapid service nationwide.</span><br>
+            <span class="th">✔ บริการช่วยเหลือทางไกล (Remote support) และอะไหล่แท้พร้อมสต็อก</span><br>
+            <span class="en">✔ Remote technical support & genuine spare parts in stock.</span><br>
+            <span class="th">✔ ชุดน้ำยาและชุดทดสอบราคาแข่งขัน พร้อมแคมเปญส่งเสริมการขาย</span><br>
+            <span class="en">✔ Competitive reagent & cassette pricing with promotional packages.</span></p>
+        </div>
+
+        <!-- ที่อยู่และข้อมูลติดต่อครบถ้วน -->
+        <div class="contact-footer">
+            <div class="contact-row">
+                <div class="address-box">
+                    <strong>🏢 บริษัท เมดิทอป จำกัด (Meditop Co., Ltd.)</strong><br>
+                    334 ซอยลาดพร้าว 71 (สังคมสงเคราะห์เหนือ 1)<br>
+                    ถนนลาดพร้าว แขวงคลองเจ้าคุณสิงห์ เขตวังทองหลาง<br>
+                    กรุงเทพฯ 10310<br>
+                    <span class="en" style="font-size: 0.7rem;">334 Ladprao 71 (Sangkhom Sangkhro Nua 1), Ladprao Road, Khlong Chaokhun Sing, Wang Thonglang, Bangkok 10310, Thailand</span>
+                </div>
+                <div class="contact-details">
+                    <p><strong>📞 Tel:</strong> 029331133</p>
+                    <p><strong>✉️ Email:</strong> info@meditopthailand.com</p>
+                    <p><strong>🕘 เวลาทำการ (Business hours):</strong> จ.-ศ. 08:30 - 17:30 น.</p>
+                    <p class="en">Sales & Demo | ติดต่อทีมขายเพื่อขอข้อมูลเพิ่มเติมและนัดหมายสาธิต</p>
+                </div>
+            </div>
+            <div class="copy">
+                © 2025 Meditop (Thailand) Co., Ltd. | Sciendox Improve 5A Fecal Analyzer — Intelligent Automation for Stool Testing
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
