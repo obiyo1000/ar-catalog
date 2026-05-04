@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Dirui LA60SE | แคตตาล็อกสินค้า - Meditop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #eef2f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            font-family: 'Sarabun', 'Segoe UI', 'Noto Sans Thai', system-ui, 'Roboto', 'Helvetica Neue', sans-serif;
+        }
+
+        /* ขนาด A4 */
+        .catalog {
+            max-width: 210mm;
+            width: 100%;
+            background: white;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.28);
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .inner {
+            padding: 12mm 15mm 15mm 15mm;
+        }
+
+        /* header ภาษา */
+        .lang-header {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            border-bottom: 3px solid #1E6F3F;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+        .lang-badge {
+            color: #1E6F3F;
+            background: #E8F5EB;
+            padding: 4px 16px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* ส่วนบริษัท */
+        .company {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+            border-left: 5px solid #1E6F3F;
+            padding-left: 18px;
+        }
+        .company-name h1 {
+            font-size: 1.8rem;
+            color: #0c2d48;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+        }
+        .company-name p {
+            font-size: 0.75rem;
+            color: #2c3e50;
+            margin-top: 4px;
+        }
+        .model-badge {
+            background: #1E6F3F;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        /* ชื่อสินค้า */
+        .product-title {
+            text-align: center;
+            margin: 15px 0 10px;
+        }
+        .product-name {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1E6F3F;
+            line-height: 1.2;
+        }
+        .product-name-en {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #1f4e79;
+            margin-top: 6px;
+            letter-spacing: 0.3px;
+        }
+        .sub {
+            text-align: center;
+            margin-bottom: 28px;
+            border-bottom: 1px dashed #c0dfce;
+            padding-bottom: 12px;
+            font-style: italic;
+            color: #2c3e50;
+        }
+
+        /* ตารางสเปก */
+        .spec-section {
+            margin: 20px 0 30px;
+        }
+        .spec-title {
+            background: #1E6F3F;
+            color: white;
+            padding: 8px 22px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            border-radius: 30px 8px 8px 30px;
+            display: inline-block;
+            margin-bottom: 22px;
+        }
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .spec-table th, .spec-table td {
+            border: 1px solid #cfdee9;
+            padding: 12px 12px;
+            vertical-align: top;
+        }
+        .spec-table th {
+            background: #F4F9FE;
+            font-weight: 700;
+            width: 38%;
+            color: #1E6F3F;
+        }
+        .th {
+            font-weight: 700;
+            color: #166334;
+        }
+        .en {
+            font-size: 0.73rem;
+            color: #4a627a;
+            line-height: 1.35;
+        }
+
+        /* Feature grid */
+        .feature-grid {
+            background: #EEF7F2;
+            padding: 18px 22px;
+            border-radius: 24px;
+            margin: 25px 0;
+            border: 1px solid #cbe6d6;
+        }
+        .feature-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #1E6F3F;
+            margin-bottom: 14px;
+            border-left: 4px solid #1E6F3F;
+            padding-left: 14px;
+        }
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .feature-item {
+            flex: 1;
+            min-width: 170px;
+        }
+        .feature-item p {
+            margin: 8px 0;
+        }
+
+        .warranty-box {
+            background: #F0F9F3;
+            padding: 14px 18px;
+            border-radius: 20px;
+            margin: 20px 0 15px;
+            border-left: 4px solid #1E6F3F;
+        }
+
+        /* ติดต่อ */
+        .contact-footer {
+            margin-top: 38px;
+            padding-top: 18px;
+            border-top: 2px solid #dce5f0;
+        }
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .address-box {
+            line-height: 1.5;
+        }
+        .address-box strong {
+            color: #1e2f3e;
+        }
+        .contact-details {
+            text-align: right;
+        }
+        .contact-details p {
+            margin: 4px 0;
+        }
+        .copy {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #5d6e85;
+            margin-top: 22px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+            .catalog {
+                max-width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+            }
+            .inner {
+                padding: 10mm 12mm;
+            }
+            .spec-table th, .spec-table td {
+                border-color: #aaa;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .inner {
+                padding: 8mm 12px;
+            }
+            .product-name {
+                font-size: 1.5rem;
+            }
+            .spec-table th, .spec-table td {
+                padding: 8px 8px;
+            }
+            .contact-details {
+                text-align: left;
+            }
+            .contact-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="catalog">
+    <div class="inner">
+        <!-- ตัวบ่งชี้ภาษาไทย/อังกฤษ -->
+        <div class="lang-header">
+            <span class="lang-badge">🇹🇭 ภาษาไทย</span>
+            <span class="lang-badge">🇬🇧 English</span>
+        </div>
+
+        <!-- บริษัท และรุ่นเครื่อง -->
+        <div class="company">
+            <div class="company-name">
+                <h1>MEDITOP</h1>
+                <p>บริษัท เมดิทอป จำกัด | Meditop Co., Ltd.</p>
+            </div>
+            <div class="model-badge">
+                LA60SE
+            </div>
+        </div>
+
+        <!-- ชื่อสินค้า Dirui LA60SE -->
+        <div class="product-title">
+            <div class="product-name">Dirui LA60SE</div>
+            <div class="product-name-en">Fully Automated Urine Chemistry & Sediment Analyzer | Integrated Workstation</div>
+        </div>
+        <div class="sub">
+            <span>🔬 ระบบวิเคราะห์ปัสสาวะอัตโนมัติแบบบูรณาการ: เคมีวิเคราะห์ (Strip) + ตะกอนวิเคราะห์ด้วยเทคโนโลยี AI และ Flow Microscopy</span><br>
+            <span class="en">All-in-one automated urinalysis system: chemical strip reading + sediment analysis with AI-driven digital imaging.</span>
+        </div>
+
+        <!-- ตารางสเปก Dirui LA60SE -->
+        <div class="spec-section">
+            <div class="spec-title">📊 ข้อมูลจำเพาะทางเทคนิค | Technical Specifications</div>
+            <table class="spec-table">
+                <thead>
+                <tr><th>คุณลักษณะ (ไทย)</th><th>Specification (English)</th></tr>
+                </thead>
+                <tbody>
+                    <tr style="background:#F8FCFE;"><td class="th">ประเภทเครื่อง<br><span class="en">Analyzer Type</span></td>
+                    <td><span class="th">ระบบวิเคราะห์ปัสสาวะอัตโนมัติแบบครบวงจร (Integrated Urinalysis System)</span><br>
+                        <span class="en">Fully integrated urine chemistry & sediment analyzer</span></td>
+                    </tr>
+                    <tr><td class="th">หลักการวิเคราะห์เคมี (Strip)<br><span class="en">Chemistry Principle</span></td>
+                    <td><span class="th">Reflectance photometry ด้วยกล้อง CCD ความละเอียดสูง</span><br><span class="en">High-resolution CCD reflectance photometry</span></td>
+                    </tr>
+                    <tr style="background:#F8FCFE;"><td class="th">หลักการวิเคราะห์ตะกอน<br><span class="en">Sediment Analysis Principle</span></td>
+                    <td><span class="th">เทคโนโลยี Digital Microscopy + AI Intelligent Recognition (Flow cell imaging)</span><br>
+                        <span class="en">Digital microscopy with AI-based particle recognition & classification</span></td>
+                    </tr>
+                    <tr><td class="th">พารามิเตอร์เคมี (Strip)<br><span class="en">Urine Chemistry Parameters</span></td>
+                    <td><span class="th">GLU, BIL, KET, SG, BLD, pH, PRO, URO, NIT, LEU (สูงสุด 14 พารามิเตอร์ ขึ้นอยู่กับ strip)</span><br>
+                        <span class="en">GLU, BIL, KET, SG, BLD, pH, PRO, URO, NIT, LEU (up to 14 parameters)</span></td>
+                    </tr>
+                    <tr style="background:#F8FCFE;"><td class="th">พารามิเตอร์ตะกอน<br><span class="en">Sediment Parameters</span></td>
+                    <td><span class="th">RBC, WBC, EC, CAST, BACT, YLC, CRYSTAL, SRC, MUCUS, และอื่นๆ (≥ 12 รายการ)</span><br>
+                        <span class="en">RBC, WBC, EC, CAST, BACT, YLC, CRYSTAL, SRC, MUCUS, etc. (≥12 parameters)</span></td>
+                    </tr>
+                    <tr><td class="th">ปริมาณงานรวม (Throughput)<br><span class="en">Total throughput</span></td>
+                    <td><span class="th">สูงสุด 120 ตัวอย่าง/ชั่วโมง (เคมี + ตะกอน พร้อมกัน)</span><br>
+                        <span class="en">Up to 120 samples/hour (combined chemistry & sediment)</span></td>
+                    </tr>
+                    <tr style="background:#F8FCFE;"><td class="th">โหมดการทำงาน<br><span class="en">Operating Modes</span></td>
+                    <td><span class="th">โหมดอัตโนมัติเต็มรูปแบบ (Walk-away), โหมดเคมีอย่างเดียว, โหมดตะกอนอย่างเดียว</span><br>
+                        <span class="en">Fully automated walk-away mode, chemistry only, sediment only</span></td>
+                    </tr>
+                    <tr><td class="th">ความจุตัวอย่างพร้อมกัน<br><span class="en">Sample Capacity (on-board)</span></td>
+                    <td><span class="th">100 ตำแหน่ง (โหลดแบบต่อเนื่อง, รองรับ primary tube และคัพ)</span><br>
+                        <span class="en">100 sample positions, continuous loading, primary tubes & cups</span></td>
+                    </tr>
+                    <tr style="background:#F8FCFE;"><td class="th">ความจุ Strip Feeder<br><span class="en">Test Strip Capacity</span></td>
+                    <td><span class="th">สูงสุด 300 แผ่น (ระบบป้อนอัตโนมัติ)</span><br>
+                        <span class="en">Up to 300 strips (automatic feeding system)</span></td>
+                    </tr>
+                    <tr><td class="th">การตรวจจับและ AI<br><span class="en">AI & Image Analysis</span></td>
+                    <td><span class="th">ระบบ AI Deep Learning ช่วยแยกแยะตะกอนผิดปกติ, ตรวจจับ RBC dysmorphic และแคสต์ที่ผิดปกติ</span><br>
+                        <span class="en">Deep learning AI for abnormal particle detection, dysmorphic RBC & casts</span></td>
+                    </tr>
+                    <tr style="background:#F8FCFE;"><td class="th">ระบบติดตาม & Barcode<br><span class="en">Tracking & Barcode</span></td>
+                    <td><span class="th">ระบบ Laser barcode reader (Code 39, 128, EAN, etc.), การติดตามตัวอย่างแบบสองทิศทาง</span><br>
+                        <span class="en">Laser barcode scanner, bidirectional sample tracking</span></td>
+                    </tr>
+                    <tr><td class="th">อินเทอร์เฟซ & ซอฟต์แวร์<br><span class="en">Connectivity & Software</span></td>
+                    <td><span class="th">LAN, USB, RS-232, รองรับ HL7, LIS เชื่อมต่อแบบ bidirectional, Windows-based OS</span><br>
+                        <span class="en">LAN, USB, RS-232, HL7, bidirectional LIS, Windows OS</span></td>
+                    </tr>
+                    <tr style="background:#F8FCFE;"><td class="th">หน่วยความจำข้อมูล<br><span class="en">Data Storage</span></td>
+                    <td><span class="th">จัดเก็บผลลัพธ์+ภาพตะกอนได้มากกว่า 100,000 รายการ</span><br>
+                        <span class="en">Store >100,000 results with sediment images</span></td>
+                    </tr>
+                    <tr><td class="th">มิติ (กว้าง×ลึก×สูง)<br><span class="en">Dimensions (W×D×H)</span></td>
+                    <td><span class="th">730 mm × 650 mm × 650 mm (ตัวหลัก, ไม่รวมอุปกรณ์เสริม)</span><br>
+                        <span class="en">730 × 650 × 650 mm (main unit)</span></td>
+                    </tr>
+                    <tr style="background:#F8FCFE;"><td class="th">น้ำหนัก<br><span class="en">Weight</span></td>
+                    <td><span class="th">ประมาณ 85 kg</span><br>
+                        <span class="en">Approx. 85 kg</span></td>
+                    </tr>
+                    <tr><td class="th">ไฟฟ้า & สภาวะแวดล้อม<br><span class="en">Power & Environment</span></td>
+                    <td><span class="th">AC 100–240V, 50/60Hz, 300VA, อุณหภูมิ 15–30°C, ความชื้น 20–80% RH</span><br>
+                        <span class="en">100–240V, 50/60Hz, 300VA, Temp 15–30°C, Humidity 20–80%</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- จุดเด่นทางการขาย / Key Selling Points -->
+        <div class="feature-grid">
+            <div class="feature-title">⭐ ข้อได้เปรียบเหนือชั้น | Key Advantages</div>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <p><strong>🇹🇭 ระบบครบวงจรในเครื่องเดียว</strong><br><span class="en">All-in-one urinalysis: Chemistry + Sediment</span></p>
+                    <p><strong>🇹🇭 AI ปัญญาประดิษฐ์วิเคราะห์ตะกอน</strong><br><span class="en">AI-powered sediment recognition reduces manual review</span></p>
+                </div>
+                <div class="feature-item">
+                    <p><strong>🇹🇭 ความเร็วสูง 120 ตัวอย่าง/ชม.</strong><br><span class="en">High throughput for busy laboratories</span></p>
+                    <p><strong>🇹🇭 บันทึกภาพจริงของตะกอน</strong><br><span class="en">Real sediment images for verification & reporting</span></p>
+                </div>
+                <div class="feature-item">
+                    <p><strong>🇹🇭 เหมาะกับคลินิก, โรงพยาบาลขนาดเล็ก-กลาง</strong><br><span class="en">Ideal for clinics, medium labs, and hospitals</span></p>
+                    <p><strong>🇹🇭 ต้นทุนค่าสารเคมีและบำรุงรักษาต่ำ</strong><br><span class="en">Low reagent cost and easy maintenance</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- การรับประกันและบริการ -->
+        <div class="warranty-box">
+            <p><strong>✅ การรับประกันและบริการหลังการขาย | Warranty & After-Sales Service</strong><br>
+            <span class="th">✔ รับประกันตัวเครื่อง 2 ปี (อะไหล่ + ค่าแรง) พร้อมบริการบำรุงรักษาเชิงป้องกันฟรีตามรอบ</span><br>
+            <span class="en">✔ 2-year comprehensive warranty including parts & labor, free preventive maintenance.</span><br>
+            <span class="th">✔ ทีมวิศวกรชำนาญการ Dirui และ Meditop ให้บริการอบรมการใช้งาน และซ่อมบำรุงทั่วประเทศ</span><br>
+            <span class="en">✔ Certified Dirui & Meditop engineers provide training & rapid service nationwide.</span><br>
+            <span class="th">✔ บริการช่วยเหลือทางไกล (Remote support) และอะไหล่แท้พร้อมสต็อก</span><br>
+            <span class="en">✔ Remote technical support & genuine spare parts in stock.</span></p>
+        </div>
+
+        <!-- ที่อยู่และข้อมูลติดต่อครบถ้วน -->
+        <div class="contact-footer">
+            <div class="contact-row">
+                <div class="address-box">
+                    <strong>🏢 บริษัท เมดิทอป จำกัด (Meditop Co., Ltd.)</strong><br>
+                    334 ซอยลาดพร้าว 71 (สังคมสงเคราะห์เหนือ 1)<br>
+                    ถนนลาดพร้าว แขวงคลองเจ้าคุณสิงห์ เขตวังทองหลาง<br>
+                    กรุงเทพฯ 10310<br>
+                    <span class="en" style="font-size: 0.7rem;">334 Ladprao 71 (Sangkhom Sangkhro Nua 1), Ladprao Road, Khlong Chaokhun Sing, Wang Thonglang, Bangkok 10310, Thailand</span>
+                </div>
+                <div class="contact-details">
+                    <p><strong>📞 Tel:</strong> 029331133</p>
+                    <p><strong>✉️ Email:</strong> info@meditopthailand.com</p>
+                    <p><strong>🕘 เวลาทำการ (Business hours):</strong> จ.-ศ. 08:30 - 17:30 น.</p>
+                    <p class="en">Sales & Demo | ติดต่อทีมขายเพื่อรับข้อมูลเพิ่มเติมและนัดหมายสาธิต</p>
+                </div>
+            </div>
+            <div class="copy">
+                © 2025 Meditop (Thailand) Co., Ltd. | Dirui LA60SE — Intelligent Urinalysis Workstation for Modern Labs
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
