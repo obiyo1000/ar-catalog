@@ -5,7 +5,7 @@ const models = [
     brand: "Dymind",
     image: "assets/img/DH-615.jpg",
     description: "Hematology Analyzer",
-    catalog: "catalog/DH-615.pdf",
+    catalog: "catalog/DH-615.html",
     video: "video/DH-615.mp4",
     spec: "spec/DH-615.html",
     glb: "models/DH-615.glb",
