@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Dymind DH-615 | Meditop Catalog</title>
+    <title>Dymind DH-615 | Meditop Sales Catalog</title>
     <style>
         * {
             margin: 0;
@@ -20,7 +20,7 @@
             font-family: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
         }
 
-        /* A4 exact size (ISO standard) */
+        /* A4 exact size */
         .catalog {
             max-width: 210mm;
             width: 100%;
@@ -50,18 +50,11 @@
             align-items: center;
             gap: 14px;
         }
-        .logo-symbol {
-            width: 55px;
-            height: 55px;
-            background: #0f2b3d;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 800;
-            font-size: 22px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        .logo-img {
+            height: 60px;
+            width: auto;
+            max-width: 180px;
+            object-fit: contain;
         }
         .company-text h2 {
             font-size: 1.7rem;
@@ -86,7 +79,7 @@
             box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
 
-        /* Main product image block */
+        /* Hero section with actual device image */
         .hero-section {
             display: flex;
             flex-wrap: wrap;
@@ -97,23 +90,30 @@
         }
         .product-image {
             flex: 1.2;
-            min-width: 200px;
+            min-width: 240px;
             background: #f8fafc;
             border-radius: 28px;
-            padding: 15px;
+            padding: 20px;
             text-align: center;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.03);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.05);
             border: 1px solid #e2edf7;
         }
-        .device-svg {
+        .device-img {
             width: 100%;
             max-width: 320px;
             height: auto;
+            border-radius: 16px;
+            display: block;
+            margin: 0 auto;
+            transition: transform 0.2s ease;
+        }
+        .device-img:hover {
+            transform: scale(1.01);
         }
         .caption {
             font-size: 0.7rem;
             color: #2c3e66;
-            margin-top: 8px;
+            margin-top: 12px;
             font-weight: 500;
         }
         .title-block {
@@ -157,7 +157,6 @@
             border-radius: 40px 12px 12px 40px;
             display: inline-block;
             margin-bottom: 18px;
-            letter-spacing: 0.3px;
         }
         .spec-table {
             width: 100%;
@@ -276,9 +275,6 @@
             .inner {
                 padding: 10mm 12mm;
             }
-            .spec-table th, .spec-table td {
-                border-color: #aaa;
-            }
         }
 
         @media (max-width: 760px) {
@@ -300,12 +296,13 @@
 <body>
 <div class="catalog">
     <div class="inner">
-        <!-- Header: logo + meditop + model badge (only English) -->
+        <!-- Header with REAL LOGO from GitHub -->
         <div class="header-row">
             <div class="logo-area">
-                <div class="logo-symbol">
-                    <span>⚕️</span>
-                </div>
+                <img src="https://raw.githubusercontent.com/obiyo1000/ar-catalog/main/pic/Meditop.jpg" 
+                     alt="Meditop Logo" 
+                     class="logo-img"
+                     onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
                 <div class="company-text">
                     <h2>MEDITOP</h2>
                     <p>Meditop Co., Ltd. | Medical & Diagnostic Solutions</p>
@@ -316,33 +313,13 @@
             </div>
         </div>
 
-        <!-- Hero section: device illustration + main title -->
+        <!-- Hero section with REAL DEVICE IMAGE from GitHub -->
         <div class="hero-section">
             <div class="product-image">
-                <!-- Modern SVG illustration of Hematology analyzer (professional look) -->
-                <svg class="device-svg" viewBox="0 0 320 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="30" y="30" width="260" height="160" rx="18" fill="url(#gradMain)" stroke="#cbdde9" stroke-width="1.2"/>
-                    <rect x="50" y="50" width="120" height="85" rx="12" fill="#ffffff" stroke="#9bb7d0" stroke-width="1"/>
-                    <rect x="55" y="58" width="40" height="12" rx="4" fill="#2c6e9e" />
-                    <rect x="105" y="58" width="50" height="12" rx="4" fill="#cbdde9" />
-                    <circle cx="85" cy="95" r="12" fill="#eef2ff" stroke="#2c6e9e" stroke-width="1.2"/>
-                    <circle cx="85" cy="95" r="5" fill="#2c6e9e" />
-                    <rect x="110" y="86" width="45" height="18" rx="5" fill="#eef2ff" stroke="#2c6e9e" stroke-width="1"/>
-                    <line x1="120" y1="95" x2="148" y2="95" stroke="#2c6e9e" stroke-width="1.5" stroke-linecap="round"/>
-                    <rect x="55" y="122" width="100" height="8" rx="4" fill="#1e4a76" />
-                    <circle cx="218" cy="78" r="14" fill="#ffffff" stroke="#9bb7d0" stroke-width="1"/>
-                    <circle cx="218" cy="78" r="7" fill="#1e4a76" />
-                    <rect x="198" y="110" width="45" height="28" rx="6" fill="#1e4a76" opacity="0.8"/>
-                    <text x="205" y="129" fill="white" font-size="9" font-family="Arial" font-weight="bold">START</text>
-                    <rect x="250" y="110" width="28" height="28" rx="6" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
-                    <path d="M260 116 L260 132 M253 124 L267 124" stroke="#1e293b" stroke-width="1.5" stroke-linecap="round"/>
-                    <defs>
-                        <linearGradient id="gradMain" x1="0" y1="0" x2="1" y2="1">
-                            <stop stop-color="#f1f9fe" />
-                            <stop offset="1" stop-color="#e2edf5" />
-                        </linearGradient>
-                    </defs>
-                </svg>
+                <img src="https://raw.githubusercontent.com/obiyo1000/ar-catalog/main/pic/DH-615.jpg" 
+                     alt="Dymind DH-615 Automated Hematology Analyzer" 
+                     class="device-img"
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x300?text=DH-615+Image'">
                 <div class="caption">Dymind DH-615 | High-performance automated hematology analyzer</div>
             </div>
             <div class="title-block">
@@ -352,7 +329,7 @@
             </div>
         </div>
 
-        <!-- Specifications Table (english only) -->
+        <!-- Specifications Table (English only) -->
         <div class="spec-section">
             <div class="spec-title">📊 Technical Specifications</div>
             <table class="spec-table">
@@ -377,7 +354,7 @@
             </table>
         </div>
 
-        <!-- Key features grid (english) -->
+        <!-- Key Features Grid -->
         <div class="feature-grid">
             <div class="feature-title">✨ Key Features & Benefits</div>
             <div class="feature-list">
@@ -391,19 +368,19 @@
                 </div>
                 <div class="feature-item">
                     <p><strong>📊 3-part differential</strong><br>Reliable WBC differentiation (Lymph, Monocytes, Gran)</p>
-                    <p><strong>🖥️ User-centric design</strong><br>10.4” touchscreen with intuitive menu & QC charts</p>
+                    <p><strong>🖥️ User-centric design</strong><br>10.4" touchscreen with intuitive menu & QC charts</p>
                 </div>
             </div>
         </div>
 
-        <!-- service & warranty highlight -->
+        <!-- Warranty & Service -->
         <div class="service-note">
             <p><strong>✅ 2-year warranty</strong> — Full coverage by factory-trained engineers</p>
             <p><strong>🔧 Certified after-sales support</strong> — Preventive maintenance, calibration & ISO compliant service</p>
             <p><strong>🚀 Nationwide service (Thailand)</strong> — Response within 48 hours, remote troubleshooting available</p>
         </div>
 
-        <!-- Contact & company details (only English) full address Meditop Co., Ltd. -->
+        <!-- Contact & Company Details -->
         <div class="contact-footer">
             <div class="contact-row">
                 <div class="address-box">
