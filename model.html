@@ -44,6 +44,7 @@
       font-size: 16px;
       margin-bottom: 12px;
       font-weight: 500;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .menu-btn:hover {
@@ -59,6 +60,42 @@
       margin: 20px 0;
     }
 
+    .video-section {
+      text-align: left;
+      background: #fff5f5;
+      border: 1px solid #ffd6d6;
+      border-radius: 18px;
+      padding: 18px;
+      margin-top: 24px;
+    }
+
+    .video-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 14px;
+      margin-top: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .video-title {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #842029;
+    }
+
+    .video-player {
+      width: 100%;
+      max-height: 520px;
+      border-radius: 12px;
+      background: #000;
+      display: block;
+    }
+
+    .video-link-btn {
+      border-radius: 50px;
+      margin-top: 10px;
+    }
+
     #loading {
       text-align: center;
       padding: 50px;
@@ -72,6 +109,10 @@
       .menu-btn {
         font-size: 14px;
         padding: 12px;
+      }
+
+      .video-section {
+        padding: 14px;
       }
     }
   </style>
@@ -101,7 +142,7 @@
 <script>
   window.addEventListener('load', function () {
     const params = new URLSearchParams(window.location.search);
-    const id = parseInt(params.get("id"), 10);
+    const id = params.get("id");
 
     if (typeof models === 'undefined' || !Array.isArray(models)) {
       showError("ไม่สามารถโหลดข้อมูลสินค้าได้ กรุณาตรวจสอบไฟล์ assets/data/models.js");
@@ -113,7 +154,7 @@
       return;
     }
 
-    const model = models.find(item => Number(item.id) === id);
+    const model = models.find(item => String(item.id) === String(id));
 
     if (!model) {
       showError("ไม่พบข้อมูลสินค้าที่เลือก");
@@ -124,12 +165,11 @@
   });
 
   function displayModelDetail(model) {
-    document.title = `${model.name} - ${model.brand}`;
+    document.title = `${model.name || 'Model'} - ${model.brand || 'Medical Equipment'}`;
 
     const content = document.getElementById("content");
 
     const catalogLink = model.catalog || "#";
-    const videoLink = model.video || "#";
     const specLink = model.spec || "#";
 
     let specHtml = "";
@@ -150,11 +190,13 @@
       `;
     }
 
+    const videoHtml = buildVideoHtml(model.video);
+
     content.innerHTML = `
       <div class="card main-card">
-        <img src="${model.image || 'assets/img/placeholder.jpg'}"
+        <img src="${escapeAttribute(model.image || 'assets/img/placeholder.jpg')}"
              class="model-img"
-             alt="${escapeHtml(model.name)}"
+             alt="${escapeAttribute(model.name || '')}"
              onerror="this.src='assets/img/placeholder.jpg'">
 
         <div class="card-body text-center">
@@ -172,43 +214,35 @@
 
           <div class="row mt-4">
 
-            <div class="col-md-6">
-              <a href="${catalogLink}"
+            <div class="col-md-4">
+              <a href="${escapeAttribute(catalogLink)}"
                  target="_blank"
                  class="btn btn-outline-primary w-100 menu-btn"
-                 onclick="return checkLink('${catalogLink}', 'Catalog')">
+                 onclick="return checkLink('${escapeJs(catalogLink)}', 'Catalog')">
                 <i class="fas fa-file-pdf"></i> Catalog
               </a>
             </div>
 
-            <div class="col-md-6">
-              <a href="${videoLink}"
-                 target="_blank"
-                 class="btn btn-outline-danger w-100 menu-btn"
-                 onclick="return checkLink('${videoLink}', 'Video')">
-                <i class="fas fa-video"></i> Video
-              </a>
-            </div>
-
-            <div class="col-md-6">
-              <a href="${specLink}"
+            <div class="col-md-4">
+              <a href="${escapeAttribute(specLink)}"
                  target="_blank"
                  class="btn btn-outline-success w-100 menu-btn"
-                 onclick="return checkLink('${specLink}', 'Spec')">
+                 onclick="return checkLink('${escapeJs(specLink)}', 'Spec')">
                 <i class="fas fa-chart-bar"></i> Spec
               </a>
             </div>
 
-            <div class="col-md-6">
-              <a href="ar.html?id=${model.id}"
+            <div class="col-md-4">
+              <a href="ar.html?id=${encodeURIComponent(model.id)}"
                  class="btn btn-primary w-100 menu-btn">
                 <i class="fas fa-cube"></i> Model AR
                 <small class="d-block">View in 3D / AR</small>
               </a>
-              </a>
             </div>
 
           </div>
+
+          ${videoHtml}
         </div>
       </div>
     `;
@@ -217,17 +251,92 @@
     content.style.display = "block";
   }
 
+  function buildVideoHtml(videoData) {
+    const videos = normalizeVideos(videoData);
+
+    if (videos.length === 0) {
+      return `
+        <div class="video-section text-center">
+          <h4 class="mb-2"><i class="fas fa-video text-danger"></i> Product Video</h4>
+          <p class="text-muted mb-0">ยังไม่ได้เพิ่มวิดีโอในระบบ</p>
+        </div>
+      `;
+    }
+
+    return `
+      <div class="video-section">
+        <h4 class="mb-2"><i class="fas fa-video text-danger"></i> Product Video</h4>
+        <p class="text-muted small mb-2">รองรับวิดีโอหลายไฟล์ ทั้ง Android และ iOS</p>
+
+        ${videos.map((video, index) => `
+          <div class="video-card">
+            <div class="video-title">
+              <i class="fas fa-play-circle"></i> Video ${index + 1}${video.title ? ' - ' + escapeHtml(video.title) : ''}
+            </div>
+
+            <video class="video-player" controls playsinline preload="metadata">
+              <source src="${escapeAttribute(video.url)}" type="${escapeAttribute(video.type || 'video/mp4')}">
+              Browser นี้ไม่รองรับการเล่นวิดีโอ
+            </video>
+
+            <a href="${escapeAttribute(video.url)}" target="_blank" class="btn btn-sm btn-outline-danger video-link-btn">
+              <i class="fas fa-up-right-from-square"></i> เปิดวิดีโอ
+            </a>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  function normalizeVideos(videoData) {
+    if (!videoData) return [];
+
+    const list = Array.isArray(videoData) ? videoData : [videoData];
+
+    return list
+      .map(item => {
+        if (!item) return null;
+
+        if (typeof item === 'string') {
+          return {
+            url: item,
+            title: '',
+            type: guessVideoType(item)
+          };
+        }
+
+        if (typeof item === 'object') {
+          const url = item.url || item.src || item.file || item.link || '';
+          if (!url) return null;
+
+          return {
+            url: url,
+            title: item.title || item.name || '',
+            type: item.type || guessVideoType(url)
+          };
+        }
+
+        return null;
+      })
+      .filter(Boolean);
+  }
+
+  function guessVideoType(url) {
+    const lower = String(url || '').toLowerCase();
+
+    if (lower.endsWith('.webm')) return 'video/webm';
+    if (lower.endsWith('.ogg') || lower.endsWith('.ogv')) return 'video/ogg';
+    if (lower.endsWith('.mov')) return 'video/quicktime';
+
+    return 'video/mp4';
+  }
+
   function checkLink(url, name) {
     if (!url || url === "#") {
       showNotification(`ไฟล์ ${name} ยังไม่ได้เพิ่มในระบบ`, "warning");
       return false;
     }
     return true;
-  }
-
-  function showARComingSoon() {
-    showNotification("Model AR จะเพิ่มใน Phase 3", "info");
-    return false;
   }
 
   function showError(message) {
@@ -278,8 +387,22 @@
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
+      .replace(/\"/g, "&quot;")
       .replace(/'/g, "&#39;");
+  }
+
+  function escapeAttribute(str) {
+    return escapeHtml(str);
+  }
+
+  function escapeJs(str) {
+    if (str === null || str === undefined) return "";
+    return String(str)
+      .replace(/\\/g, "\\\\")
+      .replace(/'/g, "\\'")
+      .replace(/\"/g, "&quot;")
+      .replace(/\n/g, "\\n")
+      .replace(/\r/g, "\\r");
   }
 </script>
 
