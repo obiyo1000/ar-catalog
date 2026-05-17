@@ -104,7 +104,9 @@ const models = [
     image: "assets/img/Acusera.jpg",
     description: "Quality Controls",
     catalog: "catalog/Acusera.html",
-    video: "video/Acusera.mp4",
+    video: "video/Acusera_24•7_Live_Online-Interlaboratory_Data_Management_Program.mp4",
+    video: "RIQAS_The_World’s_Largest_EQA_Scheme.mp4",
+    video: "video/True_Third_Party_Controls.mp4",
     spec: "spec/Acusera.html",
     glb: "models/Acusera.glb",
     usdz: "models/Acusera.usdz"
