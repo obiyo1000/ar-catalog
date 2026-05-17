@@ -18,9 +18,10 @@ const models = [
     image: "assets/img/XR-3000.jpg",
     description: "Hematology Analyzer",
     catalog: "catalog/XR-Series.pdf",
-    video: "video/XN-1500+DI-60",
-    video: "video/XR_Modularity_Animation",
-    video: "video/XR-Series_Promotional_Video_Global",
+    video: ["video/XN-1500+DI-60",
+            "video/XR_Modularity_Animation",
+            "video/XR-Series_Promotional_Video_Global"
+           ],
     spec: "spec/XR-3000.html",
     glb: "models/XR-3000.glb",
     usdz: "models/XR-3000.usdz"
@@ -104,9 +105,10 @@ const models = [
     image: "assets/img/Acusera.jpg",
     description: "Quality Controls",
     catalog: "catalog/Acusera.html",
-    video: "video/Acusera_24•7_Live_Online-Interlaboratory_Data_Management_Program.mp4",
-    video: "RIQAS_The_World’s_Largest_EQA_Scheme.mp4",
-    video: "video/True_Third_Party_Controls.mp4",
+    video: ["video/Acusera_24•7_Live_Online-Interlaboratory_Data_Management_Program.mp4",
+            "RIQAS_The_World’s_Largest_EQA_Scheme.mp4",
+            "video/True_Third_Party_Controls.mp4"
+           ],
     spec: "spec/Acusera.html",
     glb: "models/Acusera.glb",
     usdz: "models/Acusera.usdz"
