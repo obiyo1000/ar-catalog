@@ -17,8 +17,10 @@ const models = [
     brand: "Sysmex",
     image: "assets/img/XR-3000.jpg",
     description: "Hematology Analyzer",
-    catalog: "catalog/XR-3000.pdf",
-    video: "video/XR-3000.mp4",
+    catalog: "catalog/XR-Series.pdf",
+    video: "video/XN-1500+DI-60",
+    video: "video/XR_Modularity_Animation",
+    video: "video/XR-Series_Promotional_Video_Global",
     spec: "spec/XR-3000.html",
     glb: "models/XR-3000.glb",
     usdz: "models/XR-3000.usdz"
