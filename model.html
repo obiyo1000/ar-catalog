@@ -171,30 +171,13 @@
 
     const catalogLink = model.catalog || "#";
 
-    let specButtons = "";
-    
-    if (Array.isArray(model.spec)) {
-    
-      specButtons = model.spec.map((specFile, index) => `
-          <a href="${specFile}"
-             target="_blank"
-             class="btn btn-outline-success w-100 menu-btn mb-2">
-             <i class="fas fa-chart-bar"></i>
-             Spec ${index + 1}
-          </a>
-      `).join("");
-    
-    } else {
-    
-      specButtons = `
-          <a href="${model.spec}"
-             target="_blank"
-             class="btn btn-outline-success w-100 menu-btn">
-             <i class="fas fa-chart-bar"></i>
-             Spec
-          </a>
-      `;
-    }
+    const specButtons = `
+        <a href="spec.html?id=${encodeURIComponent(model.id)}"
+           class="btn btn-outline-success w-100 menu-btn">
+           <i class="fas fa-chart-bar"></i> Spec
+           <small class="d-block">View Specifications</small>
+        </a>
+    `;
 
     let specHtml = "";
 
