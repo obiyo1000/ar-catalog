@@ -170,7 +170,31 @@
     const content = document.getElementById("content");
 
     const catalogLink = model.catalog || "#";
-    const specLink = model.spec || "#";
+
+    let specButtons = "";
+    
+    if (Array.isArray(model.spec)) {
+    
+      specButtons = model.spec.map((specFile, index) => `
+          <a href="${specFile}"
+             target="_blank"
+             class="btn btn-outline-success w-100 menu-btn mb-2">
+             <i class="fas fa-chart-bar"></i>
+             Spec ${index + 1}
+          </a>
+      `).join("");
+    
+    } else {
+    
+      specButtons = `
+          <a href="${model.spec}"
+             target="_blank"
+             class="btn btn-outline-success w-100 menu-btn">
+             <i class="fas fa-chart-bar"></i>
+             Spec
+          </a>
+      `;
+    }
 
     let specHtml = "";
 
@@ -224,12 +248,7 @@
             </div>
 
             <div class="col-md-4">
-              <a href="${escapeAttribute(specLink)}"
-                 target="_blank"
-                 class="btn btn-outline-success w-100 menu-btn"
-                 onclick="return checkLink('${escapeJs(specLink)}', 'Spec')">
-                <i class="fas fa-chart-bar"></i> Spec
-              </a>
+              ${specButtons}
             </div>
 
             <div class="col-md-4">
