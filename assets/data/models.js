@@ -144,7 +144,9 @@ const models = [
     image: "assets/img/Stat-Profile-Prime-ES Picture.jpg",
     description: "Blood Gas, Electrolyte, Metabolite, CO-Oximeter Analyzer",
     catalog: "NOVA Stat Profile Prime Plus Brochure.pdf",
-    video: "video/VDO Prime Plus.mp4",
+    video: ["video/VDO Prime 1.mp4",
+            "video/VDO Prime2.mp4"
+            ],
     spec: ["spec/nova_prime_es_comp_spec.html",
            "spec/nova_prime_es_comp_plus_spec.html"
           ],
