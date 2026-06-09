@@ -133,7 +133,7 @@ const models = [
     description: "Blood gases",
     catalog: "NOVA Stat Profile Prime Plus Brochure.pdf",
     video: "video/VDO Prime Plus.mp4",
-    spec: "spec/Prime Plus.html",
+    spec: "spec/Specification Analyzer of NOVA Stat Profile Prime Plus.doc",
     glb: "models/Prime Plus.glb",
     usdz: "models/Prime Plus.usdz"
   }
