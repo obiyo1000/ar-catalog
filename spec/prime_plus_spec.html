@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOVA Stat Profile Prime Plus | Specification</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap');
+    :root{
+      --bg:#f4f7fb;--card:#ffffff;--ink:#14213d;--muted:#64748b;--brand:#0f5fa8;--brand2:#02a9a4;--accent:#f59e0b;--line:#e2e8f0;--soft:#eaf5ff;
+      --shadow:0 20px 50px rgba(15,95,168,.13);
+    }
+    *{box-sizing:border-box} body{margin:0;font-family:'Noto Sans Thai',Arial,sans-serif;background:linear-gradient(135deg,#eef7ff 0%,#f8fbff 48%,#f1fffd 100%);color:var(--ink);line-height:1.75}
+    .wrap{max-width:1180px;margin:auto;padding:34px 20px 70px}
+    .hero{position:relative;overflow:hidden;border-radius:34px;padding:48px;background:linear-gradient(135deg,#073b73 0%,#0f5fa8 52%,#02a9a4 100%);color:white;box-shadow:var(--shadow)}
+    .hero:before{content:"";position:absolute;right:-100px;top:-120px;width:360px;height:360px;border-radius:50%;background:rgba(255,255,255,.13)}
+    .hero:after{content:"";position:absolute;right:70px;bottom:-130px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.09)}
+    .tag{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);padding:8px 15px;border-radius:999px;font-weight:600;font-size:14px;backdrop-filter:blur(10px)}
+    h1{font-size:clamp(34px,5vw,64px);line-height:1.1;margin:22px 0 12px;font-weight:800;letter-spacing:-.8px}.hero p{max-width:770px;font-size:19px;margin:0;color:#e8f7ff}.hero-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px}.kpi{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:18px;border-radius:20px}.kpi b{display:block;font-size:24px}.kpi span{font-size:13px;color:#e2f3ff}
+    .section{margin-top:28px}.section-title{display:flex;align-items:center;gap:12px;margin:38px 0 16px}.num{width:38px;height:38px;border-radius:13px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:white;display:grid;place-items:center;font-weight:800}.section-title h2{margin:0;font-size:27px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.card{background:rgba(255,255,255,.88);border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:0 10px 30px rgba(15,23,42,.06)}.card h3{margin:0 0 12px;font-size:20px;color:var(--brand)}.card p{margin:0;color:#334155}.pill-list{display:flex;flex-wrap:wrap;gap:9px}.pill{background:#eef7ff;border:1px solid #cfeaff;color:#075999;border-radius:999px;padding:7px 12px;font-size:14px;font-weight:600}.pill.green{background:#eafffb;border-color:#c6fff3;color:#04766f}.pill.orange{background:#fff7ed;border-color:#fed7aa;color:#9a3412}
+    .table-wrap{overflow:auto;border-radius:22px;border:1px solid var(--line);background:white;box-shadow:0 10px 30px rgba(15,23,42,.05)}table{border-collapse:collapse;width:100%;min-width:780px}th,td{padding:14px 16px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#0f5fa8;color:white;font-weight:700}tr:hover td{background:#f8fbff}.feature{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:start}.icon{width:52px;height:52px;border-radius:18px;background:var(--soft);display:grid;place-items:center;font-size:26px}.timeline{display:grid;gap:12px}.step{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px}.dot{min-width:28px;height:28px;border-radius:50%;background:var(--brand2);color:white;display:grid;place-items:center;font-weight:800}.note{background:linear-gradient(135deg,#fff7ed,#ffffff);border:1px solid #fed7aa;border-radius:24px;padding:22px}.footer{margin-top:42px;text-align:center;color:var(--muted);font-size:14px}
+    @media(max-width:900px){.hero{padding:34px 24px}.hero-grid,.grid,.grid-2{grid-template-columns:1fr}table{min-width:650px}}
+    @media print{body{background:#fff}.hero,.card,.table-wrap,.note{box-shadow:none}.wrap{padding:0}.hero{border-radius:0}.section{break-inside:avoid}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <span class="tag">Specification Analyzer • NOVA Biomedical USA</span>
+      <h1>Stat Profile<br>Prime Plus</h1>
+      <p>เครื่องวิเคราะห์ความเป็นกรด-ด่าง ก๊าซ สารอิเลคโตรไลท์ สารเมตาโบไลท์ในเลือด พร้อมตรวจวัด CO‑Oximetry, Total Bilirubin และค่าที่เกี่ยวข้องจากตัวอย่างโดยตรง</p>
+      <div class="hero-grid">
+        <div class="kpi"><b>≤ 60 วินาที</b><span>รายงานผล Full Panel</span></div>
+        <div class="kpi"><b>135 µL</b><span>ปริมาณตัวอย่าง Full Panel + CO‑Ox</span></div>
+        <div class="kpi"><b>&lt; 90 W</b><span>กำลังไฟขณะทำงาน</span></div>
+        <div class="kpi"><b>1 ปี</b><span>รับประกันคุณภาพ</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><div class="num">1</div><h2>คุณสมบัติทั่วไป</h2></div>
+      <div class="grid">
+        <div class="card feature"><div class="icon">🩸</div><div><h3>วิเคราะห์ครบในตัวเดียว</h3><p>วิเคราะห์ pH, ก๊าซ, Electrolyte, Metabolite, CO‑Oximetry รวมถึง Total Bilirubin จากตัวอย่างได้โดยตรง</p></div></div>
+        <div class="card feature"><div class="icon">⚡</div><div><h3>รองรับไฟฟ้ากว้าง</h3><p>ใช้กับกระแสไฟฟ้า 100–240 โวลท์ 47–63 เฮิรทซ์ และใช้กำลังไฟน้อยกว่า 90 วัตต์</p></div></div>
+        <div class="card feature"><div class="icon">🌡️</div><div><h3>สภาพแวดล้อมใช้งาน</h3><p>อุณหภูมิแวดล้อมขณะทำงาน 15–32 องศาเซลเซียส</p></div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><div class="num">2</div><h2>พารามิเตอร์ที่ตรวจวัดและรายงานผลโดยตรง</h2></div>
+      <div class="card"><div class="pill-list">
+        <span class="pill">pH</span><span class="pill">pO₂</span><span class="pill">pCO₂</span><span class="pill">SO₂%</span><span class="pill">Na⁺</span><span class="pill">K⁺</span><span class="pill">Cl⁻</span><span class="pill">iMg++</span><span class="pill">iCa++</span><span class="pill">Glucose</span><span class="pill">Lactate</span><span class="pill">BUN</span><span class="pill">Creatinine</span><span class="pill">Hb</span><span class="pill">Hct</span><span class="pill green">O₂Hb</span><span class="pill green">HHb</span><span class="pill green">MetHb</span><span class="pill green">Total Hemoglobin</span><span class="pill green">Total Bilirubin</span><span class="pill green">Fetal Hemoglobin</span><span class="pill green">COHb</span>
+      </div></div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><div class="num">3</div><h2>ค่าคำนวณที่เครื่องสามารถรายงานได้</h2></div>
+      <div class="table-wrap"><table><thead><tr><th>กลุ่ม</th><th>รายการ</th></tr></thead><tbody>
+        <tr><td>Oxygen / Respiratory</td><td>A, a/A, A-aDO₂, O₂Cap, O₂Ct, pO₂/FiO₂, p50, RI, SO₂%c, Temp pH/pCO₂/pO₂</td></tr>
+        <tr><td>Acid-Base / CO₂</td><td>BE, BE-ecf, BE-b, HCO₃⁻, SBC, TCO₂</td></tr>
+        <tr><td>Renal / Electrolyte</td><td>BUN/Creat, eGFR, Gap, iCa/iMg, nCa/nMg, nCa, nMg, OSM</td></tr>
+        <tr><td>Hemoglobin</td><td>Hbc Hemoglobin: Calculated</td></tr>
+        <tr><td>เฉพาะเมื่อใช้ CO‑Oximeter</td><td>A-vDO₂, C(a-v)O₂, CaO₂, CcO₂, Qsp/Qt Physiologic Shunt โดยต้องใช้ 2 ตัวอย่าง arterial & venous</td></tr>
+      </tbody></table></div>
+      <div class="note" style="margin-top:16px"><b>เพิ่มเติม:</b> สามารถตรวจวัด Sulfhemoglobin (Sulf Hb) และมีข้อความเตือนหากค่า Sulf Hb มากกว่า 1.5%</div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><div class="num">4</div><h2>ชนิดตัวอย่างและการเก็บตัวอย่าง</h2></div>
+      <div class="grid-2">
+        <div class="card"><h3>ชนิดตัวอย่างที่รองรับ</h3><div class="pill-list"><span class="pill orange">Arterial whole blood</span><span class="pill orange">Venous whole blood</span><span class="pill orange">Mixed Venous</span><span class="pill orange">Capillary blood</span></div></div>
+        <div class="card"><h3>ระบบดูดตัวอย่างอัตโนมัติ</h3><p>มี Automatic Sampler รองรับ Syringe แบบ Plastic และ Glass โดยปรับมุม sample probe ให้เหมาะสม และมี Universal capillary sampling port แนวนอนพร้อม Integral adapter โดยไม่ต้องใช้ Adapter ภายนอก</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><div class="num">5</div><h2>เทคโนโลยีหลักของเครื่อง</h2></div>
+      <div class="grid">
+        <div class="card"><h3>Micro Sensor Card Technology</h3><p>ชุดตรวจวัดแยกอิสระจากน้ำยาตรวจวิเคราะห์และชุดน้ำยาควบคุมคุณภาพ ครอบคลุม ABG, Electrolyte, Metabolite, COOX และ Renal Card สำหรับ BUN/Creatinine</p></div>
+        <div class="card"><h3>Non‑lysing CO‑Oximeter</h3><p>ลดการบำรุงรักษา ลดการทำความสะอาด flow path หรือ deproteinizing เพราะ cuvette ติดมากับ Sensor Card แบบ Disposable</p></div>
+        <div class="card"><h3>Clot Prevention / Protection</h3><p>ช่วยลดปัญหาก้อน clot เข้าไปอุดตันในระบบ</p></div>
+        <div class="card"><h3>SQM</h3><p>Supplemental Quality Monitoring ตรวจสอบคุณภาพ เครื่องมือ น้ำยา sensor ระบบ electronic และ software ก่อนรายงานผล</p></div>
+        <div class="card"><h3>RFID Consumable Reader</h3><p>อ่านข้อมูลน้ำยา, Micro Sensor Card และ QC อัตโนมัติ ไม่ต้องสแกน Barcode หรือป้อนข้อมูลเอง</p></div>
+        <div class="card"><h3>Single Reagent Pack</h3><p>รวมน้ำยาที่ใช้ตรวจวิเคราะห์ทุกตัวและภาชนะน้ำทิ้งในกล่องเดียว พร้อมแสดงปริมาณน้ำยาบนหน้าจอ</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><div class="num">6</div><h2>ระบบ QC, Calibration และการแจ้งเตือน</h2></div>
+      <div class="timeline">
+        <div class="step"><div class="dot">1</div><div><b>On Board Automatic QC</b><br>ตั้งเวลาให้เครื่องทำ QC อัตโนมัติได้สูงสุด 6 ครั้งต่อระดับต่อวัน</div></div>
+        <div class="step"><div class="dot">2</div><div><b>Calibration</b><br>Two Point Calibration อัตโนมัติทุก 2 ชั่วโมง, One Point Calibration หลังการวัด และ Manual Calibration ตามต้องการ</div></div>
+        <div class="step"><div class="dot">3</div><div><b>Levey Jennings Graph</b><br>ระบบ QC สามารถรายงานผลเป็นค่าสถิติและพิมพ์กราฟ Levey Jennings ได้</div></div>
+        <div class="step"><div class="dot">4</div><div><b>Flags</b><br>มีระบบเตือนเมื่อตรวจพบสิ่งผิดปกติ เช่น ปริมาณสิ่งส่งตรวจไม่เพียงพอ หรือพบฟองอากาศในตัวอย่าง</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><div class="num">7</div><h2>การเชื่อมต่อ การใช้งาน และส่วนแสดงผล</h2></div>
+      <div class="grid-2">
+        <div class="card"><h3>Remote Management</h3><p>เชื่อมต่อเครื่อง Blood Gas ตามจุดต่าง ๆ ของโรงพยาบาลมายังโปรแกรมกลางเพื่อ Monitor และ Management รองรับ Bi-directional communication, Remote Review และ Remote Control</p></div>
+        <div class="card"><h3>หน้าจอและเครื่องพิมพ์</h3><p>จอสีขนาดใหญ่ 25 เซนติเมตร สั่งงานผ่านหน้าจอสัมผัส และพิมพ์ผลผ่าน Thermal Paper Printer ที่ติดตั้งมากับเครื่อง</p></div>
+        <div class="card"><h3>Barcode Scanner ในตัว</h3><p>ใช้ป้อนข้อมูลคนไข้และผู้ใช้งาน โดยไม่ต้องต่อ Hand Held scanner ภายนอก</p></div>
+        <div class="card"><h3>Recall Patient Result</h3><p>เรียกดูผลการวิเคราะห์สารชนิดเดียวกันของผู้ป่วยคนเดียวกันในแต่ละครั้งได้</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><div class="num">8</div><h2>ข้อมูล RFID ที่แสดงได้</h2></div>
+      <div class="card"><div class="pill-list"><span class="pill">Lot Expiration Date</span><span class="pill">Lot Number</span><span class="pill">Use Life Expiration Date</span><span class="pill">Use Life Expiration Time</span><span class="pill">Sample Remaining</span><span class="pill">Use Life Percent Remaining</span></div></div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><div class="num">9</div><h2>ส่วนประกอบหลักของระบบ</h2></div>
+      <div class="table-wrap"><table><thead><tr><th>ส่วนประกอบ</th><th>รายละเอียด</th></tr></thead><tbody>
+        <tr><td>Micro Sensor Card</td><td>ABG, Electrolyte, Metabolite, COOX และ Renal Card สำหรับเปิดพารามิเตอร์ BUN, Creatinine</td></tr>
+        <tr><td>Calibrator Cartridge</td><td>ใช้สำหรับระบบสอบเทียบของเครื่อง</td></tr>
+        <tr><td>Optional Quality Control Cartridge</td><td>ชุดน้ำยาควบคุมคุณภาพเสริมสำหรับระบบ QC</td></tr>
+      </tbody></table></div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><div class="num">10</div><h2>สรุปจุดขายสำคัญ</h2></div>
+      <div class="grid">
+        <div class="card"><h3>เร็ว</h3><p>Full Panel รายงานผลภายใน 60 วินาที เหมาะกับงาน Critical Care และ ER</p></div>
+        <div class="card"><h3>สะดวก</h3><p>มี Barcode ในตัว, RFID, Single Reagent Pack และระบบดูดตัวอย่างอัตโนมัติ</p></div>
+        <div class="card"><h3>มั่นใจ</h3><p>มี QC อัตโนมัติ, SQM, Flags, Clot Protection และรายงาน QC เป็นสถิติพร้อมกราฟ</p></div>
+      </div>
+    </section>
+
+    <div class="footer">NOVA Stat Profile Prime Plus • Specification Presentation HTML</div>
+  </main>
+</body>
+</html>
