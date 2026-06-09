@@ -96,6 +96,9 @@
 </div>
 
 <div class="container pb-5">
+  <div class="search-box">
+    <input type="text" id="searchInput" class="form-control" placeholder="ค้นหาสินค้า...">
+  </div>
   <div class="row g-4" id="modelList"></div>
 </div>
 
@@ -168,18 +171,20 @@
   document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('searchInput');
 
-    searchInput.addEventListener('keyup', function () {
-      const searchTerm = this.value.toLowerCase().trim();
+    if (searchInput) {
+      searchInput.addEventListener('keyup', function () {
+        const searchTerm = this.value.toLowerCase().trim();
 
-      const filtered = allModels.filter(item =>
-        String(item.name || '').toLowerCase().includes(searchTerm) ||
-        String(item.brand || '').toLowerCase().includes(searchTerm) ||
-        String(item.description || '').toLowerCase().includes(searchTerm)
-      );
+        const filtered = allModels.filter(item =>
+          String(item.name || '').toLowerCase().includes(searchTerm) ||
+          String(item.brand || '').toLowerCase().includes(searchTerm) ||
+          String(item.description || '').toLowerCase().includes(searchTerm)
+        );
 
       displayModels(filtered);
     });
-  });
+  }
+});
 
   function showLoadError() {
     document.getElementById("modelList").innerHTML = `
