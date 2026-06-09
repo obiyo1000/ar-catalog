@@ -124,5 +124,17 @@ const models = [
     spec: "spec/5A.html",
     glb: "models/5A.glb",
     usdz: "models/5A.usdz"
+  },
+    {
+    id: 11,
+    name: "NOVA Stat Profile Prime Plus",
+    brand: "Nova",
+    image: "assets/img/Prime-Plus-L.jpg",
+    description: "Blood gases",
+    catalog: "NOVA Stat Profile Prime Plus Brochure.pdf",
+    video: "video/VDO Prime Plus.mp4",
+    spec: "spec/Prime Plus.html",
+    glb: "models/Prime Plus.glb",
+    usdz: "models/Prime Plus.usdz"
   }
 ];
