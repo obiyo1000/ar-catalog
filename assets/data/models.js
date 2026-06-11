@@ -193,5 +193,20 @@ const models = [
     spec: "spec/Specification CAP3.pdf",
     glb: "models/Prime Plus.glb",
     usdz: "models/Prime Plus.usdz"
+  },
+  {
+    id: 15,
+    division: "Clinical Diagnostic",
+    name: "Orgentec Alegria 2",
+    brand: "Sebia",
+    image: "assets/img/Orgentec_Alegria 2.jpg",
+    description: "Automated Immunoassay Analyzer with Alegria Monotest Technology",
+    catalog: "catalog/Brochure_Alegria2_A2B1EN.pdf",
+    video: ["video/Alegria2_A2_Long_video_EN.mp4",
+            "video/Alegria2_A2_Teaser_EN.mp4"
+            ],
+    spec: "spec/Flyer_Alegria2_A2F1EN.pdf",
+    glb: "models/Prime Plus.glb",
+    usdz: "models/Prime Plus.usdz"
   }
 ];
