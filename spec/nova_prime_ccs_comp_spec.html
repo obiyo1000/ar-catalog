@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>NOVA Stat Profile PRIME CCS Comp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root{--blue:#0057b8;--cyan:#00a6d6;--green:#19c37d;--dark:#102033;--soft:#f3f7fb}
+    body{margin:0;background:linear-gradient(180deg,#eef6ff 0%,#f8fafc 50%,#fff 100%);font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;color:#26384d}
+    .hero{background:radial-gradient(circle at top right,rgba(25,195,125,.22),transparent 34%),linear-gradient(135deg,#002b66,#0057b8 55%,#00a6d6);color:#fff;border-radius:0 0 42px 42px;overflow:hidden;position:relative}
+    .hero:after{content:"";position:absolute;width:430px;height:430px;right:-150px;bottom:-170px;border:46px solid rgba(255,255,255,.08);border-radius:50%}
+    .hero-content{position:relative;z-index:2;padding:68px 0 54px}.badge-soft{display:inline-block;padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);margin-bottom:18px}
+    .hero h1{font-size:clamp(2rem,4vw,4.2rem);font-weight:800;letter-spacing:-1px}.hero p{font-size:1.15rem;max-width:850px;opacity:.96}
+    .device-card{background:rgba(255,255,255,.96);color:var(--dark);border-radius:30px;padding:28px;box-shadow:0 24px 60px rgba(0,0,0,.22)}
+    .device-box{min-height:250px;border-radius:24px;background:linear-gradient(145deg,#fff,#dfeaf5);display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center}.device-box i{font-size:82px;color:var(--blue);margin-bottom:16px}
+    .quick-card,.panel,.calc-box{background:#fff;border:1px solid #e6eef8;border-radius:22px;padding:22px;height:100%;box-shadow:0 12px 30px rgba(15,23,42,.08)}
+    .quick-card{transition:.25s}.quick-card:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(15,23,42,.14)}
+    .quick-icon{width:54px;height:54px;border-radius:16px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:23px;margin-bottom:14px;background:linear-gradient(135deg,var(--blue),var(--cyan))}
+    .small-label{color:#7890aa;font-size:.86rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800;margin-bottom:6px}.section-title{color:var(--dark);font-weight:800;margin-bottom:10px}.section-subtitle{color:#607086;max-width:780px;margin-bottom:28px}
+    .pill{background:#fff;border:1px solid #dce8f5;border-radius:999px;padding:10px 16px;display:inline-flex;align-items:center;gap:8px;margin:6px;box-shadow:0 8px 20px rgba(0,0,0,.05);font-weight:650}.pill i{color:var(--green)}
+    .feature-list{padding-left:0;list-style:none;margin-bottom:0}.feature-list li{position:relative;padding:9px 0 9px 32px;border-bottom:1px dashed #e6eef8}.feature-list li:last-child{border-bottom:none}.feature-list li:before{content:"\f00c";font-family:"Font Awesome 6 Free";font-weight:900;position:absolute;left:0;top:10px;color:var(--green)}
+    .timeline{position:relative;padding-left:22px}.timeline:before{content:"";position:absolute;left:7px;top:5px;bottom:5px;width:3px;background:linear-gradient(var(--blue),var(--cyan));border-radius:4px}.timeline-item{position:relative;background:#fff;border-radius:18px;padding:18px 20px;margin-bottom:14px;border:1px solid #e8eef7}.timeline-item:before{content:"";position:absolute;left:-21px;top:23px;width:15px;height:15px;border-radius:50%;background:var(--cyan);border:3px solid #fff;box-shadow:0 0 0 3px rgba(0,166,214,.25)}
+    .dark-band{background:linear-gradient(135deg,#102033,#163a64);color:white;border-radius:30px;padding:34px;box-shadow:0 18px 42px rgba(16,32,51,.25)}
+    .footer{background:#102033;color:#dbeafe;padding:26px 0;margin-top:60px}@media(max-width:768px){.hero-content{padding:45px 0 35px}.device-card{margin-top:24px}}
+  </style>
+</head>
+<body>
+<section class="hero">
+  <div class="container hero-content">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7">
+        <span class="badge-soft"><i class="fas fa-heart-pulse"></i> Blood Gas • Electrolyte • Metabolite Analyzer</span>
+        <h1>Stat Profile PRIME CCS Comp</h1>
+        <p class="mt-3">เครื่องวิเคราะห์ความเป็นกรด-ด่าง ก๊าซ สารอิเลคโตรไลท์ และสารเมตาโบไลท์ในเลือด ตรวจวัด pH, pO2, pCO2, Na+, K+, Cl-, iCa++, Glu, Lac และ Hct พร้อมระบบ Automatic QC, Micro Sensor Card, RFID และ Calibration อัตโนมัติ</p>
+        <div class="d-flex flex-wrap gap-2 mt-4">
+          <a href="#parameters" class="btn btn-light btn-lg rounded-pill px-4"><i class="fas fa-list-check"></i> พารามิเตอร์</a>
+          <a href="#features" class="btn btn-outline-light btn-lg rounded-pill px-4"><i class="fas fa-star"></i> จุดเด่น</a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="device-card">
+          <div class="device-box"><i class="fas fa-microscope"></i><h4 class="fw-bold mb-1">NOVA Biomedical</h4><p class="text-muted mb-0">Stat Profile PRIME CCS Comp</p></div>
+          <div class="row text-center mt-4 g-3">
+            <div class="col-4"><h3 class="fw-bold text-primary mb-0">100</h3><small class="text-muted">µL Sample</small></div>
+            <div class="col-4"><h3 class="fw-bold text-primary mb-0">60</h3><small class="text-muted">Seconds</small></div>
+            <div class="col-4"><h3 class="fw-bold text-primary mb-0">10</h3><small class="text-muted">Measured</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<main class="container py-5">
+  <section class="mb-5"><div class="row g-4">
+    <div class="col-md-3 col-6"><div class="quick-card"><div class="quick-icon"><i class="fas fa-vial-circle-check"></i></div><h5 class="fw-bold">Full Panel</h5><p class="mb-0 text-muted">ใช้ตัวอย่าง 100 ไมโครลิตร</p></div></div>
+    <div class="col-md-3 col-6"><div class="quick-card"><div class="quick-icon"><i class="fas fa-stopwatch"></i></div><h5 class="fw-bold">Fast Result</h5><p class="mb-0 text-muted">รายงานผลภายใน 60 วินาที</p></div></div>
+    <div class="col-md-3 col-6"><div class="quick-card"><div class="quick-icon"><i class="fas fa-calendar-check"></i></div><h5 class="fw-bold">Automatic QC</h5><p class="mb-0 text-muted">ตั้งเวลา QC อัตโนมัติได้</p></div></div>
+    <div class="col-md-3 col-6"><div class="quick-card"><div class="quick-icon"><i class="fas fa-barcode"></i></div><h5 class="fw-bold">Built-in Barcode</h5><p class="mb-0 text-muted">ไม่ต้องต่อ Hand Held ภายนอก</p></div></div>
+  </div></section>
+
+  <section id="parameters" class="mb-5">
+    <p class="small-label">Measured Parameters</p><h2 class="section-title">ค่าที่ตรวจวัดได้โดยตรง</h2><p class="section-subtitle">รองรับการตรวจวิเคราะห์ความเป็นกรด-ด่าง ก๊าซ สารอิเลคโตรไลท์ และสารเมตาโบไลท์ในเลือด</p>
+    <div class="panel">
+      <span class="pill"><i class="fas fa-check-circle"></i> pH</span><span class="pill"><i class="fas fa-check-circle"></i> pO2</span><span class="pill"><i class="fas fa-check-circle"></i> pCO2</span><span class="pill"><i class="fas fa-check-circle"></i> Na+</span><span class="pill"><i class="fas fa-check-circle"></i> K+</span><span class="pill"><i class="fas fa-check-circle"></i> Cl-</span><span class="pill"><i class="fas fa-check-circle"></i> iCa++</span><span class="pill"><i class="fas fa-check-circle"></i> Glu</span><span class="pill"><i class="fas fa-check-circle"></i> Lac</span><span class="pill"><i class="fas fa-check-circle"></i> Hct</span>
+    </div>
+  </section>
+
+  <section class="mb-5">
+    <p class="small-label">Calculated Results</p><h2 class="section-title">ค่าคำนวณที่รายงานได้</h2>
+    <div class="row g-4">
+      <div class="col-lg-6"><div class="calc-box"><h5 class="fw-bold text-primary mb-3"><i class="fas fa-lungs"></i> With entered FiO2</h5><ul class="feature-list"><li>A Alveolar Oxygen Concentration</li><li>a/A Arterial Alveolar Oxygen Tension Ratio</li><li>A-aDO2 Arterial Alveolar Oxygen</li><li>pO2/FiO2 Blood Oxygen / Inspired Oxygen Ratio</li><li>RI Respiratory Index</li></ul></div></div>
+      <div class="col-lg-6"><div class="calc-box"><h5 class="fw-bold text-primary mb-3"><i class="fas fa-calculator"></i> Calculated Result</h5><ul class="feature-list"><li>BEecf Base Excess, Extracellular Fluid</li><li>BEblood Base Excess, Blood</li><li>Gap Anion Gap</li><li>Hbc Hemoglobin: Calculated</li><li>HCO3- Actual Bicarbonate Concentration</li><li>nCa++ Normalized Calcium</li><li>O2Cap Oxygen Capacity</li><li>O2Ct Oxygen Content</li><li>P50</li><li>SBC Standard Bicarbonate Concentration</li><li>SO2% Oxygen Saturation %: Calculated</li><li>TCO2 Total Carbon Dioxide</li><li>Temp pH / pCO2 / pO2 Patient Corrected</li></ul></div></div>
+    </div>
+  </section>
+
+  <section id="features" class="mb-5">
+    <p class="small-label">Analyzer Features</p><h2 class="section-title">คุณสมบัติเด่นของเครื่อง</h2><p class="section-subtitle">ออกแบบให้ทำงานรวดเร็ว ลดขั้นตอนการใช้งาน และช่วยควบคุมคุณภาพงานตรวจวิเคราะห์</p>
+    <div class="row g-4">
+      <div class="col-lg-6"><div class="panel"><h5 class="fw-bold"><i class="fas fa-robot text-primary"></i> Automatic Sampler</h5><ul class="feature-list"><li>ดูดสารตัวอย่างเข้าเครื่องโดยอัตโนมัติ</li><li>รองรับ Syringe ชนิด Plastic และ Glass</li><li>ปรับมุม Sample probe ให้เหมาะกับการดูดสิ่งส่งตรวจ</li><li>มี Universal capillary sampling port ในแนวนอน</li><li>มี Integral adapter โดยไม่ต้องใช้ Adapter ภายนอก</li></ul></div></div>
+      <div class="col-lg-6"><div class="panel"><h5 class="fw-bold"><i class="fas fa-microchip text-primary"></i> Micro Sensor Card</h5><ul class="feature-list"><li>ระบบตรวจวัดแบบ Micro Sensor Card Technology</li><li>ชุดตรวจวัดแยกอิสระจากน้ำยาตรวจวิเคราะห์</li><li>ตรวจวิเคราะห์ pH, pO2, pCO2, Hct, Na+, K+, iCa++, Cl-, Glu และ Lac</li><li>ทุกแผ่นมี RFID เพื่อบันทึกและวิเคราะห์ข้อมูลการใช้งาน</li><li>สามารถสร้าง Credit Code Warranty อัตโนมัติเมื่อใช้งานไม่ถึงเกณฑ์</li></ul></div></div>
+      <div class="col-lg-6"><div class="panel"><h5 class="fw-bold"><i class="fas fa-tower-broadcast text-primary"></i> RFID Management</h5><ul class="feature-list"><li>ใช้ RFID กับน้ำยา Micro Sensor Card และน้ำยาควบคุมคุณภาพ</li><li>ไม่ต้อง Scan Barcode หรือป้อนข้อมูลด้วยมือ</li><li>บันทึก Lot Number และ Lot Expiration Date</li><li>แสดง Use Life Expiration Date / Time</li><li>แสดง Sample Remaining และ Use Life Percent Remaining</li></ul></div></div>
+      <div class="col-lg-6"><div class="panel"><h5 class="fw-bold"><i class="fas fa-triangle-exclamation text-primary"></i> Flags & Status</h5><ul class="feature-list"><li>มีระบบเตือนเมื่อตรวจพบ Flagging</li><li>แจ้งเตือนกรณีปริมาณสิ่งส่งตรวจไม่เพียงพอ</li><li>แจ้งเตือนเมื่อพบฟองอากาศในสิ่งส่งตรวจ</li><li>แสดงเวลาถอยหลังขณะวิเคราะห์หรือ Calibrate</li><li>แสดงสถานะ เช่น กำลังตรวจวิเคราะห์, Running QC, Calibrate</li></ul></div></div>
+    </div>
+  </section>
+
+  <section class="mb-5"><p class="small-label">Sample Types</p><h2 class="section-title">ชนิดตัวอย่างที่รองรับ</h2><div class="panel"><span class="pill"><i class="fas fa-vial"></i> Whole blood (Heparinize)</span><span class="pill"><i class="fas fa-vial"></i> Arterial</span><span class="pill"><i class="fas fa-vial"></i> Mixed Venous</span><span class="pill"><i class="fas fa-vial"></i> Capillary blood</span></div></section>
+
+  <section class="mb-5">
+    <p class="small-label">QC & Calibration</p><h2 class="section-title">ระบบควบคุมคุณภาพและ Calibration</h2>
+    <div class="row g-4">
+      <div class="col-lg-6"><div class="panel"><h5 class="fw-bold"><i class="fas fa-chart-simple text-primary"></i> Quality Control</h5><ul class="feature-list"><li>มีระบบ Automatic QC สามารถตั้งเวลาให้เครื่องทำ QC ได้เอง</li><li>น้ำยาควบคุมคุณภาพรองรับ 10 พารามิเตอร์ ได้แก่ pH, pCO2, pO2, Hct, Na+, K+, iCa++, Cl-, Glu, Lac</li><li>ชุดน้ำยาควบคุมคุณภาพ 1 กล่อง ประกอบด้วยน้ำยา 3 ถุง</li><li>แต่ละถุงมีปริมาตรต่ำสุด 100 ml</li><li>มีความเข้มข้นแตกต่างกัน 3 ระดับ</li><li>ชุดน้ำยามีอายุ 12 เดือนนับจากวันที่ผลิต</li></ul></div></div>
+      <div class="col-lg-6"><div class="timeline"><div class="timeline-item"><h6 class="fw-bold mb-1">Two Point Calibration</h6><p class="mb-0 text-muted">ทำงานอัตโนมัติทุก 2 ชั่วโมง</p></div><div class="timeline-item"><h6 class="fw-bold mb-1">One Point Calibration</h6><p class="mb-0 text-muted">ทำงานทุกครั้งหลังการวัด</p></div><div class="timeline-item"><h6 class="fw-bold mb-1">Manual Calibration</h6><p class="mb-0 text-muted">ผู้ใช้สามารถสั่งทำงานได้เมื่อต้องการ</p></div><div class="timeline-item"><h6 class="fw-bold mb-1">Actual Temperature & FiO2</h6><p class="mb-0 text-muted">ป้อนค่าอุณหภูมิจริงและ FiO2 จริง พร้อมรายงานผลร่วมกับค่า 37°C ได้</p></div></div></div>
+    </div>
+  </section>
+
+  <section class="mb-5"><div class="dark-band"><div class="row g-4 align-items-center"><div class="col-lg-8"><h2 class="fw-bold mb-3">Single Reagent Pack</h2><p class="mb-0">น้ำยาเป็นแบบสำเร็จรูปในกล่องเดียว สามารถแสดงปริมาณน้ำยาผ่านหน้าจอ พร้อมภาชนะสำหรับใส่น้ำทิ้ง ช่วยลดขั้นตอนการใช้งาน เพิ่มความสะดวกและความปลอดภัยในห้องปฏิบัติการ</p></div><div class="col-lg-4 text-lg-end"><div class="bg-white text-dark rounded-4 p-4 d-inline-block"><div class="small-label">Reagent Shelf Life</div><h2 class="fw-bold text-primary mb-0">12 เดือน</h2><small class="text-muted">นับจากวันที่ผลิต</small></div></div></div></div></section>
+
+  <section><p class="small-label">Standard & Origin</p><h2 class="section-title">มาตรฐานและประเทศผู้ผลิต</h2><div class="panel"><ul class="feature-list"><li>ผลิตภัณฑ์ของบริษัท Nova Biomedical ประเทศสหรัฐอเมริกา</li><li>ได้รับการรับรองมาตรฐาน ISO 13485:2012 Quality System Registration</li><li>มีมาตรฐาน CSA, TÜA, CE Self-Declared</li><li>Complies to EN 61010, EN 50081, EN 50082 และ US FDA</li></ul></div></section>
+</main>
+<footer class="footer"><div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2"><div><strong>NOVA Stat Profile PRIME CCS Comp</strong><br><small>Product Specification Catalog</small></div><small>Designed for Medical Diagnostic Equipment Presentation</small></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
