@@ -188,9 +188,9 @@ const models = [
     brand: "Sebia",
     image: "assets/img/cap3_tera.jpg",
     description: "Capillary Electrophoresis Analyzer for HbA1c, Hemoglobin and Protein Testing",
-    catalog: "catalog/Prime_Electrolyte_Brochure.pdf",
+    catalog: "catalog/Brochure_HbA1c 3.pdf",
     video: "video/Learn more about the CAPILLARYS 3 TERA.mp4",
-    spec: "spec/Brochure_HbA1c 3.pdf",
+    spec: "spec/Specification CAP3.pdf",
     glb: "models/Prime Plus.glb",
     usdz: "models/Prime Plus.usdz"
   }
