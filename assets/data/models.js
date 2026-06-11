@@ -180,5 +180,18 @@ const models = [
           ],
     glb: "models/Prime Plus.glb",
     usdz: "models/Prime Plus.usdz"
+  },
+  {
+    id: 14,
+    division: "Clinical Diagnostic",
+    name: "A1C Capillary 3 TERA",
+    brand: "Sebia",
+    image: "assets/img/cap3_tera.jpg",
+    description: "Capillary Electrophoresis Analyzer for HbA1c, Hemoglobin and Protein Testing",
+    catalog: "catalog/Prime_Electrolyte_Brochure.pdf",
+    video: "video/Learn more about the CAPILLARYS 3 TERA.mp4",
+    spec: "spec/Brochure_HbA1c 3.pdf",
+    glb: "models/Prime Plus.glb",
+    usdz: "models/Prime Plus.usdz"
   }
 ];
