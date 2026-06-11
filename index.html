@@ -84,6 +84,15 @@
       z-index: 9999;
       flex-direction: column;
     }
+    .division-title {
+        background: linear-gradient(135deg,#0d6efd,#003b8e);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        font-size: 1.4rem;
+        font-weight: 600;
+    }
   </style>
 </head>
 
@@ -117,7 +126,7 @@
   window.addEventListener('load', function () {
     if (typeof models !== 'undefined' && Array.isArray(models) && models.length > 0) {
       allModels = models;
-      displayModels(allModels);
+      (allModels);
     } else {
       showLoadError();
     }
@@ -126,65 +135,98 @@
   });
 
   function displayModels(modelsToShow) {
-    const modelList = document.getElementById("modelList");
-    modelList.innerHTML = "";
 
-    if (!modelsToShow || modelsToShow.length === 0) {
-      modelList.innerHTML = `
-        <div class="col-12">
-          <div class="alert alert-info text-center">
-            <i class="fas fa-search"></i> ไม่พบสินค้าที่ต้องการค้นหา
+      const modelList = document.getElementById("modelList");
+      modelList.innerHTML = "";
+  
+      if (!modelsToShow || modelsToShow.length === 0) {
+  
+          modelList.innerHTML = `
+          <div class="col-12">
+              <div class="alert alert-info text-center">
+                  <i class="fas fa-search"></i>
+                  ไม่พบสินค้าที่ต้องการค้นหา
+              </div>
           </div>
-        </div>
-      `;
-      return;
-    }
-
-    modelsToShow.forEach(item => {
-      modelList.innerHTML += `
-        <div class="col-6 col-md-4 col-lg-3">
-          <div class="card model-card">
-            <img src="${item.image || 'assets/img/placeholder.jpg'}"
-                 class="card-img-top model-img"
-                 alt="${escapeHtml(item.name)}"
-                 onerror="this.src='assets/img/placeholder.jpg'">
-
-            <div class="card-body text-center">
-              <h5 class="card-title">${escapeHtml(item.name)}</h5>
-
-              <span class="brand-badge mb-2">
-                <i class="fas fa-tag"></i> ${escapeHtml(item.brand)}
-              </span>
-
-              <p class="text-muted small mt-2">${escapeHtml(item.description)}</p>
-
-              <a href="model.html?id=${encodeURIComponent(item.id)}" class="btn btn-primary btn-view w-100 mt-2">
-                <i class="fas fa-info-circle"></i> View Detail
-              </a>
-            </div>
+          `;
+  
+          return;
+      }
+  
+      // จัดกลุ่มตาม Division
+      const divisions = {};
+  
+      modelsToShow.forEach(item => {
+  
+          const division = item.division || "Other";
+  
+          if (!divisions[division]) {
+              divisions[division] = [];
+          }
+  
+          divisions[division].push(item);
+  
+      });
+  
+      // แสดงทีละ Division
+      Object.keys(divisions).forEach(division => {
+  
+          modelList.innerHTML += `
+          <div class="col-12 mt-4">
+              <div class="division-title">
+                  <i class="fas fa-layer-group"></i>
+                  ${division}
+              </div>
           </div>
-        </div>
-      `;
-    });
+          `;
+  
+          divisions[division].forEach(item => {
+  
+              modelList.innerHTML += `
+              <div class="col-6 col-md-4 col-lg-3">
+  
+                  <div class="card model-card">
+  
+                      <img src="${item.image || 'assets/img/placeholder.jpg'}"
+                           class="card-img-top model-img"
+                           alt="${escapeHtml(item.name)}"
+                           onerror="this.src='assets/img/placeholder.jpg'">
+  
+                      <div class="card-body text-center">
+  
+                          <h5 class="card-title">
+                              ${escapeHtml(item.name)}
+                          </h5>
+  
+                          <span class="brand-badge mb-2">
+                              <i class="fas fa-tag"></i>
+                              ${escapeHtml(item.brand)}
+                          </span>
+  
+                          <p class="text-muted small mt-2">
+                              ${escapeHtml(item.description)}
+                          </p>
+  
+                          <a href="model.html?id=${encodeURIComponent(item.id)}"
+                             class="btn btn-primary btn-view w-100 mt-2">
+  
+                             <i class="fas fa-info-circle"></i>
+                             View Detail
+  
+                          </a>
+  
+                      </div>
+  
+                  </div>
+  
+              </div>
+              `;
+  
+          });
+  
+      });
+  
   }
-
-  document.addEventListener('DOMContentLoaded', function () {
-    const searchInput = document.getElementById('searchInput');
-
-    if (searchInput) {
-      searchInput.addEventListener('keyup', function () {
-        const searchTerm = this.value.toLowerCase().trim();
-
-        const filtered = allModels.filter(item =>
-          String(item.name || '').toLowerCase().includes(searchTerm) ||
-          String(item.brand || '').toLowerCase().includes(searchTerm) ||
-          String(item.description || '').toLowerCase().includes(searchTerm)
-        );
-
-      displayModels(filtered);
-    });
-  }
-});
 
   function showLoadError() {
     document.getElementById("modelList").innerHTML = `
