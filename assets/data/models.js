@@ -135,8 +135,23 @@ const models = [
     glb: "models/5A.glb",
     usdz: "models/5A.usdz"
   },
-    {
+  {
     id: 11,
+    division: "Clinical Diagnostic",
+    name: "NOVA Stat Profile Prime",
+    brand: "Nova",
+    image: "assets/img/Prime.jpg",
+    description: "Blood Gas, Electrolyte, Metabolite, CO-Oximeter Analyzer",
+    catalog: "catalog/Prime Brochure.pdf",
+    video: ["video/VDO Prime 1.mp4",
+            "video/VDO Prime2.mp4"
+            ],
+    spec: "spec/nova_prime_ccs_comp_spec.html",
+    glb: "models/Prime Plus.glb",
+    usdz: "models/Prime Plus.usdz"
+  },
+  {
+    id: 12,
     division: "Clinical Diagnostic",
     name: "NOVA Stat Profile Prime Plus",
     brand: "Nova",
@@ -149,7 +164,7 @@ const models = [
     usdz: "models/Prime Plus.usdz"
   },
   {
-    id: 12,
+    id: 13,
     division: "Clinical Diagnostic",
     name: "NOVA Stat Profile Prime Plus ES Comp",
     brand: "Nova",
