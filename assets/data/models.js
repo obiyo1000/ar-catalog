@@ -144,7 +144,8 @@ const models = [
     description: "Blood Gas, Electrolyte, Metabolite, CO-Oximeter Analyzer",
     catalog: "catalog/Prime Brochure.pdf",
     video: ["video/VDO Prime 1.mp4",
-            "video/VDO Prime2.mp4"
+            "video/VDO Prime2.mp4",
+            "video/PrimePlus-Turnaround-Edit.mp4"
             ],
     spec: "spec/nova_prime_ccs_comp_spec.html",
     glb: "models/Prime Plus.glb",
