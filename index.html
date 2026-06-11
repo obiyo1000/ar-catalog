@@ -124,14 +124,23 @@
   let allModels = [];
 
   window.addEventListener('load', function () {
-    if (typeof models !== 'undefined' && Array.isArray(models) && models.length > 0) {
-      allModels = models;
-      (allModels);
-    } else {
-      showLoadError();
-    }
 
-    document.getElementById("loading").style.display = "none";
+      if (typeof models !== 'undefined' &&
+          Array.isArray(models) &&
+          models.length > 0) {
+  
+          allModels = models;
+  
+          displayModels(allModels);
+  
+      } else {
+  
+          showLoadError();
+  
+      }
+  
+      document.getElementById("loading").style.display = "none";
+  
   });
 
   function displayModels(modelsToShow) {
