@@ -1,6 +1,7 @@
 const models = [
   {
     id: 1,
+    division: "Diagnostic Division",
     name: "DH-615",
     brand: "Dymind",
     image: "assets/img/DH-615.jpg",
@@ -13,6 +14,7 @@ const models = [
   },
   {
     id: 2,
+    division: "Diagnostic Division",
     name: "XR-3000",
     brand: "Sysmex",
     image: "assets/img/XR-3000.jpg",
@@ -28,6 +30,7 @@ const models = [
   },
   {
     id: 3,
+    division: "Diagnostic Division",
     name: "Atellica CI1900",
     brand: "Siemens",
     image: "assets/img/CI1900.jpg",
@@ -40,6 +43,7 @@ const models = [
   },
   {
     id: 4,
+    division: "Diagnostic Division",
     name: "UN3111",
     brand: "Sysmex",
     image: "assets/img/UN3111.jpg",
@@ -52,6 +56,7 @@ const models = [
   },
   {
     id: 5,
+    division: "Diagnostic Division",
     name: "Dri-Chem NX600",
     brand: "Fujifilm",
     image: "assets/img/NX600.jpg",
@@ -64,6 +69,7 @@ const models = [
   },
   {
     id: 6,
+    division: "Diagnostic Division",
     name: "LA60SE",
     brand: "Dirui",
     image: "assets/img/LA60SE.jpg",
@@ -76,6 +82,7 @@ const models = [
   },
   {
     id: 7,
+    division: "Diagnostic Division",
     name: "H-500",
     brand: "Dirui",
     image: "assets/img/H-500.jpg",
@@ -88,6 +95,7 @@ const models = [
   },
   {
     id: 8,
+    division: "Diagnostic Division",
     name: "Immu F6",
     brand: "Medcaptain",
     image: "assets/img/F6.jpg",
@@ -100,6 +108,7 @@ const models = [
   },
   {
     id: 9,
+    division: "Diagnostic Division",
     name: "Acusera",
     brand: "Randox",
     image: "assets/img/Acusera.jpg",
@@ -115,6 +124,7 @@ const models = [
   },
   {
     id: 10,
+    division: "Diagnostic Division",
     name: "Sciendox 5A",
     brand: "Improve",
     image: "assets/img/5A.jpg",
@@ -127,6 +137,7 @@ const models = [
   },
     {
     id: 11,
+    division: "Clinical Diagnostic",
     name: "NOVA Stat Profile Prime Plus",
     brand: "Nova",
     image: "assets/img/Prime-Plus-L.jpg",
@@ -139,6 +150,7 @@ const models = [
   },
   {
     id: 12,
+    division: "Clinical Diagnostic",
     name: "NOVA Stat Profile Prime Plus ES Comp",
     brand: "Nova",
     image: "assets/img/Stat-Profile-Prime-ES Picture.jpg",
